@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: tray_coral
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 0
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 754aa5723df899a4dad7bedb26ceae13, type: 3}
+    - {fileID: 21300000, guid: fb8b50fd83eecf0469260e3d039db515, type: 3}
+    - {fileID: 21300000, guid: 29fe0a79c90c1674a8bb2b2075328791, type: 3}
+    - {fileID: 21300000, guid: 51075fd9dca37674a9129923629b6f41, type: 3}
+    - {fileID: 21300000, guid: a868cecd39512474a82ed53caad3714f, type: 3}
+    - {fileID: 21300000, guid: 20a99adfca20b7c41bf1845b40289958, type: 3}
+    - {fileID: 21300000, guid: a2dd262e1b093984d9b6152de84259cc, type: 3}
+    - {fileID: 21300000, guid: 98a347a2d75400442bc92b083a82b22a, type: 3}
+    - {fileID: 21300000, guid: bb8eb0b9bc7a91049ba0baeb6893016c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys: []
+  m_MasterAtlas: {fileID: 0}
+  m_RenderDataMap: {}
+  m_Tag: tray_coral
+  m_IsVariant: 0
+  m_Guid: 00000000000000000000000000000000

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://habitatshift.local/schema/approved_levels_v4.schema.json",
+  "title": "Habitat Shift approved production catalog v4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "catalogRevision", "rulesetVersion", "rulesetFingerprint", "approvalMode", "certificationTraceRequired", "levelCount", "levels", "canonicalLevelsFingerprint"],
+  "properties": {
+    "schema": { "const": "habitat-shift-levels-v4" },
+    "catalogRevision": { "const": "m6-20260916-c-full-footprint-fix" },
+    "rulesetVersion": { "const": "continuous-core-v2" },
+    "rulesetFingerprint": { "const": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904" },
+    "approvalMode": { "type": "string", "minLength": 1 },
+    "certificationTraceRequired": { "type": "boolean" },
+    "levelCount": { "const": 18 },
+    "canonicalLevelsFingerprint": { "const": "95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6" },
+    "levels": {
+      "type": "array", "minItems": 18, "maxItems": 18,
+      "items": { "$ref": "#/$defs/level" }
+    }
+  },
+  "$defs": {
+    "intCell": {
+      "type": "array", "prefixItems": [{ "type": "integer", "minimum": 0 }, { "type": "integer", "minimum": 0 }], "items": false, "minItems": 2, "maxItems": 2
+    },
+    "floatPoint": {
+      "type": "array", "prefixItems": [{ "type": "number", "minimum": 0 }, { "type": "number", "minimum": 0 }], "items": false, "minItems": 2, "maxItems": 2
+    },
+    "color": { "enum": ["blue", "cyan", "green", "orange", "pink", "purple", "red", "yellow"] },
+    "habitat": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "color", "anchor", "shape", "need", "movementConstraint"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "color": { "$ref": "#/$defs/color" },
+        "anchor": { "$ref": "#/$defs/intCell" },
+        "shape": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/intCell" } },
+        "need": { "type": "integer", "minimum": 1 },
+        "movementConstraint": { "enum": ["FREE", "HORIZONTAL_ONLY", "VERTICAL_ONLY"] }
+      }
+    },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "color", "position"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "color": { "$ref": "#/$defs/color" },
+        "position": { "$ref": "#/$defs/floatPoint" }
+      }
+    },
+    "queueItem": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "color"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "color": { "$ref": "#/$defs/color" } }
+    },
+    "elevator": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "entry", "direction", "queue", "nextIndex", "mandatory"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "entry": { "$ref": "#/$defs/floatPoint" },
+        "direction": { "enum": ["UP", "RIGHT", "DOWN", "LEFT"] },
+        "queue": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/queueItem" } },
+        "nextIndex": { "type": "integer", "minimum": 0 },
+        "mandatory": { "type": "boolean" }
+      }
+    },
+    "level": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "profile", "challenge", "cols", "rows", "habitats", "targets", "difficulty", "elevators", "obstacles", "playableMask", "bonusPickups"],
+      "properties": {
+        "id": { "type": "integer", "minimum": 1, "maximum": 18 },
+        "title": { "type": "string", "minLength": 1 },
+        "profile": { "enum": ["CONTINUOUS_CORE", "ELEVATOR_INTRO", "ASSIST_1_UNLOCK", "QUEUE_COMBINATION", "HARD_QUEUE", "ASSIST_2_UNLOCK", "CONSOLIDATION", "EVENT_READY", "MOVEMENT_CONSTRAINT_INTRO", "ASSIST_3_UNLOCK", "HARD_COMBINATION", "CHAPTER_MASTERY"] },
+        "challenge": { "type": "string", "minLength": 1 },
+        "cols": { "type": "integer", "minimum": 1 },
+        "rows": { "type": "integer", "minimum": 1 },
+        "habitats": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/habitat" } },
+        "targets": { "type": "array", "items": { "$ref": "#/$defs/target" } },
+        "blockerIntent": { "type": "string" },
+        "difficulty": { "enum": ["TUTORIAL", "EASY", "NORMAL", "HARD", "SUPER_HARD", "MASTERY"] },
+        "elevators": { "type": "array", "items": { "$ref": "#/$defs/elevator" } },
+        "obstacles": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/intCell" } },
+        "playableMask": { "oneOf": [{ "type": "null" }, { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/intCell" } }] },
+        "bonusPickups": { "type": "array", "maxItems": 0 }
+      }
+    }
+  }
+}

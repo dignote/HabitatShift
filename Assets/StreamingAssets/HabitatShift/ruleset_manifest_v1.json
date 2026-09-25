@@ -1,0 +1,14 @@
+{
+  "rulesetVersion": "continuous-core-v2",
+  "dragSweepStep": 0.08,
+  "collectionTolerance": 0.12,
+  "foreignSproutlingCollisionRadius": 0.18,
+  "narrowCorridorDragCollisionInset": 0.1,
+  "activeDragHabitatCollisionSkin": 0.04,
+  "strictProjectionRadius": 0.12,
+  "contactReleaseHysteresis": 0.20,
+  "strictCorrectionPerSweep": 0.02,
+  "contactSolverIterations": 4,
+  "settleAnchorMode": "nearest-safe-integer-anchor",
+  "note": "Shared Level Lab / Android contract for Habitat Shift v0.4+."
+}

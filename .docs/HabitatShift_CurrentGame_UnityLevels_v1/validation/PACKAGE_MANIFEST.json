@@ -1,0 +1,82 @@
+{
+  "package": "HabitatShift_CurrentGame_UnityLevels_v1",
+  "createdUtc": "2026-09-24T05:03:27Z",
+  "catalogSchema": "habitat-shift-levels-v4",
+  "catalogRevision": "m6-20260916-c-full-footprint-fix",
+  "rulesetVersion": "continuous-core-v2",
+  "levelCount": 18,
+  "canonicalLevelsFingerprint": "95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6",
+  "rulesetFingerprint": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904",
+  "payloadFiles": [
+    {
+      "path": "data/approved_levels_v4.json",
+      "size": 56336,
+      "sha256": "d7c920d0130ee0d54860f71247e8a7cd2b8e9c1968337ca6382f168461108270"
+    },
+    {
+      "path": "data/ruleset_manifest_v1.json",
+      "size": 495,
+      "sha256": "3e0a9ef1d6b3f0fde22c5814198946ba53744973d851fcf7e2cc8035e0e4ef95"
+    },
+    {
+      "path": "LICENSE_AND_ASSET_SCOPE.md",
+      "size": 446,
+      "sha256": "daa4cbe975144f0f1628b4edc39bac006e3dba4939dfb5c84c675313b1fbfdd3"
+    },
+    {
+      "path": "prd/HABITAT_MOTION_AND_INTERACTION_CONTRACT.md",
+      "size": 4692,
+      "sha256": "82e13df76ff124aed47ec948271eadd1914ec3745f7f20baa76ca66d10f10e85"
+    },
+    {
+      "path": "prd/PRD_CURRENT_GAME_V1_EN.md",
+      "size": 5078,
+      "sha256": "40c0962a754aa27cb981477276b03c3f32d85ab0233e8872e372a1944f1155b5"
+    },
+    {
+      "path": "prd/PRD_CURRENT_GAME_V1_VI.md",
+      "size": 5666,
+      "sha256": "63c73fe5b1b6e338fb8b6ae7a5bd7ce21c225bc5a022946e6d31973076776c67"
+    },
+    {
+      "path": "README.md",
+      "size": 1328,
+      "sha256": "7b66545d065fa0cee6d22804f94a5bbdd8b0399eeb2911d4b28ac96725e723de"
+    },
+    {
+      "path": "schema/approved_levels_v4.schema.json",
+      "size": 4828,
+      "sha256": "ebe685cddbcd80a826e2fec176d5b29ae382a9ffb9f413fe402b4508733b5073"
+    },
+    {
+      "path": "schema/ruleset_manifest_v1.schema.json",
+      "size": 1197,
+      "sha256": "3398d2538c3077198e2c2da00ad4395f8f9059d099764095c5c899e977cbcdc6"
+    },
+    {
+      "path": "unity-handoff/CODEX_UNITY_IMPORT_PROMPT.md",
+      "size": 1456,
+      "sha256": "646f4e138b4571aca5308668123b6536b8615aecf744c008d620ae5dd1228360"
+    },
+    {
+      "path": "unity-handoff/LEVEL_CATALOG_FIELD_REFERENCE.md",
+      "size": 2101,
+      "sha256": "2782438aff3618512d3b2342a54b2c20440fbabaf23a71582bba4c0ecc6c44eb"
+    },
+    {
+      "path": "unity-handoff/UNITY_IMPORT_GUIDE.md",
+      "size": 1839,
+      "sha256": "e1bed2ebd2482d33bd3a4d753ef28b741de5cd52bbe4287449f881b26269c83f"
+    },
+    {
+      "path": "unity-handoff/UNITY_RUNTIME_PARITY_CHECKLIST.md",
+      "size": 2150,
+      "sha256": "09343b362b7306542890be6140467fd90d34191075096f514c694796299b68f8"
+    },
+    {
+      "path": "validation/VALIDATION_REPORT.md",
+      "size": 1332,
+      "sha256": "ce13e731579abf0f4e40abf6bfa3978c5897dfe3321d8e4ebcbe36a50424be9a"
+    }
+  ]
+}

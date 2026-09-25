@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://habitatshift.local/schema/ruleset_manifest_v1.schema.json",
+  "title": "Habitat Shift continuous-core-v2 ruleset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rulesetVersion", "dragSweepStep", "collectionTolerance", "foreignSproutlingCollisionRadius", "narrowCorridorDragCollisionInset", "activeDragHabitatCollisionSkin", "strictProjectionRadius", "contactReleaseHysteresis", "strictCorrectionPerSweep", "contactSolverIterations", "settleAnchorMode"],
+  "properties": {
+    "rulesetVersion": { "const": "continuous-core-v2" },
+    "dragSweepStep": { "const": 0.08 },
+    "collectionTolerance": { "const": 0.12 },
+    "foreignSproutlingCollisionRadius": { "const": 0.18 },
+    "narrowCorridorDragCollisionInset": { "const": 0.1 },
+    "activeDragHabitatCollisionSkin": { "const": 0.04 },
+    "strictProjectionRadius": { "const": 0.12 },
+    "contactReleaseHysteresis": { "const": 0.2 },
+    "strictCorrectionPerSweep": { "const": 0.02 },
+    "contactSolverIterations": { "const": 4 },
+    "settleAnchorMode": { "const": "nearest-safe-integer-anchor" },
+    "note": { "type": "string" }
+  }
+}
