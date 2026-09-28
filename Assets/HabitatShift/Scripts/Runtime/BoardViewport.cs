@@ -1,5 +1,6 @@
 ﻿using HabitatShift.Core;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HabitatShift.Runtime
 {
@@ -8,7 +9,7 @@ namespace HabitatShift.Runtime
     {
         public const float MarginCells = .35f;
         const float HeaderAt1080 = 168f;
-        const float ControlsAt1080 = 224f;
+        const float ControlsAt1080 = 360f;
 
         public static Vector3 ToWorld(Vector2 board, float z = 0f) => new Vector3(board.x, -board.y, z);
 
@@ -66,6 +67,132 @@ namespace HabitatShift.Runtime
             rect.anchorMin = new Vector2(min.x / Mathf.Max(1, lastWidth), min.y / Mathf.Max(1, lastHeight));
             rect.anchorMax = new Vector2(max.x / Mathf.Max(1, lastWidth), max.y / Mathf.Max(1, lastHeight));
             rect.offsetMin = rect.offsetMax = Vector2.zero;
+        }
+    }
+
+    // Layout runs in canvas units; Screen.height is never assigned to a RectTransform.
+    public sealed class ModalCardFitter : MonoBehaviour
+    {
+        RectTransform card, safeArea;
+        float designHeight;
+
+        public void Configure(float height)
+        {
+            designHeight = height;
+            card = (RectTransform)transform;
+            safeArea = (RectTransform)transform.parent;
+            Refresh();
+        }
+
+        void LateUpdate() => Refresh();
+
+        void Refresh()
+        {
+            if (card == null || safeArea == null) return;
+            var available = safeArea.rect.size - new Vector2(48f, 48f);
+            var size = new Vector2(Mathf.Max(1f, Mathf.Min(820f, available.x)),
+                Mathf.Max(1f, Mathf.Min(designHeight, available.y)));
+            if (card.sizeDelta != size) card.sizeDelta = size;
+        }
+    }
+
+    // ScrollRect content has explicit geometry; no ContentSizeFitter/GridLayoutGroup feedback loop.
+    public sealed class LevelGridFitter : MonoBehaviour
+    {
+        RectTransform viewport, content;
+        ScrollRect scroll;
+        float lastWidth = -1f;
+        bool logged;
+
+        public void Configure(RectTransform grid)
+        {
+            viewport = (RectTransform)transform;
+            content = grid;
+            scroll = GetComponent<ScrollRect>();
+            Refresh();
+        }
+
+        void LateUpdate() => Refresh();
+
+        void Refresh()
+        {
+            if (viewport == null || content == null || viewport.rect.width < 1f || viewport.rect.height < 1f) return;
+            var width = viewport.rect.width;
+            if (Mathf.Abs(width - lastWidth) < .5f) return;
+            lastWidth = width;
+            const float gap = 18f;
+            const float inset = 8f;
+            var cell = Mathf.Min(192f, Mathf.Max(48f, (width - 2f * inset - 2f * gap) / 3f));
+            var left = (width - 3f * cell - 2f * gap) * .5f;
+            var rows = Mathf.CeilToInt(content.childCount / 3f);
+            content.sizeDelta = new Vector2(0f, rows * cell + Mathf.Max(0, rows - 1) * gap + 2f * inset);
+            content.anchoredPosition = Vector2.zero;
+            for (var i = 0; i < content.childCount; i++)
+            {
+                var card = (RectTransform)content.GetChild(i);
+                card.anchorMin = card.anchorMax = new Vector2(0f, 1f);
+                card.pivot = new Vector2(.5f, .5f);
+                card.sizeDelta = new Vector2(cell, cell);
+                card.anchoredPosition = new Vector2(left + cell * .5f + (i % 3) * (cell + gap),
+                    -inset - cell * .5f - (i / 3) * (cell + gap));
+            }
+            scroll.verticalNormalizedPosition = 1f;
+            if (Debug.isDebugBuild && !logged)
+            {
+                logged = true;
+                Debug.Log("Level Select layout: viewport=" + viewport.rect.size +
+                    ", grid=" + content.rect.size + ", cards=" + content.childCount, this);
+            }
+        }
+    }
+
+    // Places the two action rows directly below the projected board card.
+    public sealed class GameplayActionFitter : MonoBehaviour
+    {
+        Camera worldCamera;
+        Canvas canvas;
+        RectTransform safeArea, assistRow, utilityRow, cancelButton;
+        LevelDto level;
+
+        public void Configure(Camera camera, Canvas owner, RectTransform root,
+            RectTransform assist, RectTransform utility, RectTransform cancel, LevelDto board)
+        {
+            worldCamera = camera; canvas = owner; safeArea = root;
+            assistRow = assist; utilityRow = utility; cancelButton = cancel; level = board;
+            Refresh();
+        }
+
+        void LateUpdate() => Refresh();
+
+        void Refresh()
+        {
+            if (worldCamera == null || canvas == null || safeArea == null ||
+                assistRow == null || utilityRow == null || level == null) return;
+
+            var scale = canvas.scaleFactor;
+            var boardBottom = worldCamera.WorldToScreenPoint(
+                BoardViewport.ToWorld(new Vector2(level.cols * .5f, level.rows + .17f)));
+            var assistY = boardBottom.y - (22f + assistRow.rect.height * .5f) * scale;
+            var utilityY = assistY -
+                (assistRow.rect.height * .5f + 18f + utilityRow.rect.height * .5f) * scale;
+            var minUtilityY = Screen.safeArea.yMin + (utilityRow.rect.height * .5f + 20f) * scale;
+            if (utilityY < minUtilityY)
+            {
+                var adjustment = minUtilityY - utilityY;
+                assistY += adjustment; utilityY += adjustment;
+            }
+            var centerX = Screen.safeArea.center.x;
+            SetScreenCenter(assistRow, centerX, assistY);
+            SetScreenCenter(utilityRow, centerX, utilityY);
+            if (cancelButton != null)
+                SetScreenCenter(cancelButton, centerX + (assistRow.rect.width * .5f + 48f) * scale, assistY);
+        }
+
+        void SetScreenCenter(RectTransform row, float x, float y)
+        {
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                safeArea, new Vector2(x, y), null, out var local))
+                row.anchoredPosition = local;
         }
     }
 }
