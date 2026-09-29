@@ -14,10 +14,10 @@ Do not silently repair, normalize, rebalance, round, reorder, or reinterpret pro
 ## Production identity
 
 - Catalog schema: `habitat-shift-levels-v4`
-- Catalog revision: `m6-20260916-c-full-footprint-fix`
+- Catalog revision: `m7-20260928-levels-19-23`
 - Ruleset: `continuous-core-v2`
-- Levels: 18
-- Canonical `levels[]` fingerprint: `95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6`
+- Levels: 23 (L1-L18 approved baseline + L19-L23 user-approved manual playtest 2026-09-28)
+- Canonical `levels[]` fingerprint: `178a5a082af30a7503cf06a903a816f2d2d7a633323edf236fde55cacd3c0ea3`
 - Ruleset fingerprint: `e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904`
 
 Start with `unity-handoff/CODEX_UNITY_IMPORT_PROMPT.md`, then use the import guide and parity checklist.

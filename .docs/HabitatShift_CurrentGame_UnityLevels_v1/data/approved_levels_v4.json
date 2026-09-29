@@ -1,13 +1,13 @@
 {
   "schema": "habitat-shift-levels-v4",
-  "catalogRevision": "m6-20260916-c-full-footprint-fix",
+  "catalogRevision": "m7-20260928-levels-19-23",
   "rulesetVersion": "continuous-core-v2",
   "rulesetFingerprint": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904",
-  "approvalMode": "external-level-lab-static-approved-device-rework-gate-v2",
+  "approvalMode": "user-approved-manual-playtest-2026-09-28-r9-2-2-levels-19-23",
   "certificationTraceRequired": false,
-  "levelCount": 18,
+  "levelCount": 23,
   "levels": [
-    {
+{
       "id": 1,
       "title": "First Sweep",
       "profile": "CONTINUOUS_CORE",
@@ -121,7 +121,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 2,
       "title": "Bent Paths",
       "profile": "CONTINUOUS_CORE",
@@ -235,7 +235,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 3,
       "title": "Three at Once",
       "profile": "CONTINUOUS_CORE",
@@ -413,7 +413,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 4,
       "title": "Busy Middle",
       "profile": "CONTINUOUS_CORE",
@@ -623,7 +623,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 5,
       "title": "Outside Loop",
       "profile": "CONTINUOUS_CORE",
@@ -841,7 +841,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 6,
       "title": "Cross Traffic",
       "profile": "CONTINUOUS_CORE",
@@ -1067,7 +1067,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 7,
       "title": "First Lift",
       "profile": "ELEVATOR_INTRO",
@@ -1153,7 +1153,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 8,
       "title": "Open Practice",
       "profile": "ASSIST_1_UNLOCK",
@@ -1263,7 +1263,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 9,
       "title": "Two Arrivals",
       "profile": "QUEUE_COMBINATION",
@@ -1377,7 +1377,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 10,
       "title": "Cross Queue",
       "profile": "QUEUE_COMBINATION",
@@ -1519,7 +1519,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 11,
       "title": "Tight Schedule",
       "profile": "HARD_QUEUE",
@@ -1705,7 +1705,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 12,
       "title": "Four-Way Supply",
       "profile": "ASSIST_2_UNLOCK",
@@ -1923,7 +1923,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 13,
       "title": "Quiet Junction",
       "profile": "CONSOLIDATION",
@@ -2089,7 +2089,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 14,
       "title": "Event Ready",
       "profile": "EVENT_READY",
@@ -2251,7 +2251,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 15,
       "title": "Guide Grooves",
       "profile": "MOVEMENT_CONSTRAINT_INTRO",
@@ -2340,7 +2340,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 16,
       "title": "Guided Arrival",
       "profile": "ASSIST_3_UNLOCK",
@@ -2482,7 +2482,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 17,
       "title": "Crossed Deliveries",
       "profile": "HARD_COMBINATION",
@@ -2656,7 +2656,7 @@
       "playableMask": null,
       "bonusPickups": []
     },
-    {
+{
       "id": 18,
       "title": "Mastery Exchange",
       "profile": "CHAPTER_MASTERY",
@@ -2885,7 +2885,2973 @@
       "obstacles": [],
       "playableMask": null,
       "bonusPickups": []
+    },
+    {
+      "id": 19,
+      "title": "Level 19",
+      "profile": "QUEUE_COMBINATION",
+      "difficulty": "SUPER_HARD",
+      "challenge": "11 habitats, 25 sproutlings, 2 elevator queues.",
+      "cols": 7,
+      "rows": 9,
+      "habitats": [
+        {
+          "id": "H19_R8_1",
+          "color": "green",
+          "anchor": [
+            0,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R81_3",
+          "color": "red",
+          "anchor": [
+            5,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R8_2",
+          "color": "yellow",
+          "anchor": [
+            2,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R8_4",
+          "color": "pink",
+          "anchor": [
+            1,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R81_4",
+          "color": "green",
+          "anchor": [
+            3,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R81_5",
+          "color": "cyan",
+          "anchor": [
+            2,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R8_6",
+          "color": "blue",
+          "anchor": [
+            5,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R8_7",
+          "color": "orange",
+          "anchor": [
+            4,
+            7
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R81_6",
+          "color": "white",
+          "anchor": [
+            1,
+            7
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R8_8",
+          "color": "purple",
+          "anchor": [
+            2,
+            8
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H19_R81_7",
+          "color": "blue",
+          "anchor": [
+            0,
+            6
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        }
+      ],
+      "targets": [
+        {
+          "id": "19t2",
+          "color": "green",
+          "position": [
+            3.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t6",
+          "color": "pink",
+          "position": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t7",
+          "color": "green",
+          "position": [
+            2.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t8",
+          "color": "green",
+          "position": [
+            1.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t10",
+          "color": "red",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S19_R81_1",
+          "color": "yellow",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S19_R81_2",
+          "color": "red",
+          "position": [
+            6.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S19_R8_9",
+          "color": "green",
+          "position": [
+            1.5,
+            4.5
+          ]
+        },
+        {
+          "id": "S19_R81_8",
+          "color": "cyan",
+          "position": [
+            2.5,
+            4.5
+          ]
+        },
+        {
+          "id": "S19_R81_9",
+          "color": "pink",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "S19_R81_10",
+          "color": "green",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "S19_R81_11",
+          "color": "cyan",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "S19_R81_12",
+          "color": "white",
+          "position": [
+            0.5,
+            7.5
+          ]
+        },
+        {
+          "id": "S19_R81_13",
+          "color": "white",
+          "position": [
+            0.5,
+            8.5
+          ]
+        },
+        {
+          "id": "S19_R81_14",
+          "color": "white",
+          "position": [
+            3.5,
+            7.5
+          ]
+        },
+        {
+          "id": "S19_R81_15",
+          "color": "purple",
+          "position": [
+            3.5,
+            8.5
+          ]
+        },
+        {
+          "id": "S19_R81_16",
+          "color": "orange",
+          "position": [
+            4.5,
+            8.5
+          ]
+        },
+        {
+          "id": "S19_R81_17",
+          "color": "orange",
+          "position": [
+            6.5,
+            8.5
+          ]
+        },
+        {
+          "id": "S19_R81_18",
+          "color": "orange",
+          "position": [
+            6.5,
+            7.5
+          ]
+        },
+        {
+          "id": "S19_R81_19",
+          "color": "blue",
+          "position": [
+            6.5,
+            6.5
+          ]
+        },
+        {
+          "id": "S19_R81_21",
+          "color": "cyan",
+          "position": [
+            4.5,
+            6.5
+          ]
+        },
+        {
+          "id": "S19_R81_22",
+          "color": "green",
+          "position": [
+            4.5,
+            4.5
+          ]
+        },
+        {
+          "id": "S19_R81_23",
+          "color": "blue",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "S19_R81_24",
+          "color": "red",
+          "position": [
+            5.5,
+            3.5
+          ]
+        },
+        {
+          "id": "S19_R81_25",
+          "color": "blue",
+          "position": [
+            4.5,
+            2.5
+          ]
+        }
+      ],
+      "elevators": [
+        {
+          "id": "E19_R8_10",
+          "entry": [
+            3.5,
+            8.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "E19_R8_10_Q1",
+              "color": "yellow"
+            },
+            {
+              "id": "E19_R8_10_Q2",
+              "color": "yellow"
+            },
+            {
+              "id": "E19_R8_10_Q3",
+              "color": "yellow"
+            },
+            {
+              "id": "E19_R8_10_Q4",
+              "color": "blue"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "E19_R8_11",
+          "entry": [
+            3.5,
+            0.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "E19_R8_11_Q1",
+              "color": "cyan"
+            },
+            {
+              "id": "E19_R8_11_Q2",
+              "color": "red"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        }
+      ],
+      "obstacles": [],
+      "playableMask": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "bonusPickups": []
+    },
+    {
+      "id": 20,
+      "title": "Level 20",
+      "profile": "MOVEMENT_CONSTRAINT_INTRO",
+      "difficulty": "HARD",
+      "challenge": "10 habitats, 16 sproutlings, 2 elevator queues.",
+      "cols": 6,
+      "rows": 7,
+      "habitats": [
+        {
+          "id": "20_C",
+          "color": "cyan",
+          "anchor": [
+            1,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "VERTICAL_ONLY"
+        },
+        {
+          "id": "20_Y",
+          "color": "yellow",
+          "anchor": [
+            4,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_B",
+          "color": "green",
+          "anchor": [
+            3,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_P1",
+          "color": "pink",
+          "anchor": [
+            1,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_P2",
+          "color": "pink",
+          "anchor": [
+            5,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_U",
+          "color": "blue",
+          "anchor": [
+            2,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_R",
+          "color": "red",
+          "anchor": [
+            0,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_W",
+          "color": "white",
+          "anchor": [
+            2,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_O",
+          "color": "orange",
+          "anchor": [
+            4,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "20_O2",
+          "color": "orange",
+          "anchor": [
+            5,
+            6
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        }
+      ],
+      "targets": [
+        {
+          "id": "20t1",
+          "color": "green",
+          "position": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t2",
+          "color": "white",
+          "position": [
+            3.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t3",
+          "color": "green",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t4",
+          "color": "yellow",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t5",
+          "color": "yellow",
+          "position": [
+            0.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t6",
+          "color": "red",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t7",
+          "color": "orange",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t8",
+          "color": "pink",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "20t9",
+          "color": "cyan",
+          "position": [
+            1.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t10",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t11",
+          "color": "blue",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "20t12",
+          "color": "cyan",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t13",
+          "color": "white",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t15",
+          "color": "blue",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t17",
+          "color": "red",
+          "position": [
+            3.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t18",
+          "color": "green",
+          "position": [
+            4.5,
+            4.5
+          ]
+        }
+      ],
+      "elevators": [
+        {
+          "id": "P20_TOP",
+          "entry": [
+            4.5,
+            0.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "P20_TOP_Q1",
+              "color": "orange"
+            },
+            {
+              "id": "P20_TOP_Q2",
+              "color": "red"
+            },
+            {
+              "id": "P20_TOP_Q3",
+              "color": "pink"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "P20_BOTTOM",
+          "entry": [
+            1.5,
+            6.5
+          ],
+          "direction": "UP",
+          "queue": [
+            {
+              "id": "P20_BOTTOM_Q1",
+              "color": "orange"
+            },
+            {
+              "id": "P20_BOTTOM_Q2",
+              "color": "yellow"
+            },
+            {
+              "id": "P20_BOTTOM_Q3",
+              "color": "cyan"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        }
+      ],
+      "obstacles": [],
+      "playableMask": null,
+      "bonusPickups": []
+    },
+    {
+      "id": 21,
+      "title": "Level 21",
+      "profile": "MOVEMENT_CONSTRAINT_INTRO",
+      "difficulty": "HARD",
+      "challenge": "8 habitats, 7 sproutlings, 4 elevator queues.",
+      "cols": 6,
+      "rows": 7,
+      "habitats": [
+        {
+          "id": "21_G",
+          "color": "white",
+          "anchor": [
+            3,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "21_B",
+          "color": "green",
+          "anchor": [
+            1,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "21_P",
+          "color": "pink",
+          "anchor": [
+            3,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "21_Y",
+          "color": "yellow",
+          "anchor": [
+            1,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H21_R81_1",
+          "color": "blue",
+          "anchor": [
+            0,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "HORIZONTAL_ONLY"
+        },
+        {
+          "id": "H21_R81_2",
+          "color": "cyan",
+          "anchor": [
+            5,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H21_R81_3",
+          "color": "green",
+          "anchor": [
+            4,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "VERTICAL_ONLY"
+        },
+        {
+          "id": "H21_R8_1",
+          "color": "red",
+          "anchor": [
+            4,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "HORIZONTAL_ONLY"
+        }
+      ],
+      "targets": [
+        {
+          "id": "21t2",
+          "color": "pink",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "21t5",
+          "color": "green",
+          "position": [
+            5.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t6",
+          "color": "yellow",
+          "position": [
+            0.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t7",
+          "color": "white",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "21t8",
+          "color": "yellow",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t9",
+          "color": "green",
+          "position": [
+            5.5,
+            5.5
+          ]
+        },
+        {
+          "id": "S21_R81_2",
+          "color": "pink",
+          "position": [
+            1.5,
+            3.5
+          ]
+        }
+      ],
+      "elevators": [
+        {
+          "id": "P21_TOP",
+          "entry": [
+            4.5,
+            0.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "P21_TOP_Q1",
+              "color": "green"
+            },
+            {
+              "id": "P21_TOP_Q2",
+              "color": "green"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "E21_R8_22",
+          "entry": [
+            5.5,
+            3.5
+          ],
+          "direction": "LEFT",
+          "queue": [
+            {
+              "id": "E21_R8_22_Q1",
+              "color": "green"
+            },
+            {
+              "id": "E21_R8_22_Q2",
+              "color": "red"
+            },
+            {
+              "id": "E21_R8_22_Q3",
+              "color": "red"
+            },
+            {
+              "id": "E21_R8_22_Q4",
+              "color": "red"
+            },
+            {
+              "id": "E21_R8_22_Q5",
+              "color": "red"
+            },
+            {
+              "id": "E21_R8_22_Q6",
+              "color": "yellow"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "E21_R81_4",
+          "entry": [
+            4.5,
+            6.5
+          ],
+          "direction": "UP",
+          "queue": [
+            {
+              "id": "E21_R81_4_Q1",
+              "color": "blue"
+            },
+            {
+              "id": "E21_R81_4_Q2",
+              "color": "blue"
+            },
+            {
+              "id": "E21_R81_4_Q3",
+              "color": "blue"
+            },
+            {
+              "id": "E21_R81_4_Q4",
+              "color": "blue"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "E21_R81_1",
+          "entry": [
+            1.5,
+            2.5
+          ],
+          "direction": "RIGHT",
+          "queue": [
+            {
+              "id": "E21_R81_1_Q1",
+              "color": "cyan"
+            },
+            {
+              "id": "E21_R81_1_Q2",
+              "color": "white"
+            },
+            {
+              "id": "E21_R81_1_Q3",
+              "color": "white"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        }
+      ],
+      "obstacles": [],
+      "playableMask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "bonusPickups": []
+    },
+    {
+      "id": 22,
+      "title": "Level 22",
+      "profile": "QUEUE_COMBINATION",
+      "difficulty": "SUPER_HARD",
+      "challenge": "11 habitats, 19 sproutlings, 2 elevator queues.",
+      "cols": 7,
+      "rows": 7,
+      "habitats": [
+        {
+          "id": "22_W",
+          "color": "white",
+          "anchor": [
+            2,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_P",
+          "color": "pink",
+          "anchor": [
+            5,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_Y",
+          "color": "yellow",
+          "anchor": [
+            1,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_G3",
+          "color": "green",
+          "anchor": [
+            3,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_B1",
+          "color": "blue",
+          "anchor": [
+            6,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_C",
+          "color": "cyan",
+          "anchor": [
+            4,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_R",
+          "color": "red",
+          "anchor": [
+            1,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_G1",
+          "color": "green",
+          "anchor": [
+            0,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_V",
+          "color": "purple",
+          "anchor": [
+            1,
+            6
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "22_O",
+          "color": "orange",
+          "anchor": [
+            3,
+            6
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "H22_R81_4",
+          "color": "green",
+          "anchor": [
+            5,
+            6
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        }
+      ],
+      "targets": [
+        {
+          "id": "22t1",
+          "color": "pink",
+          "position": [
+            5.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t2",
+          "color": "green",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "22t3",
+          "color": "yellow",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t4",
+          "color": "yellow",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t5",
+          "color": "white",
+          "position": [
+            4.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t6",
+          "color": "red",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t7",
+          "color": "yellow",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t8",
+          "color": "red",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t9",
+          "color": "pink",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t10",
+          "color": "yellow",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t11",
+          "color": "green",
+          "position": [
+            5.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t12",
+          "color": "red",
+          "position": [
+            0.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t13",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t14",
+          "color": "blue",
+          "position": [
+            3.5,
+            5.5
+          ]
+        },
+        {
+          "id": "22t15",
+          "color": "green",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "22t16",
+          "color": "cyan",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t17",
+          "color": "cyan",
+          "position": [
+            6.5,
+            5.5
+          ]
+        },
+        {
+          "id": "S22_R81_3",
+          "color": "white",
+          "position": [
+            1.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S22_R81_5",
+          "color": "green",
+          "position": [
+            4.5,
+            6.5
+          ]
+        }
+      ],
+      "elevators": [
+        {
+          "id": "P22_TOP",
+          "entry": [
+            3.5,
+            0.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "P22_TOP_Q1",
+              "color": "cyan"
+            },
+            {
+              "id": "P22_TOP_Q2",
+              "color": "green"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        },
+        {
+          "id": "P22_BOTTOM",
+          "entry": [
+            3.5,
+            6.5
+          ],
+          "direction": "UP",
+          "queue": [
+            {
+              "id": "P22_BOTTOM_Q1",
+              "color": "purple"
+            },
+            {
+              "id": "P22_BOTTOM_Q2",
+              "color": "cyan"
+            },
+            {
+              "id": "P22_BOTTOM_Q3",
+              "color": "red"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        }
+      ],
+      "obstacles": [],
+      "playableMask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "bonusPickups": []
+    },
+    {
+      "id": 23,
+      "title": "Level 23",
+      "profile": "CHAPTER_MASTERY",
+      "difficulty": "HARD",
+      "challenge": "10 habitats, 23 sproutlings, 1 elevator queues.",
+      "cols": 8,
+      "rows": 8,
+      "habitats": [
+        {
+          "id": "23_W",
+          "color": "white",
+          "anchor": [
+            0,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_GS",
+          "color": "green",
+          "anchor": [
+            0,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_GL",
+          "color": "green",
+          "anchor": [
+            3,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_Y",
+          "color": "yellow",
+          "anchor": [
+            2,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_O",
+          "color": "green",
+          "anchor": [
+            5,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_V",
+          "color": "purple",
+          "anchor": [
+            7,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_P",
+          "color": "pink",
+          "anchor": [
+            0,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "need": 4,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_C",
+          "color": "cyan",
+          "anchor": [
+            2,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_B",
+          "color": "blue",
+          "anchor": [
+            3,
+            7
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "23_R",
+          "color": "red",
+          "anchor": [
+            5,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 3,
+          "movementConstraint": "FREE"
+        }
+      ],
+      "targets": [
+        {
+          "id": "23t1",
+          "color": "green",
+          "position": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t2",
+          "color": "green",
+          "position": [
+            6.5,
+            0.5
+          ]
+        },
+        {
+          "id": "23t4",
+          "color": "purple",
+          "position": [
+            6.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t6",
+          "color": "white",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t9",
+          "color": "yellow",
+          "position": [
+            0.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t10",
+          "color": "yellow",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t13",
+          "color": "yellow",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t14",
+          "color": "green",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t15",
+          "color": "red",
+          "position": [
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t16",
+          "color": "cyan",
+          "position": [
+            7.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t17",
+          "color": "pink",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t18",
+          "color": "blue",
+          "position": [
+            2.5,
+            7.5
+          ]
+        },
+        {
+          "id": "23t19",
+          "color": "white",
+          "position": [
+            1.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t21",
+          "color": "pink",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t23",
+          "color": "red",
+          "position": [
+            5.5,
+            7.5
+          ]
+        },
+        {
+          "id": "23t25",
+          "color": "purple",
+          "position": [
+            7.5,
+            1.5
+          ]
+        },
+        {
+          "id": "S23_R81_6",
+          "color": "green",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "S23_R81_7",
+          "color": "green",
+          "position": [
+            2.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S23_R81_8",
+          "color": "green",
+          "position": [
+            4.5,
+            2.5
+          ]
+        },
+        {
+          "id": "S23_R81_9",
+          "color": "cyan",
+          "position": [
+            3.5,
+            6.5
+          ]
+        },
+        {
+          "id": "S23_R81_10",
+          "color": "yellow",
+          "position": [
+            7.5,
+            4.5
+          ]
+        },
+        {
+          "id": "S23_R81_11",
+          "color": "blue",
+          "position": [
+            5.5,
+            4.5
+          ]
+        },
+        {
+          "id": "S23_R81_12",
+          "color": "white",
+          "position": [
+            6.5,
+            2.5
+          ]
+        }
+      ],
+      "elevators": [
+        {
+          "id": "P23_TOP",
+          "entry": [
+            4.5,
+            0.5
+          ],
+          "direction": "DOWN",
+          "queue": [
+            {
+              "id": "P23_TOP_Q1",
+              "color": "red"
+            },
+            {
+              "id": "P23_TOP_Q2",
+              "color": "pink"
+            },
+            {
+              "id": "P23_TOP_Q3",
+              "color": "pink"
+            },
+            {
+              "id": "P23_TOP_Q4",
+              "color": "green"
+            }
+          ],
+          "nextIndex": 0,
+          "mandatory": true
+        }
+      ],
+      "obstacles": [],
+      "playableMask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "bonusPickups": []
     }
   ],
-  "canonicalLevelsFingerprint": "95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6"
+  "canonicalLevelsFingerprint": "178a5a082af30a7503cf06a903a816f2d2d7a633323edf236fde55cacd3c0ea3"
 }

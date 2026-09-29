@@ -2,21 +2,26 @@
   "package": "HabitatShift_CurrentGame_UnityLevels_v1",
   "createdUtc": "2026-09-24T05:03:27Z",
   "catalogSchema": "habitat-shift-levels-v4",
-  "catalogRevision": "m6-20260916-c-full-footprint-fix",
+  "catalogRevision": "m7-20260928-levels-19-23",
   "rulesetVersion": "continuous-core-v2",
-  "levelCount": 18,
-  "canonicalLevelsFingerprint": "95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6",
+  "levelCount": 23,
+  "canonicalLevelsFingerprint": "178a5a082af30a7503cf06a903a816f2d2d7a633323edf236fde55cacd3c0ea3",
   "rulesetFingerprint": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904",
   "payloadFiles": [
     {
       "path": "data/approved_levels_v4.json",
-      "size": 56336,
-      "sha256": "d7c920d0130ee0d54860f71247e8a7cd2b8e9c1968337ca6382f168461108270"
+      "size": 111326,
+      "sha256": "c886b91977b48a98bb73ce0bd0da48d8a183b0a73aca77f7a8ff2ef4e1b3df99"
     },
     {
       "path": "data/ruleset_manifest_v1.json",
       "size": 495,
       "sha256": "3e0a9ef1d6b3f0fde22c5814198946ba53744973d851fcf7e2cc8035e0e4ef95"
+    },
+    {
+      "path": "Habitat_Shift_R9_2_2_level_editor_project.json",
+      "size": 156641,
+      "sha256": "d075bdd5d57d68d0e2acfe7e7792dafe7af5a61c5d4fc2b0c4055b43591d03d3"
     },
     {
       "path": "LICENSE_AND_ASSET_SCOPE.md",
@@ -40,13 +45,13 @@
     },
     {
       "path": "README.md",
-      "size": 1328,
-      "sha256": "7b66545d065fa0cee6d22804f94a5bbdd8b0399eeb2911d4b28ac96725e723de"
+      "size": 1421,
+      "sha256": "221d5d30fccd9fba0e96b2f270fcab44934f8aa62fb6c28b24d84ad2b6989c8a"
     },
     {
       "path": "schema/approved_levels_v4.schema.json",
-      "size": 4828,
-      "sha256": "ebe685cddbcd80a826e2fec176d5b29ae382a9ffb9f413fe402b4508733b5073"
+      "size": 4918,
+      "sha256": "6dbe6dc4cc19bb5f77caf0ff8bb5a87beb290f9c4b898c89e1c42ec91956a0db"
     },
     {
       "path": "schema/ruleset_manifest_v1.schema.json",
@@ -60,8 +65,8 @@
     },
     {
       "path": "unity-handoff/LEVEL_CATALOG_FIELD_REFERENCE.md",
-      "size": 2101,
-      "sha256": "2782438aff3618512d3b2342a54b2c20440fbabaf23a71582bba4c0ecc6c44eb"
+      "size": 2569,
+      "sha256": "03facea9d9aa30a82f433ccb07c8f13ddf62e74fae217837eafff9aa24769f1a"
     },
     {
       "path": "unity-handoff/UNITY_IMPORT_GUIDE.md",
@@ -74,9 +79,15 @@
       "sha256": "09343b362b7306542890be6140467fd90d34191075096f514c694796299b68f8"
     },
     {
+      "path": "validation/PACKAGE_MANIFEST.json",
+      "size": 3301,
+      "sha256": "4c078dedad4473e982bca39610efd2d38b787ea470f6ff72b4b29bb5fb942f43"
+    },
+    {
       "path": "validation/VALIDATION_REPORT.md",
-      "size": 1332,
-      "sha256": "ce13e731579abf0f4e40abf6bfa3978c5897dfe3321d8e4ebcbe36a50424be9a"
+      "size": 4843,
+      "sha256": "54834983998b4a0fa7f15eba867703610a454275883786c05cba41cae81f994d"
     }
-  ]
+  ],
+  "updatedUtc": "2026-09-29T04:10:29Z"
 }

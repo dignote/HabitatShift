@@ -95,9 +95,15 @@ namespace HabitatShift.Runtime
                     Report("Levels/footer", "HOME footer outside card", footer);
                 var viewport = levelCard.Find("Level Scroll") as RectTransform;
                 var grid = viewport != null ? viewport.Find("Level Grid") as RectTransform : null;
-                if (viewport == null || grid == null || grid.childCount != 18 ||
+                if (viewport == null || grid == null || grid.childCount != HabitatShift.Core.CatalogLoader.ExpectedLevelCount ||
                     viewport.rect.width < 48f || viewport.rect.height < 48f || grid.rect.height < 48f)
-                    Report("Levels/grid", "level grid missing or has no visible viewport", levelCard);
+                    Report("Levels/grid",
+                        "viewport=" + (viewport == null ? "null" : viewport.rect.size.ToString()) +
+                        " grid=" + (grid == null ? "null" : grid.rect.size + "@" + grid.anchoredPosition) +
+                        " cards=" + (grid == null ? -1 : grid.childCount) +
+                        " first=" + (grid == null || grid.childCount == 0
+                            ? "-" : ((RectTransform)grid.GetChild(0)).rect.size + "@" + ((RectTransform)grid.GetChild(0)).anchoredPosition),
+                        levelCard);
                 else
                 {
                     var first = grid.GetChild(0) as RectTransform;

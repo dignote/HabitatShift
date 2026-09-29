@@ -7,15 +7,15 @@
   "required": ["schema", "catalogRevision", "rulesetVersion", "rulesetFingerprint", "approvalMode", "certificationTraceRequired", "levelCount", "levels", "canonicalLevelsFingerprint"],
   "properties": {
     "schema": { "const": "habitat-shift-levels-v4" },
-    "catalogRevision": { "const": "m6-20260916-c-full-footprint-fix" },
+    "catalogRevision": { "const": "m7-20260928-levels-19-23" },
     "rulesetVersion": { "const": "continuous-core-v2" },
     "rulesetFingerprint": { "const": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904" },
     "approvalMode": { "type": "string", "minLength": 1 },
     "certificationTraceRequired": { "type": "boolean" },
-    "levelCount": { "const": 18 },
-    "canonicalLevelsFingerprint": { "const": "95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6" },
+    "levelCount": { "const": 23 },
+    "canonicalLevelsFingerprint": { "const": "178a5a082af30a7503cf06a903a816f2d2d7a633323edf236fde55cacd3c0ea3" },
     "levels": {
-      "type": "array", "minItems": 18, "maxItems": 18,
+      "type": "array", "minItems": 23, "maxItems": 23,
       "items": { "$ref": "#/$defs/level" }
     }
   },
@@ -26,7 +26,7 @@
     "floatPoint": {
       "type": "array", "prefixItems": [{ "type": "number", "minimum": 0 }, { "type": "number", "minimum": 0 }], "items": false, "minItems": 2, "maxItems": 2
     },
-    "color": { "enum": ["blue", "cyan", "green", "orange", "pink", "purple", "red", "yellow"] },
+    "color": { "enum": ["blue", "cyan", "green", "orange", "pink", "purple", "red", "white", "yellow"] },
     "habitat": {
       "type": "object", "additionalProperties": false,
       "required": ["id", "color", "anchor", "shape", "need", "movementConstraint"],
@@ -69,7 +69,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["id", "title", "profile", "challenge", "cols", "rows", "habitats", "targets", "difficulty", "elevators", "obstacles", "playableMask", "bonusPickups"],
       "properties": {
-        "id": { "type": "integer", "minimum": 1, "maximum": 18 },
+        "id": { "type": "integer", "minimum": 1, "maximum": 23 },
         "title": { "type": "string", "minLength": 1 },
         "profile": { "enum": ["CONTINUOUS_CORE", "ELEVATOR_INTRO", "ASSIST_1_UNLOCK", "QUEUE_COMBINATION", "HARD_QUEUE", "ASSIST_2_UNLOCK", "CONSOLIDATION", "EVENT_READY", "MOVEMENT_CONSTRAINT_INTRO", "ASSIST_3_UNLOCK", "HARD_COMBINATION", "CHAPTER_MASTERY"] },
         "challenge": { "type": "string", "minLength": 1 },

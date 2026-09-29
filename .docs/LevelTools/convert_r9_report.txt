@@ -1,0 +1,119 @@
+convert_r9_levels report
+catalog cu : 18 level, fingerprint 95665e0fecf1097f7add31bb8a0567bbca4b6f607bc182b5a5a5b810aa7e89d6
+catalog moi: 23 level, fingerprint 178a5a082af30a7503cf06a903a816f2d2d7a633323edf236fde55cacd3c0ea3
+revision   : m7-20260928-levels-19-23
+approval   : user-approved-manual-playtest-2026-09-28-r9-2-2-levels-19-23
+
+Level moi:
+  L19: 7x9 profile=QUEUE_COMBINATION difficulty=SUPER_HARD habitats=11 targets=25 elevators=2 playableMask=57
+  L20: 6x7 profile=MOVEMENT_CONSTRAINT_INTRO difficulty=HARD habitats=10 targets=16 elevators=2 playableMask=null
+  L21: 6x7 profile=MOVEMENT_CONSTRAINT_INTRO difficulty=HARD habitats=8 targets=7 elevators=4 playableMask=35
+  L22: 7x7 profile=QUEUE_COMBINATION difficulty=SUPER_HARD habitats=11 targets=19 elevators=2 playableMask=43
+  L23: 8x8 profile=CHAPTER_MASTERY difficulty=HARD habitats=10 targets=23 elevators=1 playableMask=58
+
+Port:
+  PLACEHOLDER L22 E22_R8_1 (queue rong) -> khong import
+
+Mau dung (level / loai / mau / so luong):
+  L19 habitat blue    x2
+  L19 habitat cyan    x1
+  L19 habitat green   x2
+  L19 habitat orange  x1
+  L19 habitat pink    x1
+  L19 habitat purple  x1
+  L19 habitat red     x1
+  L19 habitat white   x1
+  L19 habitat yellow  x1
+  L19 queue   blue    x1
+  L19 queue   cyan    x1
+  L19 queue   red     x1
+  L19 queue   yellow  x3
+  L19 target  blue    x3
+  L19 target  cyan    x3
+  L19 target  green   x6
+  L19 target  orange  x3
+  L19 target  pink    x2
+  L19 target  purple  x1
+  L19 target  red     x3
+  L19 target  white   x3
+  L19 target  yellow  x1
+  L20 habitat blue    x1
+  L20 habitat cyan    x1
+  L20 habitat green   x1
+  L20 habitat orange  x2
+  L20 habitat pink    x2
+  L20 habitat red     x1
+  L20 habitat white   x1
+  L20 habitat yellow  x1
+  L20 queue   cyan    x1
+  L20 queue   orange  x2
+  L20 queue   pink    x1
+  L20 queue   red     x1
+  L20 queue   yellow  x1
+  L20 target  blue    x2
+  L20 target  cyan    x2
+  L20 target  green   x3
+  L20 target  orange  x2
+  L20 target  pink    x1
+  L20 target  red     x2
+  L20 target  white   x2
+  L20 target  yellow  x2
+  L21 habitat blue    x1
+  L21 habitat cyan    x1
+  L21 habitat green   x2
+  L21 habitat pink    x1
+  L21 habitat red     x1
+  L21 habitat white   x1
+  L21 habitat yellow  x1
+  L21 queue   blue    x4
+  L21 queue   cyan    x1
+  L21 queue   green   x3
+  L21 queue   red     x4
+  L21 queue   white   x2
+  L21 queue   yellow  x1
+  L21 target  green   x2
+  L21 target  pink    x2
+  L21 target  white   x1
+  L21 target  yellow  x2
+  L22 habitat blue    x1
+  L22 habitat cyan    x1
+  L22 habitat green   x3
+  L22 habitat orange  x1
+  L22 habitat pink    x1
+  L22 habitat purple  x1
+  L22 habitat red     x1
+  L22 habitat white   x1
+  L22 habitat yellow  x1
+  L22 queue   cyan    x2
+  L22 queue   green   x1
+  L22 queue   purple  x1
+  L22 queue   red     x1
+  L22 target  blue    x1
+  L22 target  cyan    x2
+  L22 target  green   x4
+  L22 target  orange  x1
+  L22 target  pink    x2
+  L22 target  red     x3
+  L22 target  white   x2
+  L22 target  yellow  x4
+  L23 habitat blue    x1
+  L23 habitat cyan    x1
+  L23 habitat green   x3
+  L23 habitat pink    x1
+  L23 habitat purple  x1
+  L23 habitat red     x1
+  L23 habitat white   x1
+  L23 habitat yellow  x1
+  L23 queue   green   x1
+  L23 queue   pink    x2
+  L23 queue   red     x1
+  L23 target  blue    x2
+  L23 target  cyan    x2
+  L23 target  green   x6
+  L23 target  pink    x2
+  L23 target  purple  x2
+  L23 target  red     x2
+  L23 target  white   x3
+  L23 target  yellow  x4
+
+Preflight: PASS

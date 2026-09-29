@@ -1,0 +1,8458 @@
+{
+  "schemaVersion": "r9.2.2-editor-1.0",
+  "projectName": "Habitat Shift R8.1 Advanced Mouse Editor",
+  "architecture": {
+    "minLevel": 1,
+    "maxLevel": 50,
+    "boardMaxCols": 10,
+    "boardMaxRows": 10
+  },
+  "config": {
+    "scope": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "sourceFootprintPolicy": "PRESERVE_SOURCE",
+    "candidateLShapePolicy": "CANONICAL_3X2_OR_ROTATED_2X3",
+    "elevatorEvidencePolicy": "UNKNOWN_UNTIL_EVIDENCE",
+    "exportPolicy": "PROJECT_JSON_AND_CONDITIONAL_HANDOFF_ZIP"
+  },
+  "sourceLevels": [
+    {
+      "id": 19,
+      "cols": 7,
+      "rows": 7,
+      "mask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "19_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            1,
+            0
+          ],
+          "constraint": "VERTICAL_ONLY",
+          "need": 2
+        },
+        {
+          "id": "19_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "19_R",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            0,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "19_G",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            1,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "19_B",
+          "color": "brown",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "19_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 1
+        }
+      ],
+      "targets": [
+        {
+          "id": "19t1",
+          "color": "yellow",
+          "position": [
+            6.5,
+            1.5
+          ]
+        },
+        {
+          "id": "19t2",
+          "color": "green",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "19t3",
+          "color": "pink",
+          "position": [
+            6.5,
+            5.5
+          ]
+        },
+        {
+          "id": "19t4",
+          "color": "red",
+          "position": [
+            0.5,
+            1.5
+          ]
+        },
+        {
+          "id": "19t5",
+          "color": "brown",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "19t6",
+          "color": "cyan",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "19t7",
+          "color": "yellow",
+          "position": [
+            4.5,
+            2.5
+          ]
+        },
+        {
+          "id": "19t8",
+          "color": "green",
+          "position": [
+            2.5,
+            4.5
+          ]
+        },
+        {
+          "id": "19t9",
+          "color": "red",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "19t10",
+          "color": "cyan",
+          "position": [
+            2.5,
+            6.5
+          ]
+        }
+      ],
+      "ports": [],
+      "mode": "BASELINE_R6",
+      "description": "L19 giu vai tro baseline de test runtime va cam giac keo/tha.",
+      "evidence": "No direct source frame for L19 in this R6 pack.",
+      "layer": "source",
+      "evidenceStatus": "NO_DIRECT_SOURCE",
+      "referenceImage": ""
+    },
+    {
+      "id": 20,
+      "cols": 6,
+      "rows": 7,
+      "mask": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "20_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            1,
+            0
+          ],
+          "constraint": "VERTICAL_ONLY",
+          "need": 3
+        },
+        {
+          "id": "20_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_B",
+          "color": "brown",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "20_P1",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "20_P2",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "20_U",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "20_R",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            0,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "20_O",
+          "color": "orange",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_O2",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        }
+      ],
+      "targets": [
+        {
+          "id": "20t1",
+          "color": "brown",
+          "position": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t2",
+          "color": "white",
+          "position": [
+            3.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t3",
+          "color": "brown",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t4",
+          "color": "yellow",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t5",
+          "color": "yellow",
+          "position": [
+            0.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t6",
+          "color": "red",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t7",
+          "color": "orange",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t8",
+          "color": "pink",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "20t9",
+          "color": "cyan",
+          "position": [
+            1.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t10",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t11",
+          "color": "blue",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "20t12",
+          "color": "white",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t13",
+          "color": "red",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t14",
+          "color": "orange",
+          "position": [
+            4.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t15",
+          "color": "cyan",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t16",
+          "color": "yellow",
+          "position": [
+            2.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t17",
+          "color": "red",
+          "position": [
+            3.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t18",
+          "color": "cyan",
+          "position": [
+            3.5,
+            3.5
+          ]
+        },
+        {
+          "id": "20t19",
+          "color": "pink",
+          "position": [
+            2.5,
+            1.5
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "id": "P20_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.15
+          ],
+          "queue": [
+            "orange",
+            "orange",
+            "orange"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        },
+        {
+          "id": "P20_BOTTOM",
+          "edge": "bottom",
+          "spawn": [
+            0.5,
+            7.1
+          ],
+          "queue": [
+            "yellow",
+            "orange",
+            "orange"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L20 duoc rebuild sat anh tham chieu: board 6x7, elevator tren/phia duoi, habitat va mau sac dat lai theo ti le nguon.",
+      "evidence": "Anchored to source frame L20; some hidden queue logic remains research-only.",
+      "layer": "source",
+      "evidenceStatus": "SOURCE_FRAME_TRANSCRIPTION_APPROX",
+      "referenceImage": "L20_source_reference.png"
+    },
+    {
+      "id": 21,
+      "cols": 7,
+      "rows": 7,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "21_G",
+          "color": "white",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "21_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            6,
+            2
+          ],
+          "constraint": "HORIZONTAL_ONLY",
+          "need": 1
+        },
+        {
+          "id": "21_B",
+          "color": "brown",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "21_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "21_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            0,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "21_U",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            5
+          ],
+          "constraint": "HORIZONTAL_ONLY",
+          "need": 4
+        },
+        {
+          "id": "21_O",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            4,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 4
+        }
+      ],
+      "targets": [
+        {
+          "id": "21t1",
+          "color": "white",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "21t2",
+          "color": "pink",
+          "position": [
+            2.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t3",
+          "color": "yellow",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t4",
+          "color": "orange",
+          "position": [
+            5.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t5",
+          "color": "orange",
+          "position": [
+            5.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t6",
+          "color": "yellow",
+          "position": [
+            5.5,
+            3.5
+          ]
+        },
+        {
+          "id": "21t7",
+          "color": "white",
+          "position": [
+            2.5,
+            3.5
+          ]
+        },
+        {
+          "id": "21t8",
+          "color": "cyan",
+          "position": [
+            4.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t9",
+          "color": "brown",
+          "position": [
+            5.5,
+            2.5
+          ]
+        },
+        {
+          "id": "21t10",
+          "color": "orange",
+          "position": [
+            4.5,
+            6.5
+          ]
+        },
+        {
+          "id": "21t11",
+          "color": "orange",
+          "position": [
+            2.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t12",
+          "color": "white",
+          "position": [
+            3.5,
+            6.5
+          ]
+        },
+        {
+          "id": "21t13",
+          "color": "blue",
+          "position": [
+            3.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t14",
+          "color": "blue",
+          "position": [
+            5.5,
+            6.5
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "id": "P21_LEFT",
+          "edge": "left",
+          "spawn": [
+            0,
+            2.5
+          ],
+          "queue": [
+            "cyan",
+            "cyan",
+            "cyan"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        },
+        {
+          "id": "P21_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.15
+          ],
+          "queue": [
+            "orange",
+            "orange"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        },
+        {
+          "id": "P21_RIGHT",
+          "edge": "right",
+          "spawn": [
+            7,
+            3.75
+          ],
+          "queue": [
+            "yellow",
+            "yellow"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        },
+        {
+          "id": "P21_BOTTOM",
+          "edge": "bottom",
+          "spawn": [
+            4.5,
+            7
+          ],
+          "queue": [
+            "blue",
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L21 rebuild theo khung hinh video: board co notch, 4 elevator o 4 canh, gray L o dinh, blue bar duoi va yellow L ben trai.",
+      "evidence": "Anchored to source frame L21; supply queues treated as research ports.",
+      "layer": "source",
+      "evidenceStatus": "SOURCE_FRAME_TRANSCRIPTION_APPROX",
+      "referenceImage": "L21_source_reference.png"
+    },
+    {
+      "id": 22,
+      "cols": 7,
+      "rows": 7,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "22_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "22_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": [
+            1,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "22_G3",
+          "color": "green",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "22_B1",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            6,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "22_R",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            1,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "22_G1",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_V",
+          "color": "purple",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_O",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        }
+      ],
+      "targets": [
+        {
+          "id": "22t1",
+          "color": "white",
+          "position": [
+            5.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t2",
+          "color": "green",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "22t3",
+          "color": "yellow",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t4",
+          "color": "yellow",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t5",
+          "color": "white",
+          "position": [
+            4.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t6",
+          "color": "red",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t7",
+          "color": "yellow",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t8",
+          "color": "red",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t9",
+          "color": "pink",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t10",
+          "color": "yellow",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t11",
+          "color": "green",
+          "position": [
+            5.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t12",
+          "color": "red",
+          "position": [
+            0.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t13",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t14",
+          "color": "blue",
+          "position": [
+            3.5,
+            5.5
+          ]
+        },
+        {
+          "id": "22t15",
+          "color": "green",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "22t16",
+          "color": "green",
+          "position": [
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "22t17",
+          "color": "red",
+          "position": [
+            4.5,
+            4.5
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "id": "P22_TOP",
+          "edge": "top",
+          "spawn": [
+            3.5,
+            -0.15
+          ],
+          "queue": [
+            "cyan",
+            "green"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        },
+        {
+          "id": "P22_BOTTOM",
+          "edge": "bottom",
+          "spawn": [
+            3.5,
+            7
+          ],
+          "queue": [
+            "purple",
+            "cyan",
+            "cyan"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L22 rebuild sat bo cuc plus-shape: white bar tren, pink doc ben phai, yellow L lon ben trai, cyan 2x2 ben phai duoi va red 2x2 ben trai duoi.",
+      "evidence": "Anchored to source frame L22.",
+      "layer": "source",
+      "evidenceStatus": "SOURCE_FRAME_TRANSCRIPTION_APPROX",
+      "referenceImage": "L22_source_reference.png"
+    },
+    {
+      "id": 23,
+      "cols": 8,
+      "rows": 7,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "23_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "23_GS",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "23_GL",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "23_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "23_O",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_V",
+          "color": "purple",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            7,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "23_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": [
+            0,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "23_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_B",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_R",
+          "color": "red",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3
+        }
+      ],
+      "targets": [
+        {
+          "id": "23t1",
+          "color": "green",
+          "position": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t2",
+          "color": "orange",
+          "position": [
+            6.5,
+            0.5
+          ]
+        },
+        {
+          "id": "23t3",
+          "color": "green",
+          "position": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t4",
+          "color": "orange",
+          "position": [
+            6.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t5",
+          "color": "purple",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t6",
+          "color": "white",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t7",
+          "color": "green",
+          "position": [
+            5.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t8",
+          "color": "white",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t9",
+          "color": "yellow",
+          "position": [
+            1.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t10",
+          "color": "yellow",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t11",
+          "color": "blue",
+          "position": [
+            5.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t12",
+          "color": "yellow",
+          "position": [
+            5.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t13",
+          "color": "yellow",
+          "position": [
+            7.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t14",
+          "color": "green",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t15",
+          "color": "red",
+          "position": [
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t16",
+          "color": "pink",
+          "position": [
+            7.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t17",
+          "color": "pink",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t18",
+          "color": "blue",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t19",
+          "color": "white",
+          "position": [
+            1.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t20",
+          "color": "green",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "23t21",
+          "color": "pink",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t22",
+          "color": "red",
+          "position": [
+            6.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t23",
+          "color": "red",
+          "position": [
+            5.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t24",
+          "color": "cyan",
+          "position": [
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t25",
+          "color": "cyan",
+          "position": [
+            7.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t26",
+          "color": "pink",
+          "position": [
+            6.5,
+            2.5
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "id": "P23_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.15
+          ],
+          "queue": [
+            "red",
+            "red",
+            "red",
+            "red"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN"
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L23 rebuild sat bo cuc nguon: board notch tren trai, long white bar ben trai, green L lon o tren, yellow L giua, pink L ben trai duoi, red L ben phai duoi.",
+      "evidence": "Anchored to source frame L23.",
+      "layer": "source",
+      "evidenceStatus": "SOURCE_FRAME_TRANSCRIPTION_APPROX",
+      "referenceImage": "L23_source_reference.png"
+    }
+  ],
+  "candidateLevels": [
+    {
+      "id": 19,
+      "cols": 7,
+      "rows": 9,
+      "mask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "H19_R8_1",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            0,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "templateRef": null
+        },
+        {
+          "id": "H19_R81_3",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "templateRef": null,
+          "clonedFrom": "H19_R8_1",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "H19_R8_2",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "templateRef": null,
+          "shapeType": "AUTO",
+          "shapePolicy": "CUSTOM"
+        },
+        {
+          "id": "H19_R8_4",
+          "color": "pink",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2,
+          "templateRef": null
+        },
+        {
+          "id": "H19_R81_4",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2,
+          "templateRef": null,
+          "clonedFrom": "H19_R8_4",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "H19_R81_5",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "templateRef": null,
+          "shapeType": "AUTO",
+          "shapePolicy": "CUSTOM",
+          "clonedFrom": "H19_R8_2",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "H19_R8_6",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            5,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3,
+          "templateRef": null
+        },
+        {
+          "id": "H19_R8_7",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            7
+          ],
+          "constraint": "FREE",
+          "need": 3,
+          "templateRef": null,
+          "shapeType": "AUTO",
+          "shapePolicy": "INVALID-L"
+        },
+        {
+          "id": "H19_R81_6",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            7
+          ],
+          "constraint": "FREE",
+          "need": 3,
+          "templateRef": null,
+          "shapeType": "AUTO",
+          "shapePolicy": "INVALID-L",
+          "clonedFrom": "H19_R8_7",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "H19_R8_8",
+          "color": "purple",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            8
+          ],
+          "constraint": "FREE",
+          "need": 1,
+          "templateRef": null
+        },
+        {
+          "id": "H19_R81_7",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1,
+          "templateRef": null,
+          "clonedFrom": "H19_R8_8",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "targets": [
+        {
+          "id": "19t2",
+          "color": "green",
+          "position": [
+            3.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t6",
+          "color": "pink",
+          "position": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t7",
+          "color": "green",
+          "position": [
+            2.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t8",
+          "color": "green",
+          "position": [
+            1.5,
+            0.5
+          ]
+        },
+        {
+          "id": "19t10",
+          "color": "red",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "S19_R81_1",
+          "color": "yellow",
+          "position": [
+            4.5,
+            0.5
+          ],
+          "clonedFrom": "19t10",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_2",
+          "color": "red",
+          "position": [
+            6.5,
+            0.5
+          ],
+          "clonedFrom": "19t10",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R8_9",
+          "color": "green",
+          "position": [
+            1.5,
+            4.5
+          ],
+          "artType": "default"
+        },
+        {
+          "id": "S19_R81_8",
+          "color": "cyan",
+          "position": [
+            2.5,
+            4.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R8_9",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_9",
+          "color": "pink",
+          "position": [
+            1.5,
+            5.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R8_9",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_10",
+          "color": "green",
+          "position": [
+            1.5,
+            6.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_9",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_11",
+          "color": "cyan",
+          "position": [
+            2.5,
+            6.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_10",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_12",
+          "color": "white",
+          "position": [
+            0.5,
+            7.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_10",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_13",
+          "color": "white",
+          "position": [
+            0.5,
+            8.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_12",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_14",
+          "color": "white",
+          "position": [
+            3.5,
+            7.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_12",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_15",
+          "color": "purple",
+          "position": [
+            3.5,
+            8.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_14",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_16",
+          "color": "orange",
+          "position": [
+            4.5,
+            8.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_15",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_17",
+          "color": "orange",
+          "position": [
+            6.5,
+            8.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_16",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_18",
+          "color": "orange",
+          "position": [
+            6.5,
+            7.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_17",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_19",
+          "color": "blue",
+          "position": [
+            6.5,
+            6.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_18",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_21",
+          "color": "cyan",
+          "position": [
+            4.5,
+            6.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_20",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_22",
+          "color": "green",
+          "position": [
+            4.5,
+            4.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_21",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_23",
+          "color": "blue",
+          "position": [
+            4.5,
+            3.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_22",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_24",
+          "color": "red",
+          "position": [
+            5.5,
+            3.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_23",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S19_R81_25",
+          "color": "blue",
+          "position": [
+            4.5,
+            2.5
+          ],
+          "artType": "default",
+          "clonedFrom": "S19_R81_23",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "ports": [
+        {
+          "id": "E19_R8_10",
+          "edge": "top",
+          "spawn": [
+            3.5,
+            9.35
+          ],
+          "dockPosition": [
+            3.5,
+            9.35
+          ],
+          "entryCell": [
+            3,
+            8
+          ],
+          "queue": [
+            "yellow",
+            "yellow",
+            "yellow",
+            "blue"
+          ],
+          "serial": 1,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "unknown": false,
+          "entryStatus": "MAPPED_BY_USER",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        },
+        {
+          "id": "E19_R8_11",
+          "edge": "top",
+          "spawn": [
+            3.5,
+            -0.35
+          ],
+          "dockPosition": [
+            3.5,
+            -0.35
+          ],
+          "entryCell": [
+            3,
+            0
+          ],
+          "queue": [
+            "cyan",
+            "red"
+          ],
+          "serial": 1,
+          "evidenceStatus": "INFERRED",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "unknown": false,
+          "entryStatus": "MAPPED_BY_USER",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "provenance": {
+            "dockPosition": "USER_DESIGNED",
+            "entryCell": "USER_DESIGNED",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        }
+      ],
+      "mode": "BASELINE_R6",
+      "description": "L19 giu vai tro baseline de test runtime va cam giac keo/tha.",
+      "evidence": "No direct source frame for L19 in this R6 pack.",
+      "layer": "candidate",
+      "sourceLink": "L19",
+      "referenceImage": ""
+    },
+    {
+      "id": 20,
+      "cols": 6,
+      "rows": 7,
+      "mask": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "20_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            1,
+            0
+          ],
+          "constraint": "VERTICAL_ONLY",
+          "need": 3
+        },
+        {
+          "id": "20_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_B",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_P1",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "20_P2",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "20_U",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "20_R",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "anchor": [
+            0,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "20_O",
+          "color": "orange",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "20_O2",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        }
+      ],
+      "targets": [
+        {
+          "id": "20t1",
+          "color": "green",
+          "position": [
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t2",
+          "color": "white",
+          "position": [
+            3.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t3",
+          "color": "green",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t4",
+          "color": "yellow",
+          "position": [
+            5.5,
+            0.5
+          ]
+        },
+        {
+          "id": "20t5",
+          "color": "yellow",
+          "position": [
+            0.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t6",
+          "color": "red",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "20t7",
+          "color": "orange",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t8",
+          "color": "pink",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "20t9",
+          "color": "cyan",
+          "position": [
+            1.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t10",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "20t11",
+          "color": "blue",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "20t12",
+          "color": "cyan",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t13",
+          "color": "white",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t15",
+          "color": "blue",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "20t17",
+          "color": "red",
+          "position": [
+            3.5,
+            6.5
+          ]
+        },
+        {
+          "id": "20t18",
+          "color": "green",
+          "position": [
+            4.5,
+            4.5
+          ]
+        }
+      ],
+      "ports": [
+        {
+          "id": "P20_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.35
+          ],
+          "queue": [
+            "orange",
+            "red",
+            "pink"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "INFERRED",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            4.5,
+            -0.35
+          ],
+          "entryCell": [
+            4,
+            0
+          ],
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "USER_DESIGNED",
+            "entryCell": "USER_DESIGNED",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        },
+        {
+          "id": "P20_BOTTOM",
+          "edge": "bottom",
+          "spawn": [
+            1.5,
+            7.35
+          ],
+          "queue": [
+            "orange",
+            "yellow",
+            "cyan"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            1.5,
+            7.35
+          ],
+          "entryCell": [
+            1,
+            6
+          ],
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "USER_DESIGNED",
+            "entryCell": "USER_DESIGNED",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L20 duoc rebuild sat anh tham chieu: board 6x7, elevator tren/phia duoi, habitat va mau sac dat lai theo ti le nguon.",
+      "evidence": "Anchored to source frame L20; some hidden queue logic remains research-only.",
+      "layer": "candidate",
+      "sourceLink": "L20",
+      "referenceImage": "L20_source_reference.png"
+    },
+    {
+      "id": 21,
+      "cols": 6,
+      "rows": 7,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "21_G",
+          "color": "white",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "21_B",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "21_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "21_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            1,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "H21_R81_1",
+          "color": "blue",
+          "shape": [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            0,
+            5
+          ],
+          "constraint": "HORIZONTAL_ONLY",
+          "need": 4,
+          "clonedFrom": "21_Y",
+          "evidenceStatus": "USER_DERIVED",
+          "shapeType": "AUTO",
+          "shapePolicy": "L"
+        },
+        {
+          "id": "H21_R81_2",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 1,
+          "clonedFrom": "21_B",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "H21_R81_3",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": [
+            4,
+            4
+          ],
+          "constraint": "VERTICAL_ONLY",
+          "need": 4,
+          "clonedFrom": "21_P",
+          "evidenceStatus": "USER_DERIVED",
+          "shapeType": "AUTO",
+          "shapePolicy": "L"
+        },
+        {
+          "id": "H21_R8_1",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            2
+          ],
+          "constraint": "HORIZONTAL_ONLY",
+          "need": 4,
+          "templateRef": null
+        }
+      ],
+      "targets": [
+        {
+          "id": "21t2",
+          "color": "pink",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "21t5",
+          "color": "green",
+          "position": [
+            5.5,
+            4.5
+          ]
+        },
+        {
+          "id": "21t6",
+          "color": "yellow",
+          "position": [
+            0.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t7",
+          "color": "white",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "21t8",
+          "color": "yellow",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "21t9",
+          "color": "green",
+          "position": [
+            5.5,
+            5.5
+          ]
+        },
+        {
+          "id": "S21_R81_2",
+          "color": "pink",
+          "position": [
+            1.5,
+            3.5
+          ],
+          "clonedFrom": "21t2",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "ports": [
+        {
+          "id": "P21_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.35
+          ],
+          "queue": [
+            "green",
+            "green"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            4.5,
+            -0.35
+          ],
+          "entryCell": [
+            4,
+            0
+          ],
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "USER_DESIGNED",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        },
+        {
+          "id": "E21_R8_22",
+          "edge": "right",
+          "spawn": [
+            6.35,
+            3.5
+          ],
+          "dockPosition": [
+            6.35,
+            3.5
+          ],
+          "entryCell": [
+            5,
+            3
+          ],
+          "queue": [
+            "green",
+            "red",
+            "red",
+            "red",
+            "red",
+            "yellow"
+          ],
+          "serial": 1,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "unknown": false,
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          },
+          "previewSlots": 2,
+          "maxActivePerPort": 1
+        },
+        {
+          "id": "E21_R81_4",
+          "edge": "bottom",
+          "spawn": [
+            4.5,
+            7.35
+          ],
+          "dockPosition": [
+            4.5,
+            7.35
+          ],
+          "entryCell": [
+            4,
+            6
+          ],
+          "queue": [
+            "blue",
+            "blue",
+            "blue",
+            "blue"
+          ],
+          "serial": 1,
+          "evidenceStatus": "USER_DERIVED",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "unknown": false,
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          },
+          "clonedFrom": "E21_R8_22",
+          "previewSlots": 2,
+          "maxActivePerPort": 1
+        },
+        {
+          "id": "E21_R81_1",
+          "edge": "left",
+          "spawn": [
+            0.65,
+            2.5
+          ],
+          "queue": [
+            "cyan",
+            "white",
+            "white"
+          ],
+          "serial": 1,
+          "unknown": true,
+          "evidenceStatus": "USER_DERIVED",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            0.65,
+            2.5
+          ],
+          "entryCell": [
+            1,
+            2
+          ],
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          },
+          "clonedFrom": "P21_TOP"
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L21 rebuild theo khung hinh video: board co notch, 4 elevator o 4 canh, gray L o dinh, blue bar duoi va yellow L ben trai.",
+      "evidence": "Anchored to source frame L21; supply queues treated as research ports.",
+      "layer": "candidate",
+      "sourceLink": "L21",
+      "referenceImage": "L21_source_reference.png"
+    },
+    {
+      "id": 22,
+      "cols": 7,
+      "rows": 7,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "22_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "22_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            0
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "22_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": [
+            1,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "shapePolicy": "L_2X3_ROTATED_CANONICAL"
+        },
+        {
+          "id": "22_G3",
+          "color": "green",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "22_B1",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            6,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            4,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "22_R",
+          "color": "red",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            1,
+            4
+          ],
+          "constraint": "FREE",
+          "need": 4
+        },
+        {
+          "id": "22_G1",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_V",
+          "color": "purple",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            1,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "22_O",
+          "color": "orange",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "H22_R81_4",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            6
+          ],
+          "constraint": "FREE",
+          "need": 1,
+          "clonedFrom": "22_O",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "targets": [
+        {
+          "id": "22t1",
+          "color": "pink",
+          "position": [
+            5.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t2",
+          "color": "green",
+          "position": [
+            4.5,
+            0.5
+          ]
+        },
+        {
+          "id": "22t3",
+          "color": "yellow",
+          "position": [
+            2.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t4",
+          "color": "yellow",
+          "position": [
+            3.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t5",
+          "color": "white",
+          "position": [
+            4.5,
+            1.5
+          ]
+        },
+        {
+          "id": "22t6",
+          "color": "red",
+          "position": [
+            0.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t7",
+          "color": "yellow",
+          "position": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t8",
+          "color": "red",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t9",
+          "color": "pink",
+          "position": [
+            6.5,
+            2.5
+          ]
+        },
+        {
+          "id": "22t10",
+          "color": "yellow",
+          "position": [
+            0.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t11",
+          "color": "green",
+          "position": [
+            5.5,
+            3.5
+          ]
+        },
+        {
+          "id": "22t12",
+          "color": "red",
+          "position": [
+            0.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t13",
+          "color": "orange",
+          "position": [
+            3.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t14",
+          "color": "blue",
+          "position": [
+            3.5,
+            5.5
+          ]
+        },
+        {
+          "id": "22t15",
+          "color": "green",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "22t16",
+          "color": "cyan",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "22t17",
+          "color": "cyan",
+          "position": [
+            6.5,
+            5.5
+          ]
+        },
+        {
+          "id": "S22_R81_3",
+          "color": "white",
+          "position": [
+            1.5,
+            0.5
+          ],
+          "clonedFrom": "22t5",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S22_R81_5",
+          "color": "green",
+          "position": [
+            4.5,
+            6.5
+          ],
+          "clonedFrom": "22t15",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "ports": [
+        {
+          "id": "P22_TOP",
+          "edge": "top",
+          "spawn": [
+            3.5,
+            -0.35
+          ],
+          "queue": [
+            "cyan",
+            "green"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            3.5,
+            -0.35
+          ],
+          "entryCell": [
+            3,
+            0
+          ],
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {
+            "dockPosition": "USER_DESIGNED",
+            "entryCell": "USER_DESIGNED",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        },
+        {
+          "id": "P22_BOTTOM",
+          "edge": "bottom",
+          "spawn": [
+            3.5,
+            7
+          ],
+          "queue": [
+            "purple",
+            "cyan",
+            "red"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            3.5,
+            7
+          ],
+          "entryCell": [
+            3,
+            6
+          ],
+          "entryStatus": "NEEDS_USER_CONFIRMATION",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        },
+        {
+          "id": "E22_R8_1",
+          "edge": "top",
+          "spawn": [
+            3.5,
+            -0.35
+          ],
+          "dockPosition": [
+            3.5,
+            -0.35
+          ],
+          "entryCell": [
+            3,
+            0
+          ],
+          "queue": [],
+          "serial": 1,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "UNKNOWN",
+          "blockedBehavior": "UNKNOWN",
+          "unknown": true,
+          "entryStatus": "MAPPED_BY_USER",
+          "provenance": {}
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L22 rebuild sat bo cuc plus-shape: white bar tren, pink doc ben phai, yellow L lon ben trai, cyan 2x2 ben phai duoi va red 2x2 ben trai duoi.",
+      "evidence": "Anchored to source frame L22.",
+      "layer": "candidate",
+      "sourceLink": "L22",
+      "referenceImage": "L22_source_reference.png"
+    },
+    {
+      "id": 23,
+      "cols": 8,
+      "rows": 8,
+      "mask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "blocked": [],
+      "habitats": [
+        {
+          "id": "23_W",
+          "color": "white",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 3
+        },
+        {
+          "id": "23_GS",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "anchor": [
+            0,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 1
+        },
+        {
+          "id": "23_GL",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            3,
+            1
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "shapePolicy": "L_3X2_CANONICAL"
+        },
+        {
+          "id": "23_Y",
+          "color": "yellow",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "anchor": [
+            2,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "shapePolicy": "L",
+          "shapeType": "AUTO"
+        },
+        {
+          "id": "23_O",
+          "color": "green",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            5,
+            3
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_V",
+          "color": "purple",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "anchor": [
+            7,
+            2
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_P",
+          "color": "pink",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "anchor": [
+            0,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 4,
+          "shapePolicy": "L_2X3_ROTATED_CANONICAL"
+        },
+        {
+          "id": "23_C",
+          "color": "cyan",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            2,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_B",
+          "color": "blue",
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "anchor": [
+            3,
+            7
+          ],
+          "constraint": "FREE",
+          "need": 2
+        },
+        {
+          "id": "23_R",
+          "color": "red",
+          "shape": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "anchor": [
+            5,
+            5
+          ],
+          "constraint": "FREE",
+          "need": 3,
+          "shapePolicy": "INVALID-L",
+          "shapeType": "AUTO"
+        }
+      ],
+      "targets": [
+        {
+          "id": "23t1",
+          "color": "green",
+          "position": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t2",
+          "color": "green",
+          "position": [
+            6.5,
+            0.5
+          ]
+        },
+        {
+          "id": "23t4",
+          "color": "purple",
+          "position": [
+            6.5,
+            1.5
+          ]
+        },
+        {
+          "id": "23t6",
+          "color": "white",
+          "position": [
+            3.5,
+            2.5
+          ]
+        },
+        {
+          "id": "23t9",
+          "color": "yellow",
+          "position": [
+            0.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t10",
+          "color": "yellow",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t13",
+          "color": "yellow",
+          "position": [
+            6.5,
+            4.5
+          ]
+        },
+        {
+          "id": "23t14",
+          "color": "green",
+          "position": [
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t15",
+          "color": "red",
+          "position": [
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t16",
+          "color": "cyan",
+          "position": [
+            7.5,
+            5.5
+          ]
+        },
+        {
+          "id": "23t17",
+          "color": "pink",
+          "position": [
+            2.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t18",
+          "color": "blue",
+          "position": [
+            2.5,
+            7.5
+          ]
+        },
+        {
+          "id": "23t19",
+          "color": "white",
+          "position": [
+            1.5,
+            3.5
+          ]
+        },
+        {
+          "id": "23t21",
+          "color": "pink",
+          "position": [
+            1.5,
+            6.5
+          ]
+        },
+        {
+          "id": "23t23",
+          "color": "red",
+          "position": [
+            5.5,
+            7.5
+          ]
+        },
+        {
+          "id": "23t25",
+          "color": "purple",
+          "position": [
+            7.5,
+            1.5
+          ]
+        },
+        {
+          "id": "S23_R81_6",
+          "color": "green",
+          "position": [
+            2.5,
+            1.5
+          ],
+          "clonedFrom": "23t3",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_7",
+          "color": "green",
+          "position": [
+            2.5,
+            0.5
+          ],
+          "clonedFrom": "S23_R81_6",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_8",
+          "color": "green",
+          "position": [
+            4.5,
+            2.5
+          ],
+          "clonedFrom": "S23_R81_6",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_9",
+          "color": "cyan",
+          "position": [
+            3.5,
+            6.5
+          ],
+          "clonedFrom": "23t24",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_10",
+          "color": "yellow",
+          "position": [
+            7.5,
+            4.5
+          ],
+          "clonedFrom": "23t13",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_11",
+          "color": "blue",
+          "position": [
+            5.5,
+            4.5
+          ],
+          "clonedFrom": "23t13",
+          "evidenceStatus": "USER_DERIVED"
+        },
+        {
+          "id": "S23_R81_12",
+          "color": "white",
+          "position": [
+            6.5,
+            2.5
+          ],
+          "clonedFrom": "23t6",
+          "evidenceStatus": "USER_DERIVED"
+        }
+      ],
+      "ports": [
+        {
+          "id": "P23_TOP",
+          "edge": "top",
+          "spawn": [
+            4.5,
+            -0.15
+          ],
+          "queue": [
+            "red",
+            "pink",
+            "pink",
+            "green"
+          ],
+          "serial": 1,
+          "unknown": false,
+          "evidenceStatus": "UNKNOWN",
+          "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+          "blockedBehavior": "WAIT_AUTORETRY",
+          "previewSlots": 2,
+          "maxActivePerPort": 1,
+          "dockPosition": [
+            4.5,
+            -0.15
+          ],
+          "entryCell": [
+            4,
+            0
+          ],
+          "entryStatus": "NEEDS_USER_CONFIRMATION",
+          "provenance": {
+            "dockPosition": "UNKNOWN",
+            "entryCell": "UNKNOWN",
+            "queue": "UNKNOWN",
+            "releaseRule": "USER_DESIGNED",
+            "blockedBehavior": "USER_DESIGNED"
+          }
+        }
+      ],
+      "mode": "SOURCE_PARITY_R6",
+      "description": "L23 rebuild sat bo cuc nguon: board notch tren trai, long white bar ben trai, green L lon o tren, yellow L giua, pink L ben trai duoi, red L ben phai duoi.",
+      "evidence": "Anchored to source frame L23.",
+      "layer": "candidate",
+      "sourceLink": "L23",
+      "referenceImage": "L23_source_reference.png"
+    }
+  ],
+  "solutionWitnesses": {
+    "20": {
+      "completed": false,
+      "verified": false,
+      "fingerprint": "fnv64:d4ef76a92ad8dbb5",
+      "ruleset": "HABITAT_SHIFT_R9_2_1_EDITOR_TEST",
+      "type": "MANUAL_RECORDED",
+      "steps": [],
+      "recordedAt": "2026-09-28T08:40:19.574Z",
+      "reason": "NOT_COMPLETE"
+    }
+  },
+  "approvals": {},
+  "deltaLog": [],
+  "templateLibrary": [],
+  "changeLog": [
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:39.817Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:40.471Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:41.040Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:42.007Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:44.038Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:44.950Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:47.188Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "resize y",
+      "at": "2026-09-23T05:16:51.319Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:58.726Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:16:59.096Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:06.867Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:09.393Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:10.868Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:11.312Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:11.706Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:12.136Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:13.080Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:15.600Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:16.324Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:21.013Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:21.500Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:24.332Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:25.294Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:25.787Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:26.450Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:26.786Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:17:29.075Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T05:17:29.585Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:33.176Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-23T05:17:33.673Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 3",
+      "at": "2026-09-23T05:17:50.441Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 3 objects",
+      "at": "2026-09-23T05:17:52.783Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T05:17:56.944Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T05:17:58.246Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T05:17:59.589Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T05:18:03.096Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T05:18:06.243Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T05:18:12.894Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 3 objects",
+      "at": "2026-09-23T05:18:21.046Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T05:18:25.619Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T05:18:28.408Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T05:18:30.455Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 2",
+      "at": "2026-09-23T05:18:33.429Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:17:21.452Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:17:27.275Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:17:29.291Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:17:32.256Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:17:41.740Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:17:53.480Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:18:09.402Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:18:30.912Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:19:00.060Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-23T07:19:15.333Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:45.871Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:46.063Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:46.351Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:57.922Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:58.082Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:58.250Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:19:58.402Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:20:01.945Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:20:05.912Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:20:06.079Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:20:06.238Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:20:25.568Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T07:20:37.043Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:20:52.571Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:20:56.937Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:21:05.461Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:21:07.132Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:21:08.949Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:21:10.932Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:21:14.978Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:21:18.761Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:21:24.918Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:21:28.491Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:21:50.899Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:21:53.529Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:21:56.186Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:21:59.679Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:21:59.870Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:22:21.325Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-23T07:22:30.498Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:22:39.373Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:22:43.076Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:22:49.498Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:22:53.648Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:22:59.549Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:23:00.004Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "rotate",
+      "at": "2026-09-23T07:23:03.308Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:23:07.466Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:23:13.642Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-23T07:23:30.442Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:23:37.334Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add S",
+      "at": "2026-09-23T07:23:58.878Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:08.529Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:09.959Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:11.014Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:12.590Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:24:24.722Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:24:29.638Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:24:32.061Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:24:38.931Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:24:39.852Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:24:42.219Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:24:44.384Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:24:45.944Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:52.237Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:24:53.069Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:24:56.507Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:24:58.044Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:03.659Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:05.976Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:25:07.727Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:12.197Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:13.439Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:14.500Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:15.284Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:16.101Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:17.306Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:25:20.585Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:25:23.593Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 2",
+      "at": "2026-09-23T07:25:27.031Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-23T07:25:40.130Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-23T07:25:51.038Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:25:59.409Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:26:00.313Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:26:01.105Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-23T07:26:02.297Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 2",
+      "at": "2026-09-23T07:26:06.351Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:26:09.470Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:26:11.851Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add E",
+      "at": "2026-09-23T07:26:24.919Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "add E",
+      "at": "2026-09-23T07:26:33.715Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:27:05.734Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:33:57.634Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:35:51.751Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:36:04.915Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:36:07.018Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:36:09.002Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:38:07.934Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:38:19.600Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:38:36.170Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-23T07:38:38.729Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T07:40:21.390Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm queue E19_R8_11",
+      "at": "2026-09-23T09:32:28.783Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm entry E19_R8_11",
+      "at": "2026-09-23T09:32:32.349Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "release E19_R8_11",
+      "at": "2026-09-23T09:32:44.313Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "blocked E19_R8_11",
+      "at": "2026-09-23T09:32:46.545Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm R9 rules E19_R8_11",
+      "at": "2026-09-23T09:32:48.615Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_11",
+      "at": "2026-09-23T09:33:04.759Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm queue E19_R8_11",
+      "at": "2026-09-23T09:33:10.068Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_10",
+      "at": "2026-09-23T09:34:18.494Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm queue E19_R8_10",
+      "at": "2026-09-23T09:34:22.143Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "release E19_R8_10",
+      "at": "2026-09-23T09:34:31.075Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "blocked E19_R8_10",
+      "at": "2026-09-23T09:34:33.451Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T09:41:55.152Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-23T09:42:26.060Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "reorder FIFO E19_R8_10",
+      "at": "2026-09-23T09:44:00.171Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_11",
+      "at": "2026-09-23T09:44:43.359Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm entry E19_R8_11",
+      "at": "2026-09-23T09:46:35.200Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_11",
+      "at": "2026-09-23T09:48:41.874Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_11",
+      "at": "2026-09-23T09:49:15.403Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_10",
+      "at": "2026-09-23T09:55:06.327Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "confirm R9 rules E19_R8_10",
+      "at": "2026-09-23T09:55:20.594Z"
+    },
+    {
+      "level": 19,
+      "layer": "candidate",
+      "reason": "edit FIFO E19_R8_10",
+      "at": "2026-09-23T10:00:09.072Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:07:16.619Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:07:29.114Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:07:31.547Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:07:41.810Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:07:51.230Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:07:55.373Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:08:07.615Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:08:10.072Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:08:11.506Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:08:20.108Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:08:36.960Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:08:44.141Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:08:50.129Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:09:45.905Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:10:39.376Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:10:47.472Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:11:15.419Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:11:19.209Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:12:21.057Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:13:16.053Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:13:37.043Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:15:49.654Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:15:51.088Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:15:59.984Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:16:01.953Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "confirm entry P20_BOTTOM",
+      "at": "2026-09-28T08:16:15.414Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "confirm entry P20_TOP",
+      "at": "2026-09-28T08:16:25.188Z"
+    },
+    {
+      "level": 20,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:38:17.474Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:33.776Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:40.484Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:41.857Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:43.202Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:45.808Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:41:48.829Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T08:41:53.334Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:40.645Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:41.562Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:42.061Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:42.691Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:43.306Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:43.634Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:44.023Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:44.844Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:45.325Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:45.753Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:46.217Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:42:47.821Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "resize x",
+      "at": "2026-09-28T08:42:54.981Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:43:16.997Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:43:23.144Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:43:27.529Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T08:43:39.426Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-28T08:43:53.348Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:43:56.314Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "set axis HORIZONTAL_ONLY",
+      "at": "2026-09-28T08:44:04.719Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:44:09.322Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:44:11.106Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:15.891Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:22.295Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:27.243Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:29.555Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T08:44:36.171Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:44:42.702Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:48.235Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:44:59.191Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:45:03.802Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:45:05.653Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T08:45:20.087Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-28T08:45:27.606Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:45:31.162Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "set axis VERTICAL_ONLY",
+      "at": "2026-09-28T08:45:39.290Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:45:42.896Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:45:44.653Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "add H",
+      "at": "2026-09-28T08:46:00.257Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T08:46:01.527Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "set axis HORIZONTAL_ONLY",
+      "at": "2026-09-28T08:46:04.263Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:46:06.677Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:46:06.855Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:46:07.004Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:46:07.169Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T08:46:08.522Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:46:13.945Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:46:28.079Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T08:46:28.591Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "add E",
+      "at": "2026-09-28T08:47:16.338Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:47:45.085Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T08:47:49.742Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO P21_TOP",
+      "at": "2026-09-28T08:48:23.076Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R8_22",
+      "at": "2026-09-28T08:48:49.188Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R81_4",
+      "at": "2026-09-28T08:49:02.737Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "confirm queue E21_R81_4",
+      "at": "2026-09-28T08:49:06.288Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "confirm queue E21_R8_22",
+      "at": "2026-09-28T08:49:14.384Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "confirm queue P21_TOP",
+      "at": "2026-09-28T08:49:18.076Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:50:28.620Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:50:33.332Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:55:43.458Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:55:59.993Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T08:56:01.222Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:04:33.541Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R81_1",
+      "at": "2026-09-28T09:05:32.421Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:05:41.884Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:05:54.672Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:05:54.857Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R81_4",
+      "at": "2026-09-28T09:06:55.673Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R8_22",
+      "at": "2026-09-28T09:07:36.020Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R8_22",
+      "at": "2026-09-28T09:08:01.518Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "edit FIFO E21_R81_1",
+      "at": "2026-09-28T09:08:39.304Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:16.568Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:19.491Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:19.642Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:19.826Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:20.002Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:20.193Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:20.958Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:28.401Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:30.347Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:31.167Z"
+    },
+    {
+      "level": 21,
+      "layer": "candidate",
+      "reason": "reorder FIFO E21_R8_22",
+      "at": "2026-09-28T09:15:32.036Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:17:30.906Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:17:38.247Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:17:40.119Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:17:43.448Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T09:17:48.812Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:18:11.938Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:18:12.075Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:18:20.837Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:18:21.805Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:18:22.971Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:18:24.422Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:18:26.010Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "bulk recolor 2",
+      "at": "2026-09-28T09:18:28.835Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:35:11.251Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:35:22.761Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T09:35:24.694Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:35:30.839Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "edit FIFO P22_BOTTOM",
+      "at": "2026-09-28T09:37:15.268Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "add E",
+      "at": "2026-09-28T09:38:43.812Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "confirm topology entry P22_TOP",
+      "at": "2026-09-28T09:39:09.863Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "edit FIFO P22_TOP",
+      "at": "2026-09-28T09:39:11.278Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "confirm R9 rules P22_TOP",
+      "at": "2026-09-28T09:39:13.502Z"
+    },
+    {
+      "level": 22,
+      "layer": "candidate",
+      "reason": "reorder FIFO P22_BOTTOM",
+      "at": "2026-09-28T09:40:01.973Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:49:08.836Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:49:15.021Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:53:03.101Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:53:04.423Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:53:06.624Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:53:06.881Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-28T09:53:23.162Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:53:27.714Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:53:36.349Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T09:54:06.449Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "edit property",
+      "at": "2026-09-28T09:54:10.310Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 2",
+      "at": "2026-09-28T09:54:16.457Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T09:54:18.753Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T09:54:21.346Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:54:33.735Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:54:34.197Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:54:34.846Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:54:40.375Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:54:44.746Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:54:45.632Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:54:49.455Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "resize y",
+      "at": "2026-09-28T09:55:16.549Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:47.654Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:48.061Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:48.574Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:48.917Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:49.812Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:50.315Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:51.015Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:51.359Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:55:57.792Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "paint board cells",
+      "at": "2026-09-28T09:56:07.932Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:12.126Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:13.248Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:16.631Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:17.785Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:18.609Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:19.787Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:26.564Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:27.692Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:56:32.721Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:56:36.395Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T09:56:39.503Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:59:25.155Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "apply shape",
+      "at": "2026-09-28T09:59:37.955Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:59:51.352Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T09:59:54.637Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:59:55.876Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T09:59:56.917Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T10:00:00.790Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "bulk recolor 1",
+      "at": "2026-09-28T10:02:28.196Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T10:02:55.930Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T10:02:58.665Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T10:02:59.687Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T10:03:05.946Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "edit FIFO P23_TOP",
+      "at": "2026-09-28T10:04:41.720Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "edit FIFO P23_TOP",
+      "at": "2026-09-28T10:07:14.161Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "clone 1 objects",
+      "at": "2026-09-28T10:08:01.878Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T10:08:05.153Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "erase object",
+      "at": "2026-09-28T10:08:06.488Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T10:08:10.478Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "move 1 objects",
+      "at": "2026-09-28T10:08:11.644Z"
+    },
+    {
+      "level": 23,
+      "layer": "candidate",
+      "reason": "edit FIFO P23_TOP",
+      "at": "2026-09-28T10:09:02.087Z"
+    }
+  ],
+  "r9Rules": {
+    "id": "HABITAT_SHIFT_R9_2_2_TOPOLOGY_ELEVATOR",
+    "radius": 0.24,
+    "collectionFraction": 0.6666666666666666,
+    "sweepStep": 0.06,
+    "sproutContactTolerance": 0.005,
+    "boardCollisionInset": 0.095,
+    "habitatCollisionInset": 0.095,
+    "arrivalSlots": 2,
+    "releaseRule": "INITIAL_AND_ON_ENTRY_AVAILABLE",
+    "blockedBehavior": "WAIT_AUTORETRY"
+  }
+}

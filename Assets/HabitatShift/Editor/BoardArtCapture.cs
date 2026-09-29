@@ -14,7 +14,7 @@ namespace HabitatShift.Editor
     [InitializeOnLoad]
     public static class BoardArtCapture
     {
-        static readonly int[] Levels = { 1, 2, 7, 12, 18 };
+        static readonly int[] Levels = { 1, 2, 7, 12, 18, 23 };
         static readonly string Folder = Path.Combine(Directory.GetCurrentDirectory(), ".docs", "Verification");
         static readonly string Request = Path.Combine(Folder, "capture.request");
         static readonly MethodInfo StartLevel = typeof(HabitatBootstrap).GetMethod("StartLevel",

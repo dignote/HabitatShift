@@ -1,6 +1,7 @@
 """Bake Habitat Shift board sprites. Run with: python .docs/ArtSource/generate_board_art.py"""
 from __future__ import annotations
 
+import argparse
 import itertools
 import json
 from pathlib import Path
@@ -24,11 +25,17 @@ FAMILIES = {
     "cyan": ("teal", (64, 150, 151)),
     "pink": ("peach", (202, 130, 131)),
     "red": ("rose", (177, 76, 98)),
+    "white": ("ivory", (172, 168, 158)),
 }
+
+SKIP_EXISTING = False
 
 
 def save(im: Image.Image, name: str) -> None:
-    im.save(OUT / (name + ".png"), optimize=True)
+    path = OUT / (name + ".png")
+    if SKIP_EXISTING and path.exists():
+        return
+    im.save(path, optimize=True)
 
 
 def rgba_panel(name: str, base: tuple[int, int, int], border: tuple[int, int, int], radius: int,
@@ -186,6 +193,12 @@ def tray(cells: list[tuple[int, int]], family: str, pigment: tuple[int, int, int
 
 
 def main() -> None:
+    global SKIP_EXISTING
+    parser = argparse.ArgumentParser(description="Bake Habitat Shift board sprites.")
+    parser.add_argument("--missing-only", action="store_true",
+                        help="Chi ghi sprite chua ton tai, khong dung file cu.")
+    args, _ = parser.parse_known_args()
+    SKIP_EXISTING = args.missing_only
     rgba_panel("board_card", (239, 226, 195), (136, 120, 88), 25)
     rgba_panel("board_tile", (249, 241, 221), (176, 153, 113), 22)
     stone()

@@ -37,7 +37,7 @@ namespace HabitatShift.Runtime
             worldCamera = camera;
             foreach (var key in ResourcePrefabs.Keys)
                 Prewarm(key, key == "dust" ? 3 : key == "sparkle" || key == "shine" ? 12 : key == "flash" ? 8 : 3);
-            foreach (var color in new[] { "orange", "blue", "green", "yellow", "purple", "cyan", "pink", "red" })
+            foreach (var color in new[] { "orange", "blue", "green", "yellow", "purple", "cyan", "pink", "red", "white" })
                 SproutSprite(color);
             // L18 has eight board Sproutlings; an assist can emit several captures at once.
             for (var i = 0; i < 8; i++)
@@ -283,7 +283,7 @@ namespace HabitatShift.Runtime
         {
             var key = string.IsNullOrEmpty(color) ? "moss" : color;
             if (sproutSprites.TryGetValue(key, out var sprite)) return sprite;
-            var name = key == "orange" ? "coral" : key == "blue" ? "cobalt" : key == "green" ? "sage" : key == "yellow" ? "saffron" : key == "purple" ? "lavender" : key == "cyan" ? "teal" : key == "pink" ? "peach" : key == "red" ? "rose" : "moss";
+            var name = key == "orange" ? "coral" : key == "blue" ? "cobalt" : key == "green" ? "sage" : key == "yellow" ? "saffron" : key == "purple" ? "lavender" : key == "cyan" ? "teal" : key == "pink" ? "peach" : key == "red" ? "rose" : key == "white" ? "ivory" : "moss";
             sprite = Resources.Load<Sprite>("HabitatShift/sproutling_" + name + "_v1");
             sproutSprites[key] = sprite;
             return sprite;
@@ -300,7 +300,7 @@ namespace HabitatShift.Runtime
                 case "purple": return new Color(.61f, .42f, .86f);
                 case "cyan": return new Color(.14f, .74f, .76f);
                 case "pink": return new Color(1f, .42f, .62f);
-                case "red": return new Color(.96f, .28f, .40f);
+                case "red": return new Color(.96f, .28f, .40f);case "white": return new Color(.94f, .92f, .84f);
                 default: return new Color(1f, .80f, .28f);
             }
         }

@@ -16,7 +16,7 @@ Unity projects using Y-up must convert presentation/runtime coordinates explicit
 
 - `schema`, `catalogRevision`: catalog compatibility identity.
 - `rulesetVersion`, `rulesetFingerprint`: required movement contract identity.
-- `levelCount`: must equal `levels.length` and 18 in this package.
+- `levelCount`: must equal `levels.length` and 23 in this package (L1-L18 baseline + L19-L23).
 - `canonicalLevelsFingerprint`: SHA-256 of canonicalized `levels[]` using the Android build contract.
 
 ## Level
@@ -33,9 +33,13 @@ Unity projects using Y-up must convert presentation/runtime coordinates explicit
 ## Habitat and completion
 
 - `id`: level-local unique identifier.
-- `color`: compatibility key.
+- `color`: compatibility key (v4 palette plus `white`).
 - `need`: required compatible Sproutlings.
 - `movementConstraint`: `FREE`, `HORIZONTAL_ONLY`, or `VERTICAL_ONLY`.
+- `anchor` is the bounding-box top-left of the local shape; the shape may legitimately omit the `(0,0)`
+  cell (rotated L footprints in L20-L23), so `(0,0)` is not guaranteed to be an occupied cell.
+- Root Trim shrinks a Habitat to its topmost, then leftmost occupied cell and moves the `anchor` with it,
+  so the surviving cell keeps its absolute board position.
 - A level is won only after all movable Habitats complete, mandatory queues are exhausted, and no Sproutlings remain.
 
 ## Elevator

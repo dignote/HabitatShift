@@ -102,6 +102,7 @@ namespace HabitatShift.Runtime
         RectTransform viewport, content;
         ScrollRect scroll;
         float lastWidth = -1f;
+        int lastChildren = -1;
         bool logged;
 
         public void Configure(RectTransform grid)
@@ -116,10 +117,13 @@ namespace HabitatShift.Runtime
 
         void Refresh()
         {
-            if (viewport == null || content == null || viewport.rect.width < 1f || viewport.rect.height < 1f) return;
+            if (viewport == null || content == null) return;
             var width = viewport.rect.width;
-            if (Mathf.Abs(width - lastWidth) < .5f) return;
+            // Cho layout cua card chay xong truoc, neu khong cell se bi tinh sai theo rect = 0.
+            if (width < 120f || viewport.rect.height < 60f) return;
+            if (Mathf.Abs(width - lastWidth) < .5f && content.childCount == lastChildren) return;
             lastWidth = width;
+            lastChildren = content.childCount;
             const float gap = 18f;
             const float inset = 8f;
             var cell = Mathf.Min(192f, Mathf.Max(48f, (width - 2f * inset - 2f * gap) / 3f));
@@ -141,7 +145,8 @@ namespace HabitatShift.Runtime
             {
                 logged = true;
                 Debug.Log("Level Select layout: viewport=" + viewport.rect.size +
-                    ", grid=" + content.rect.size + ", cards=" + content.childCount, this);
+                    ", grid=" + content.rect.size + ", cards=" + content.childCount +
+                    ", cell=" + cell, this);
             }
         }
     }

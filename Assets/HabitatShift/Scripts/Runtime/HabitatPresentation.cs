@@ -315,7 +315,7 @@ namespace HabitatShift.Runtime
                 case "purple": return "sproutling_lavender_v1";
                 case "cyan": return "sproutling_teal_v1";
                 case "pink": return "sproutling_peach_v1";
-                case "red": return "sproutling_rose_v1";
+                case "red": return "sproutling_rose_v1";case "white": return "sproutling_ivory_v1";
                 default: return "sproutling_moss_v1";
             }
         }
@@ -342,7 +342,7 @@ namespace HabitatShift.Runtime
                 case "purple": return "lavender";
                 case "cyan": return "teal";
                 case "pink": return "peach";
-                case "red": return "rose";
+                case "red": return "rose";case "white": return "ivory";
                 default: throw new InvalidOperationException("Unknown Habitat color: " + color);
             }
         }
