@@ -148,8 +148,16 @@ namespace HabitatShift.Runtime
             habitatViews.Clear();
             boardLevel = level.id;
             var center = new Vector2(level.cols * .5f, level.rows * .5f);
-            PlaceSliced(boardParts, "card", LoadBoard("board_card"), center,
+            if (IsFullRect(level)) PlaceSliced(boardParts, "card", LoadBoard("board_card"), center,
                 new Vector2(level.cols + .34f, level.rows + .34f), -10);
+            else
+            {
+                // mask -10 (base) -> tile -1 -> frame 0 (vien ceramic lien tuc, nam TREN tile
+                // nhung duoi obstacle 1 / habitat 3 / elevator 4 / sproutling 6).
+                var size = new Vector2(level.cols + 56f / 192f, level.rows + 56f / 192f);
+                Place(boardParts, "mask", LoadBoard(BoardMaskName(level)), center, size, Color.white, -10);
+                Place(boardParts, "frame", LoadBoard(BoardFrameName(level)), center, size, Color.white, 0);
+            }
 
             for (var y = 0; y < level.rows; y++)
             for (var x = 0; x < level.cols; x++)
@@ -162,7 +170,7 @@ namespace HabitatShift.Runtime
             }
             foreach (var obstacle in level.obstacles ?? new IntPair[0])
                 Place(boardParts, "stone/" + obstacle.x + "/" + obstacle.y,
-                    LoadBoard("board_blocker_stone"),
+                    LoadBoard(BlockerSpriteName(obstacle.x, obstacle.y)),
                     new Vector2(obstacle.x + .5f, obstacle.y + .5f), Vector2.one, Color.white, 1);
         }
 
@@ -297,6 +305,29 @@ namespace HabitatShift.Runtime
             return renderer;
         }
 
+        // Board full rectangle dung board_card; mask bat quy tac dung sprite sinh tu playableMask.
+        static bool IsFullRect(LevelDto level)
+        {
+            var mask = level.playableMask;
+            if (mask == null || mask.Length == 0) return true;
+            return mask.Length == level.cols * level.rows;
+        }
+
+        static string BoardMaskName(LevelDto level) { return "board_mask_L" + level.id; }
+
+        // Vien sinh tu cung playableMask; thieu asset thi LoadBoard nem loi ro rang, khong fallback hinh chu nhat.
+        static string BoardFrameName(LevelDto level) { return "board_frame_L" + level.id; }
+
+        // O bi chan (obstacle) dung 3 block da/gach cat tu .docs/sprite block.png, chon theo toa do o.
+        static readonly string[] BlockerSprites =
+            { "board_blocker_stone", "board_blocker_moss", "board_blocker_brick" };
+
+        static string BlockerSpriteName(int x, int y)
+        {
+            var index = (x + 2 * y) % BlockerSprites.Length;
+            return BlockerSprites[(index + BlockerSprites.Length) % BlockerSprites.Length];
+        }
+
         static bool Playable(LevelDto level, int x, int y)
         {
             if (level.playableMask == null || level.playableMask.Length == 0) return true;
@@ -315,7 +346,8 @@ namespace HabitatShift.Runtime
                 case "purple": return "sproutling_lavender_v1";
                 case "cyan": return "sproutling_teal_v1";
                 case "pink": return "sproutling_peach_v1";
-                case "red": return "sproutling_rose_v1";case "white": return "sproutling_ivory_v1";
+                case "red": return "sproutling_rose_v1";case "white": return "sproutling_white_v2";
+                case "brown": return "sproutling_walnut_v2";
                 default: return "sproutling_moss_v1";
             }
         }
@@ -343,6 +375,7 @@ namespace HabitatShift.Runtime
                 case "cyan": return "teal";
                 case "pink": return "peach";
                 case "red": return "rose";case "white": return "ivory";
+                case "brown": return "walnut";
                 default: throw new InvalidOperationException("Unknown Habitat color: " + color);
             }
         }

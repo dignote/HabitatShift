@@ -7,12 +7,17 @@
 [Ll]ogs/
 UserSettings/
 
+# Local generated / temporary tools
+bin/
+.utmp/
+
 # IDE
 .vs/
 .idea/
 .vscode/
 *.csproj
 *.sln
+*.slnx
 *.suo
 *.user
 *.userprefs
@@ -24,8 +29,16 @@ UserSettings/
 Thumbs.db
 desktop.ini
 
-*.slnx
-
 # Python generated cache
 __pycache__/
 *.py[cod]
+
+# QA / verification output
+.docs/Verification/
+# Temporary QA snapshots / reports
+.docs/ArtSource/board_assets_before_*.sha256
+.docs/ArtSource/*_report.txt
+.docs/LevelTools/*_report*.txt
+.docs/LevelTools/*_stdout.txt
+.docs/sproutling_walnut_v2.png
+.docs/sproutling_white_v2.png

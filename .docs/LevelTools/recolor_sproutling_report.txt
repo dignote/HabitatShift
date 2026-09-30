@@ -1,13 +1,13 @@
 recolor_sproutling report
-source        : D:\Project\Unity\Test\Assets\Resources\HabitatShift\sproutling_coral_v1.png
-output        : D:\Project\Unity\Test\Assets\Resources\HabitatShift\sproutling_ivory_v1.png
+source        : Assets\Resources\HabitatShift\sproutling_coral_v1.png
+output        : Assets\Resources\HabitatShift\sproutling_walnut_v1.png
 size          : 1201x1310 -> 1201x1310
 alpha giong   : True
 pixel than    : 382121
 blob chi tiet : 6 (dien tich [6145, 5167, 5096, 3341, 822, 649])
 ngoai than doi: 0 (phai = 0)
-mau than TB   : R209 G200 B181
-lech tile kem : 40.2 (can >= 20)
-sha256 out    : edc69f26982d8a4e72c838171ea7a873e1fee2e2db37089082e4b43611b7c200
+mau than TB   : R116 G88 B66
+lech tile kem : 146.8 (can >= 20)
+sha256 out    : d6623548a377f5e1254898d66505d79f0de73b1d44779befc5b3f84f3983d48b
 
 QA: PASS

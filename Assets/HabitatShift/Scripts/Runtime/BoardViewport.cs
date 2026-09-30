@@ -90,8 +90,8 @@ namespace HabitatShift.Runtime
         {
             if (card == null || safeArea == null) return;
             var available = safeArea.rect.size - new Vector2(48f, 48f);
-            var size = new Vector2(Mathf.Max(1f, Mathf.Min(820f, available.x)),
-                Mathf.Max(1f, Mathf.Min(designHeight, available.y)));
+            var size = new Vector2(Mathf.Max(1f, Mathf.Min(HudTheme.Scaled(1010f), available.x)),
+                Mathf.Max(1f, Mathf.Min(HudTheme.Scaled(designHeight), available.y)));
             if (card.sizeDelta != size) card.sizeDelta = size;
         }
     }
@@ -124,9 +124,9 @@ namespace HabitatShift.Runtime
             if (Mathf.Abs(width - lastWidth) < .5f && content.childCount == lastChildren) return;
             lastWidth = width;
             lastChildren = content.childCount;
-            const float gap = 18f;
-            const float inset = 8f;
-            var cell = Mathf.Min(192f, Mathf.Max(48f, (width - 2f * inset - 2f * gap) / 3f));
+            var gap = HudTheme.Scaled(18f);
+            var inset = HudTheme.Scaled(8f);
+            var cell = Mathf.Min(HudTheme.Scaled(260f), Mathf.Max(48f, (width - 2f * inset - 2f * gap) / 3f));
             var left = (width - 3f * cell - 2f * gap) * .5f;
             var rows = Mathf.CeilToInt(content.childCount / 3f);
             content.sizeDelta = new Vector2(0f, rows * cell + Mathf.Max(0, rows - 1) * gap + 2f * inset);
@@ -177,10 +177,10 @@ namespace HabitatShift.Runtime
             var scale = canvas.scaleFactor;
             var boardBottom = worldCamera.WorldToScreenPoint(
                 BoardViewport.ToWorld(new Vector2(level.cols * .5f, level.rows + .17f)));
-            var assistY = boardBottom.y - (22f + assistRow.rect.height * .5f) * scale;
+            var gap = HudTheme.Scaled(16f);var assistY = boardBottom.y - (HudTheme.Scaled(20f) + assistRow.rect.height * .5f) * scale;
             var utilityY = assistY -
-                (assistRow.rect.height * .5f + 18f + utilityRow.rect.height * .5f) * scale;
-            var minUtilityY = Screen.safeArea.yMin + (utilityRow.rect.height * .5f + 20f) * scale;
+                (assistRow.rect.height * .5f + gap + utilityRow.rect.height * .5f) * scale;
+            var minUtilityY = Screen.safeArea.yMin + (utilityRow.rect.height * .5f + HudTheme.Scaled(12f)) * scale;
             if (utilityY < minUtilityY)
             {
                 var adjustment = minUtilityY - utilityY;
@@ -190,7 +190,9 @@ namespace HabitatShift.Runtime
             SetScreenCenter(assistRow, centerX, assistY);
             SetScreenCenter(utilityRow, centerX, utilityY);
             if (cancelButton != null)
-                SetScreenCenter(cancelButton, centerX + (assistRow.rect.width * .5f + 48f) * scale, assistY);
+            {
+                var offset = (utilityRow.rect.width * .5f + gap + cancelButton.rect.width * .5f) * scale;var limit = Screen.safeArea.xMax - (cancelButton.rect.width * .5f + HudTheme.Scaled(8f)) * scale;SetScreenCenter(cancelButton, Mathf.Min(centerX + offset, limit), utilityY);
+            }
         }
 
         void SetScreenCenter(RectTransform row, float x, float y)

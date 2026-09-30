@@ -12,7 +12,7 @@ namespace HabitatShift.Editor
         const string Board = "Assets/Resources/HabitatShift/Board";
         const string Atlases = "Assets/HabitatShift/Art/Atlases";
         static readonly string[] Families =
-            { "coral", "cobalt", "sage", "saffron", "lavender", "teal", "peach", "rose" };
+            { "coral", "cobalt", "sage", "saffron", "lavender", "teal", "peach", "rose", "walnut" };
 
         [InitializeOnLoadMethod]
         static void Schedule()

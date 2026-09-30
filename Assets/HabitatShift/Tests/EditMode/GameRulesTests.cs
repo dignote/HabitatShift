@@ -13,13 +13,75 @@ public sealed class GameRulesTests {
   static byte[] CatalogBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","approved_levels_v4.json"));
   static byte[] RulesBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","ruleset_manifest_v1.json"));
 
-  [Test] public void CatalogPayload_ValidProductionBytes_DeserializeAndValidate(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.NotNull(catalog);Assert.NotNull(rules);Assert.AreEqual(23,catalog.levelCount);Assert.AreEqual("continuous-core-v2",rules.rulesetVersion);}
+  [Test] public void CatalogPayload_ValidProductionBytes_DeserializeAndValidate(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.NotNull(catalog);Assert.NotNull(rules);Assert.AreEqual(30,catalog.levelCount);Assert.AreEqual("continuous-core-v2",rules.rulesetVersion);Assert.AreEqual("m8-20260929-levels-24-30",catalog.catalogRevision);Assert.AreEqual(64,catalog.canonicalLevelsFingerprint.Length);}
   [Test] public void CatalogPayload_ChangedCatalogByte_FailsSha(){var bytes=CatalogBytes();bytes[0]^=1;Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(bytes,RulesBytes(),out rules);});}
   [Test] public void CatalogPayload_ChangedRulesByte_FailsSha(){var bytes=RulesBytes();bytes[0]^=1;Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(CatalogBytes(),bytes,out rules);});}
   [Test] public void CatalogPayload_EmptyPayload_Fails(){Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(Array.Empty<byte>(),RulesBytes(),out rules);});}
   [Test] public void CatalogPayload_InvalidJson_FailsWithoutFilesystem(){Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes("{broken"),RulesBytes(),out rules);});}
-  [Test] public void CatalogPayload_InvalidIdentity_FailsWithoutFilesystem(){var raw=Encoding.UTF8.GetString(CatalogBytes()).Replace("m7-20260928-levels-19-23","invalid-revision");Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes(raw),RulesBytes(),out rules);});}
-  [Test] public void CatalogPayload_ExpandedCatalog_HasLevels19To23(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.AreEqual(23,catalog.levelCount);Assert.AreEqual(23,catalog.levels.Length);for(var i=0;i<catalog.levels.Length;i++){var level=catalog.levels[i];Assert.AreEqual(i+1,level.id);Assert.IsNotNull(level.habitats);Assert.IsNotNull(level.targets);Assert.IsNotNull(level.elevators);}Assert.AreEqual(11,catalog.levels[18].habitats.Length);Assert.AreEqual(2,catalog.levels[18].elevators.Length);Assert.AreEqual(10,catalog.levels[19].habitats.Length);Assert.AreEqual(8,catalog.levels[20].habitats.Length);Assert.AreEqual(4,catalog.levels[20].elevators.Length);Assert.AreEqual(11,catalog.levels[21].habitats.Length);Assert.AreEqual(10,catalog.levels[22].habitats.Length);Assert.AreEqual(1,catalog.levels[22].elevators.Length);Assert.IsTrue(System.Array.Exists(catalog.levels[18].habitats,habitat=>habitat.color=="white"));}
+  [Test] public void CatalogPayload_InvalidIdentity_FailsWithoutFilesystem(){var raw=Encoding.UTF8.GetString(CatalogBytes()).Replace("m8-20260929-levels-24-30","invalid-revision");Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes(raw),RulesBytes(),out rules);});}
+  [Test] public void CatalogPayload_ExpandedCatalog_HasLevels19To23(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.AreEqual(30,catalog.levelCount);Assert.AreEqual(30,catalog.levels.Length);for(var i=0;i<catalog.levels.Length;i++){var level=catalog.levels[i];Assert.AreEqual(i+1,level.id);Assert.IsNotNull(level.habitats);Assert.IsNotNull(level.targets);Assert.IsNotNull(level.elevators);}Assert.AreEqual(11,catalog.levels[18].habitats.Length);Assert.AreEqual(2,catalog.levels[18].elevators.Length);Assert.AreEqual(10,catalog.levels[19].habitats.Length);Assert.AreEqual(8,catalog.levels[20].habitats.Length);Assert.AreEqual(4,catalog.levels[20].elevators.Length);Assert.AreEqual(11,catalog.levels[21].habitats.Length);Assert.AreEqual(10,catalog.levels[22].habitats.Length);Assert.AreEqual(1,catalog.levels[22].elevators.Length);Assert.IsTrue(System.Array.Exists(catalog.levels[18].habitats,habitat=>habitat.color=="white"));}
+  [Test] public void CatalogPayload_Levels24To30_ProtectedBaselineAndImport(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
+    // L1..L23 khong doi: id + so habitat/queue/elevator/target/mask nhu milestone truoc.
+    Assert.AreEqual(23,catalog.levels[22].id);Assert.AreEqual(58,catalog.levels[22].playableMask.Length);
+    Assert.AreEqual(30,catalog.levels[29].id);
+    var expected=new[]{new[]{9,22,1,0},new[]{11,24,0,0},new[]{9,18,2,0},new[]{12,18,2,0},new[]{11,19,3,0},new[]{9,16,2,3},new[]{8,20,0,0}};
+    for(var index=0;index<7;index++){var level=catalog.levels[23+index];Assert.AreEqual(24+index,level.id);Assert.AreEqual(expected[index][0],level.habitats.Length,"habitats L"+level.id);Assert.AreEqual(expected[index][1],level.targets.Length,"targets L"+level.id);Assert.AreEqual(expected[index][2],level.elevators.Length,"elevators L"+level.id);Assert.AreEqual(expected[index][3],(level.obstacles??new IntPair[0]).Length,"obstacles L"+level.id);Assert.IsTrue(level.cols<=10&&level.rows<=10);}}
+  [Test] public void CatalogPayload_Levels24To30_NoEmptyQueueAndNoPlaceholder(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
+    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];foreach(var elevator in level.elevators){Assert.Greater(elevator.queue.Length,0,"queue L"+level.id+" "+elevator.id);Assert.AreNotEqual("E28_R8_20",elevator.id);Assert.AreEqual(0,elevator.nextIndex);Assert.IsTrue(elevator.mandatory);}}}
+  [Test] public void CatalogPayload_Level29_ObstaclesAndBrownFootprint(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);var level=catalog.levels[28];
+    Assert.AreEqual(3,level.obstacles.Length);
+    var blocked=new System.Collections.Generic.List<string>();foreach(var cell in level.obstacles)blocked.Add(cell.x+"_"+cell.y);blocked.Sort();
+    CollectionAssert.AreEqual(new[]{"2_4","3_3","4_4"},blocked);
+    var brown=System.Array.Find(level.habitats,habitat=>habitat.color=="brown");Assert.IsNotNull(brown);
+    Assert.AreEqual(3,brown.need);Assert.AreEqual(3,brown.shape.Length);Assert.AreEqual(4,brown.anchor.x);Assert.AreEqual(6,brown.anchor.y);
+    var cells=new System.Collections.Generic.List<string>();foreach(var cell in brown.shape)cells.Add((brown.anchor.x+cell.x)+"_"+(brown.anchor.y+cell.y));cells.Sort();
+    CollectionAssert.AreEqual(new[]{"4_7","5_6","5_7"},cells);}
+  [Test] public void CatalogPayload_Levels24To30_QueueOrderPreserved(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);var level=catalog.levels[27];
+    var elevator=System.Array.Find(level.elevators,item=>item.id=="E28_R8_17");Assert.IsNotNull(elevator);
+    var colors=new System.Collections.Generic.List<string>();foreach(var item in elevator.queue)colors.Add(item.color);
+    CollectionAssert.AreEqual(new[]{"purple","orange","green","pink"},colors);
+    Assert.AreEqual(7.5f,elevator.entry.y,.001f);}
+  [Test] public void CatalogPayload_Levels24To30_SupplyBalanceExact(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
+    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];var colors=new System.Collections.Generic.HashSet<string>();foreach(var habitat in level.habitats)colors.Add(habitat.color);
+      foreach(var color in colors){var need=0;foreach(var habitat in level.habitats)if(habitat.color==color)need+=habitat.need;
+        var supply=0;foreach(var target in level.targets)if(target.color==color)supply++;
+        foreach(var elevator in level.elevators)foreach(var item in elevator.queue)if(item.color==color)supply++;
+        Assert.AreEqual(need,supply,"supply L"+level.id+" "+color);}}}
+  [Test] public void CatalogPayload_WhiteAndWalnutSpriteContract(){const System.Reflection.BindingFlags Hidden=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static;
+    var presentation=typeof(HabitatShift.Runtime.HabitatPresentation);
+    var family=presentation.GetMethod("Family",Hidden);var spriteName=presentation.GetMethod("SpriteName",Hidden);
+    Assert.AreEqual("walnut",family.Invoke(null,new object[]{"brown"}));Assert.AreEqual("ivory",family.Invoke(null,new object[]{"white"}));
+    Assert.AreEqual("sproutling_walnut_v2",spriteName.Invoke(null,new object[]{"brown"}));Assert.AreEqual("sproutling_white_v2",spriteName.Invoke(null,new object[]{"white"}));
+    var fx=new GameObject("fx probe").AddComponent<HabitatShift.Runtime.GameplayFxController>();
+    var sprout=fx.GetType().GetMethod("SproutSprite",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+    var walnut=(Sprite)sprout.Invoke(fx,new object[]{"brown"});var ivory=(Sprite)sprout.Invoke(fx,new object[]{"white"});
+    Assert.IsNotNull(walnut);Assert.IsNotNull(ivory);Assert.AreNotSame(ivory,walnut);
+    Assert.AreEqual(LoadSprite("HabitatShift/sproutling_walnut_v2"),walnut);Assert.AreEqual(LoadSprite("HabitatShift/sproutling_white_v2"),ivory);
+    UnityEngine.Object.DestroyImmediate(fx.gameObject);
+    Assert.AreNotEqual(GameplayFxControllerColor("brown"),GameplayFxControllerColor("pink"));}
+  static Sprite LoadSprite(string path)=>Resources.Load<Sprite>(path);
+  static Color GameplayFxControllerColor(string color)=>HabitatShift.Runtime.GameplayFxController.ColorFor(color);
+  [Test] public void CatalogPayload_BlockerVariantsDeterministic(){const System.Reflection.BindingFlags Hidden=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static;
+    var chooser=typeof(HabitatShift.Runtime.HabitatPresentation).GetMethod("BlockerSpriteName",Hidden);Assert.IsNotNull(chooser);
+    var known=new[]{"board_blocker_stone","board_blocker_moss","board_blocker_brick"};var seen=new System.Collections.Generic.List<string>();
+    for(var y=0;y<8;y++)for(var x=0;x<8;x++){var name=(string)chooser.Invoke(null,new object[]{x,y});
+      Assert.Contains(name,known);Assert.AreEqual(name,chooser.Invoke(null,new object[]{x,y}),"khong on dinh tai "+x+","+y);
+      if(!seen.Contains(name))seen.Add(name);Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/"+name),name);}
+    Assert.AreEqual(3,seen.Count,"luoi 8x8 phai dung ca 3 bien the");
+    Assert.AreEqual("board_blocker_moss",chooser.Invoke(null,new object[]{2,4}));
+    Assert.AreEqual("board_blocker_stone",chooser.Invoke(null,new object[]{3,3}));
+    Assert.AreEqual("board_blocker_stone",chooser.Invoke(null,new object[]{4,4}));}
+  [Test] public void CatalogPayload_WalnutAndBoardAssetsExist(){Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/sproutling_walnut_v2"));Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/sproutling_white_v2"));
+    Assert.IsNull(Resources.Load<Sprite>("HabitatShift/sproutling_walnut_v1"),"walnut v1 phai da bi xoa");Assert.IsNull(Resources.Load<Sprite>("HabitatShift/sproutling_ivory_v1"),"ivory v1 phai da bi xoa");
+    foreach(var name in new[]{"board_blocker_stone","board_blocker_moss","board_blocker_brick"})Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/"+name),name);
+    Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/tray_walnut_0_0"));Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/tray_walnut_0_0-0_1"));Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/tray_walnut_0_1-1_0-1_1"));
+    for(var id=24;id<=26;id++){Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/board_mask_L"+id),"mask L"+id);Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/board_frame_L"+id),"frame L"+id);}
+    for(var id=27;id<=30;id++){Assert.IsNull(Resources.Load<Sprite>("HabitatShift/Board/board_mask_L"+id),"full rect L"+id);Assert.IsNull(Resources.Load<Sprite>("HabitatShift/Board/board_frame_L"+id),"full rect L"+id);}}
+  [Test] public void CatalogPayload_AllLevelHabitatTraysExist(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
+    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];foreach(var habitat in level.habitats){var family=(string)typeof(HabitatShift.Runtime.HabitatPresentation).GetMethod("Family",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{habitat.color});
+      var x0=int.MaxValue;var y0=int.MaxValue;foreach(var cell in habitat.shape){x0=System.Math.Min(x0,cell.x);y0=System.Math.Min(y0,cell.y);}
+      var parts=new System.Collections.Generic.List<string>();foreach(var cell in habitat.shape)parts.Add((cell.x-x0)+"_"+(cell.y-y0));parts.Sort();
+      var name="tray_"+family+"_"+string.Join("-",parts);Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/"+name),"L"+level.id+" "+name);}}}
 
   [Test] public void ContinuousDrag_CollectsAndCommitsOneMove(){var s=new ContinuousSession(Level(),Rules());Assert.True(s.BeginDrag("H",new Vector2(.5f,.5f)));s.MovePointer(new Vector2(3.5f,.5f));Assert.True(s.EndDrag());Assert.AreEqual(1,s.Committed.moves);Assert.True(s.Committed.won);}
   [Test] public void Constraint_FiltersForbiddenAxis(){var s=new ContinuousSession(Level("HORIZONTAL_ONLY"),Rules());s.BeginDrag("H",new Vector2(.5f,.5f));s.MovePointer(new Vector2(.5f,3.5f));s.EndDrag();Assert.AreEqual(0f,s.Committed.habitats[0].anchor.y);}

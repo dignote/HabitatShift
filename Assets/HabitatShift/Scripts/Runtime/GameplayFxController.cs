@@ -37,7 +37,7 @@ namespace HabitatShift.Runtime
             worldCamera = camera;
             foreach (var key in ResourcePrefabs.Keys)
                 Prewarm(key, key == "dust" ? 3 : key == "sparkle" || key == "shine" ? 12 : key == "flash" ? 8 : 3);
-            foreach (var color in new[] { "orange", "blue", "green", "yellow", "purple", "cyan", "pink", "red", "white" })
+            foreach (var color in new[] { "orange", "blue", "green", "yellow", "purple", "cyan", "pink", "red", "white", "brown" })
                 SproutSprite(color);
             // L18 has eight board Sproutlings; an assist can emit several captures at once.
             for (var i = 0; i < 8; i++)
@@ -283,8 +283,9 @@ namespace HabitatShift.Runtime
         {
             var key = string.IsNullOrEmpty(color) ? "moss" : color;
             if (sproutSprites.TryGetValue(key, out var sprite)) return sprite;
-            var name = key == "orange" ? "coral" : key == "blue" ? "cobalt" : key == "green" ? "sage" : key == "yellow" ? "saffron" : key == "purple" ? "lavender" : key == "cyan" ? "teal" : key == "pink" ? "peach" : key == "red" ? "rose" : key == "white" ? "ivory" : "moss";
-            sprite = Resources.Load<Sprite>("HabitatShift/sproutling_" + name + "_v1");
+            // Ten resource day du (khong noi them hau to): white/brown da len phien ban v2.
+            var name = key == "orange" ? "sproutling_coral_v1" : key == "blue" ? "sproutling_cobalt_v1" : key == "green" ? "sproutling_sage_v1" : key == "yellow" ? "sproutling_saffron_v1" : key == "purple" ? "sproutling_lavender_v1" : key == "cyan" ? "sproutling_teal_v1" : key == "pink" ? "sproutling_peach_v1" : key == "red" ? "sproutling_rose_v1" : key == "white" ? "sproutling_white_v2" : key == "brown" ? "sproutling_walnut_v2" : "sproutling_moss_v1";
+            sprite = Resources.Load<Sprite>("HabitatShift/" + name);
             sproutSprites[key] = sprite;
             return sprite;
         }
@@ -301,6 +302,7 @@ namespace HabitatShift.Runtime
                 case "cyan": return new Color(.14f, .74f, .76f);
                 case "pink": return new Color(1f, .42f, .62f);
                 case "red": return new Color(.96f, .28f, .40f);case "white": return new Color(.94f, .92f, .84f);
+                case "brown": return new Color(.56f, .38f, .22f);
                 default: return new Color(1f, .80f, .28f);
             }
         }
