@@ -1,4 +1,4 @@
-using System;using System.Collections;using System.Collections.Generic;using System.IO;using System.Linq;using HabitatShift.Core;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.UI;
+using System;using System.Collections;using System.Collections.Generic;using System.IO;using System.Linq;using HabitatShift.Core;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.InputSystem;using UnityEngine.InputSystem.EnhancedTouch;using UnityEngine.InputSystem.UI;using UnityEngine.UI;using InputTouch=UnityEngine.InputSystem.EnhancedTouch.Touch;using InputTouchPhase=UnityEngine.InputSystem.TouchPhase;
 namespace HabitatShift.Runtime {
 [Serializable] public class SaveV2 {public int version=2,highest=1,last=1,uiSize=1;public bool music=true,sfx=true,haptics=true,vfx=true,reducedMotion=false;public List<int> completed=new List<int>();public List<Best> best=new List<Best>();public List<Charge> charges=new List<Charge>();public RuntimeState snapshot;public int snapshotLevel;}[Serializable] public class LegacyPrefs { public bool Sound=true,Haptics=true,ReducedMotion; } [Serializable] public class Best{public int level,moves;}[Serializable] public class Charge{public int level,nest,garden,trim;}
 public class SproutlingMotion:MonoBehaviour
@@ -9,33 +9,55 @@ public class SproutlingMotion:MonoBehaviour
     public void SetPose(Vector3 position,Vector3 scale){basePosition=position;baseScale=scale;}
     void Update(){if(!MotionEnabled){transform.localPosition=basePosition;transform.localScale=baseScale;return;}var t=Time.time+phase;transform.localPosition=basePosition+Vector3.up*Mathf.Sin(t*1.4f)*.025f;transform.localScale=baseScale*(1f+Mathf.Sin(t*2f)*.02f);}
 }public sealed class HabitatBootstrap:MonoBehaviour{
-static HabitatBootstrap instance;CatalogDto catalog;RulesetDto rules;ContinuousSession session;SaveV2 save;Camera cam;Canvas canvas;Sprite white;AudioSource audio;HabitatPresentation presentation;GameplayFxController fx;int current;bool active;string assistHabitat,assistSprout;AssistKind? assist;readonly Dictionary<string,GameObject> world=new Dictionary<string,GameObject>();readonly List<GameObject> ui=new List<GameObject>();readonly Dictionary<int,AudioClip> tones=new Dictionary<int,AudioClip>();Text hud;float winAt=-1,blockedToneAt=-1;int fittedWidth,fittedHeight;Rect fittedSafe;int dragPointerId=int.MinValue;GameObject assistCancelButton;
+static HabitatBootstrap instance;CatalogDto catalog;RulesetDto rules;ContinuousSession session;SaveV2 save;Camera cam;Canvas canvas;Sprite white;AudioSource audio;HabitatPresentation presentation;GameplayFxController fx;int current;bool active;string assistHabitat,assistSprout;AssistKind? assist;readonly Dictionary<string,GameObject> world=new Dictionary<string,GameObject>();readonly List<GameObject> ui=new List<GameObject>();readonly Dictionary<int,AudioClip> tones=new Dictionary<int,AudioClip>();Text hud;float winAt=-1,blockedToneAt=-1;int fittedWidth,fittedHeight;Rect fittedSafe;int dragPointerId=int.MinValue;bool HasTouchPointer=>dragPointerId!=int.MinValue&&dragPointerId!=-1;bool enhancedTouchOwned;GameObject assistCancelButton;
 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Create(){if(instance==null)new GameObject("Habitat Shift").AddComponent<HabitatBootstrap>();}
-void Awake(){if(instance!=null&&instance!=this){Destroy(gameObject);return;}instance=this;DontDestroyOnLoad(gameObject);Application.targetFrameRate=60;Screen.orientation=ScreenOrientation.Portrait;StartCoroutine(InitializeCatalogThenHome());}IEnumerator InitializeCatalogThenHome(){CatalogLoadResult loaded=null;yield return CatalogLoader.LoadRoutine(x=>loaded=x);if(loaded==null||!loaded.Success){Debug.LogError("Habitat Shift startup failed closed: "+(loaded==null?"catalog loader returned no result.":loaded.error));yield break;}catalog=loaded.catalog;rules=loaded.rules;save=Load();ApplyUiScale();MakeInfra();ShowHome();}
-void MakeInfra(){cam=Camera.main;if(cam==null){cam=new GameObject("Habitat Camera").AddComponent<Camera>();cam.tag="MainCamera";}cam.orthographic=true;cam.backgroundColor=new Color(.16f,.25f,.20f);cam.transform.position=new Vector3(4,-3.5f,-10);audio=gameObject.AddComponent<AudioSource>();PrewarmTones();var t=new Texture2D(2,2);t.SetPixels(new[]{Color.white,Color.white,Color.white,Color.white});t.Apply();white=UnityEngine.Sprite.Create(t,new Rect(0,0,2,2),new Vector2(.5f,.5f),2);presentation=gameObject.AddComponent<HabitatPresentation>();presentation.Initialize(cam);fx=gameObject.AddComponent<GameplayFxController>();fx.Initialize(cam);fx.SetSettings(save.vfx,save.reducedMotion);if(FindAnyObjectByType<EventSystem>()==null)new GameObject("EventSystem",typeof(EventSystem),typeof(StandaloneInputModule));var c=new GameObject("UI",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));canvas=c.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=20;c.AddComponent<UiLayoutAudit>();var sc=c.GetComponent<CanvasScaler>();sc.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;sc.referenceResolution=new Vector2(1080,1920);}
+void Awake(){if(instance!=null&&instance!=this){Destroy(gameObject);return;}instance=this;DontDestroyOnLoad(gameObject);Application.targetFrameRate=60;Screen.orientation=ScreenOrientation.Portrait;StartCoroutine(InitializeCatalogThenHome());}void OnEnable(){if(instance!=this||enhancedTouchOwned)return;EnhancedTouchSupport.Enable();enhancedTouchOwned=true;}void OnDisable(){if(instance==this)CancelDrag();if(enhancedTouchOwned){EnhancedTouchSupport.Disable();enhancedTouchOwned=false;}}void OnDestroy(){if(instance==this)instance=null;}IEnumerator InitializeCatalogThenHome(){CatalogLoadResult loaded=null;yield return CatalogLoader.LoadRoutine(x=>loaded=x);if(loaded==null||!loaded.Success){Debug.LogError("Habitat Shift startup failed closed: "+(loaded==null?"catalog loader returned no result.":loaded.error));yield break;}catalog=loaded.catalog;rules=loaded.rules;save=Load();ApplyUiScale();MakeInfra();ShowHome();}
+void MakeInfra(){cam=Camera.main;if(cam==null){cam=new GameObject("Habitat Camera").AddComponent<Camera>();cam.tag="MainCamera";}cam.orthographic=true;cam.backgroundColor=new Color(.16f,.25f,.20f);cam.transform.position=new Vector3(4,-3.5f,-10);audio=gameObject.AddComponent<AudioSource>();PrewarmTones();var t=new Texture2D(2,2);t.SetPixels(new[]{Color.white,Color.white,Color.white,Color.white});t.Apply();white=UnityEngine.Sprite.Create(t,new Rect(0,0,2,2),new Vector2(.5f,.5f),2);presentation=gameObject.AddComponent<HabitatPresentation>();presentation.Initialize(cam);fx=gameObject.AddComponent<GameplayFxController>();fx.Initialize(cam);fx.SetSettings(save.vfx,save.reducedMotion);EnsureInputSystemEventSystem();var c=new GameObject("UI",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));canvas=c.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=20;c.AddComponent<UiLayoutAudit>();var sc=c.GetComponent<CanvasScaler>();sc.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;sc.referenceResolution=new Vector2(1080,1920);}
 void Update(){
     if(active && (fittedWidth!=Screen.width || fittedHeight!=Screen.height || fittedSafe!=Screen.safeArea)) Fit(catalog.levels[current-1]);
     if(active&&session!=null&&!session.Committed.won){
-        if(Input.touchCount>0){for(var i=0;i<Input.touchCount;i++)HandleTouch(Input.GetTouch(i));}
-        else {if(dragPointerId>=0){EndDrag(true);dragPointerId=int.MinValue;}HandleMouse();}
+        var touches=InputTouch.activeTouches;
+        if(touches.Count>0){if(dragPointerId==-1)CancelDrag();var tracked=false;for(var i=0;i<touches.Count;i++){HandleTouch(touches[i]);if(touches[i].touchId==dragPointerId)tracked=true;}if(HasTouchPointer&&!tracked)CancelDrag();}
+        else {if(HasTouchPointer)CancelDrag();HandleMouse();}
     }
     if(winAt>0&&Time.unscaledTime>=winAt){winAt=-1;ShowResult();}
 }
+void EnsureInputSystemEventSystem(){
+    var eventSystem=FindAnyObjectByType<EventSystem>();
+    if(eventSystem==null)eventSystem=new GameObject("EventSystem",typeof(EventSystem)).GetComponent<EventSystem>();
+    foreach(var legacy in eventSystem.GetComponents<StandaloneInputModule>()){legacy.enabled=false;Destroy(legacy);}
+    var modules=eventSystem.GetComponents<InputSystemUIInputModule>();
+    var module=modules.Length==0?eventSystem.gameObject.AddComponent<InputSystemUIInputModule>():modules[0];
+    for(var i=1;i<modules.Length;i++){modules[i].enabled=false;Destroy(modules[i]);}
+    if(module.actionsAsset==null||module.point==null||module.leftClick==null)module.AssignDefaultActions();
+    module.enabled=true;
+}
+bool PointerOverUi(Vector2 position){
+    var eventSystem=EventSystem.current;
+    if(eventSystem==null)return false;
+    var pointer=new PointerEventData(eventSystem){position=position};
+    var hits=new List<RaycastResult>();
+    eventSystem.RaycastAll(pointer,hits);
+    return hits.Count>0;
+}
 void HandleMouse(){
-    if(Input.GetMouseButtonDown(0)&&dragPointerId==int.MinValue&&!EventSystem.current.IsPointerOverGameObject()){
-        StartDrag(Input.mousePosition);if(session.IsDragging)dragPointerId=-1;
+    var mouse=Mouse.current;
+    if(mouse==null||HasTouchPointer)return;
+    var position=mouse.position.ReadValue();
+    if(mouse.leftButton.wasPressedThisFrame&&dragPointerId==int.MinValue&&!PointerOverUi(position)){
+        StartDrag(position);if(session.IsDragging)dragPointerId=-1;
     }
     if(dragPointerId!=-1)return;
-    if(Input.GetMouseButton(0))Drag(Input.mousePosition);
-    if(Input.GetMouseButtonUp(0)){EndDrag();dragPointerId=int.MinValue;}
+    if(mouse.leftButton.isPressed)Drag(position);
+    if(mouse.leftButton.wasReleasedThisFrame){EndDrag();dragPointerId=int.MinValue;}
 }
-void HandleTouch(Touch touch){
-    if(touch.phase==TouchPhase.Began&&dragPointerId==int.MinValue&&!EventSystem.current.IsPointerOverGameObject(touch.fingerId)){
-        StartDrag(touch.position);if(session.IsDragging)dragPointerId=touch.fingerId;
+void HandleTouch(InputTouch touch){
+    if(touch.phase==InputTouchPhase.Began&&dragPointerId==int.MinValue&&!PointerOverUi(touch.screenPosition)){
+        StartDrag(touch.screenPosition);if(session.IsDragging)dragPointerId=touch.touchId;
     }
-    if(dragPointerId!=touch.fingerId)return;
-    if(touch.phase==TouchPhase.Moved||touch.phase==TouchPhase.Stationary)Drag(touch.position);
-    if(touch.phase==TouchPhase.Ended||touch.phase==TouchPhase.Canceled){EndDrag(touch.phase==TouchPhase.Canceled);dragPointerId=int.MinValue;}
+    if(dragPointerId!=touch.touchId)return;
+    if(touch.phase==InputTouchPhase.Moved||touch.phase==InputTouchPhase.Stationary)Drag(touch.screenPosition);
+    if(touch.phase==InputTouchPhase.Ended||touch.phase==InputTouchPhase.Canceled){EndDrag(touch.phase==InputTouchPhase.Canceled);dragPointerId=int.MinValue;}
 }
 void ApplyUiScale(){HudTheme.UiScale=save!=null&&save.uiSize==0?.85f:save!=null&&save.uiSize==2?1.2f:1f;}string UiSizeLabel(){return save==null||save.uiSize==1?"NORMAL":save.uiSize==0?"SMALL":"LARGE";}void CancelDrag(){if(session!=null&&session.IsDragging)EndDrag(true);dragPointerId=int.MinValue;}
 void OnGUI(){if(!Debug.isDebugBuild||!active||session==null||!session.IsDragging)return;DebugMarker(session.ResolvedPose,Color.green,"resolved");DebugMarker(session.DesiredPointerPose,Color.yellow,"desired");DebugMarker(session.LastSafePose,Color.cyan,"safe");DebugMarker(session.ResolvedPose+session.GrabOffset,Color.magenta,"grab");if(session.ContactNormal.sqrMagnitude>.001f)DebugMarker(session.ResolvedPose+session.ContactNormal*.35f,Color.red,"contact");}
