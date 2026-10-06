@@ -1,0 +1,86 @@
+{
+  "version": "m12-diversity-authoring-v1",
+  "levels": {
+    "32": {
+      "topology": "left pocket -> narrow exchange -> right pocket",
+      "roles": [
+        "left evacuation",
+        "right-to-left crosser",
+        "right pocket entrant"
+      ],
+      "stagePairs": [
+        "cyan->yellow",
+        "pink->white"
+      ],
+      "elevatorPurpose": [
+        "return color from east",
+        "opposite-pocket final color"
+      ],
+      "nonCollectingUnlocks": [
+        "move LEFT_BENT out of exchange",
+        "move CROSSER through exchange"
+      ]
+    },
+    "33": {
+      "topology": "asymmetric diagonal staircase / zig-zag",
+      "roles": [
+        "stair opener",
+        "offset relay",
+        "diagonal staged handoff"
+      ],
+      "stagePairs": [
+        "purple->cyan",
+        "orange->brown",
+        "green->red"
+      ],
+      "elevatorPurpose": [
+        "three diagonal relay exits"
+      ],
+      "nonCollectingUnlocks": [
+        "clear STAIR_A",
+        "offset STAIR_B"
+      ]
+    },
+    "34": {
+      "topology": "entry fork with two branches reconverging at shared pocket",
+      "roles": [
+        "fork stem",
+        "branch A opener",
+        "branch B opener",
+        "shared pocket closer"
+      ],
+      "stagePairs": [
+        "blue->orange",
+        "yellow->pink"
+      ],
+      "elevatorPurpose": [
+        "branch-return colors"
+      ],
+      "nonCollectingUnlocks": [
+        "free branch A",
+        "free branch B"
+      ]
+    },
+    "35": {
+      "topology": "north/left/right hub with lower loop",
+      "roles": [
+        "north opener",
+        "hub mover",
+        "lower loop relay",
+        "pocket closer"
+      ],
+      "stagePairs": [
+        "white->green",
+        "red->purple",
+        "brown->cyan"
+      ],
+      "elevatorPurpose": [
+        "stage outputs open new spatial pockets"
+      ],
+      "nonCollectingUnlocks": [
+        "open hub",
+        "circulate lower loop"
+      ]
+    }
+  }
+}

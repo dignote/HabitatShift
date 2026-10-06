@@ -1,0 +1,62 @@
+{
+  "schema": "habitat-shift-levels-v5",
+  "catalogRevision": "m11-synthetic-fixture-v1",
+  "rulesetVersion": "continuous-core-v3",
+  "rulesetFingerprint": "8380cdf7331c29f10740dd6679e5939194d2e7137d6bea4cd41bf6d5e2935042",
+  "canonicalLevelsFingerprint": "11fd21aeb44264332819acf72c28cf4ed7ad866891ddb59c68abab23bb4e403b",
+  "levelCount": 1,
+  "levels": [
+    {
+      "id": 1,
+      "title": "M11 Dual Ring Synthetic",
+      "cols": 4,
+      "rows": 3,
+      "habitats": [
+        {
+          "id": "H",
+          "anchor": [
+            0,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "movementConstraint": "FREE",
+          "stages": [
+            {
+              "color": "green",
+              "need": 1
+            },
+            {
+              "color": "red",
+              "need": 1
+            }
+          ]
+        }
+      ],
+      "targets": [
+        {
+          "id": "G",
+          "color": "green",
+          "position": [
+            1.5,
+            0.5
+          ]
+        },
+        {
+          "id": "R",
+          "color": "red",
+          "position": [
+            2.5,
+            0.5
+          ]
+        }
+      ],
+      "elevators": [],
+      "obstacles": []
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+    "version": 1,
+    "levelId": 32,
+    "catalogFingerprint": "1dea4feb222e8034560c2309f7ec8217ad06119727c87d7fd005f03df41d4208",
+    "gestures": [
+        {
+            "habitatId": "L32_H_LEFT_GREEN",
+            "press": {
+                "x": 0.5,
+                "y": 2.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 3.5
+                }
+            ],
+            "checkpoint": "64f907539b1cf3417eaf9adb11b7a15ce82f1975f67eab240812c6183b9e3899"
+        },
+        {
+            "habitatId": "L32_H_RIGHT_BLUE",
+            "press": {
+                "x": 5.5,
+                "y": 0.5
+            },
+            "boardPath": [
+                {
+                    "x": 5.5,
+                    "y": 1.5
+                }
+            ],
+            "checkpoint": "f6efecea493b871ad28b045b6ca899964a70e44bf1d01174354eb2c556f17e03"
+        },
+        {
+            "habitatId": "L32_H_LEFT_ORANGE",
+            "press": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 1.5
+                }
+            ],
+            "checkpoint": "8b76df4cea1de39dec90554d8ebae9e6da67ede2973d44d264998e3112b2c55a"
+        },
+        {
+            "habitatId": "L32_H_RIGHT_PURPLE",
+            "press": {
+                "x": 5.5,
+                "y": 2.5
+            },
+            "boardPath": [
+                {
+                    "x": 5.5,
+                    "y": 3.5
+                }
+            ],
+            "checkpoint": "51b430a68fac9fb9f6384b567e8e57cd20e9166f47f447fc26f3c655b3c7c561"
+        },
+        {
+            "habitatId": "L32_H_LEFT_RED",
+            "press": {
+                "x": 0.5,
+                "y": 4.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 5.5
+                }
+            ],
+            "checkpoint": "6752020a30d06c9950f4d473e8854ba26689d5b1543bfd495286a4e02192460a"
+        },
+        {
+            "habitatId": "L32_H_RIGHT_BROWN",
+            "press": {
+                "x": 5.5,
+                "y": 4.5
+            },
+            "boardPath": [
+                {
+                    "x": 5.5,
+                    "y": 5.5
+                }
+            ],
+            "checkpoint": "b4c85e1f955f1fa1a0f04ef4e1f0684624f903be0789bd58c2cb7c7bd5a903dd"
+        },
+        {
+            "habitatId": "L32_H_CYAN_RELAY",
+            "press": {
+                "x": 0.5,
+                "y": 6.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "680206d59e49371ebd564388c7cdae9f88d5588d0eda119d79746b85f4253b84"
+        },
+        {
+            "habitatId": "L32_H_CYAN_RELAY",
+            "press": {
+                "x": 0.5,
+                "y": 7.5
+            },
+            "boardPath": [
+                {
+                    "x": 1.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "cd3ae8438fabc66e13957938c03755373149e544d3eb1b21a12493d9ea743656"
+        },
+        {
+            "habitatId": "L32_H_PINK_RELAY",
+            "press": {
+                "x": 5.5,
+                "y": 6.5
+            },
+            "boardPath": [
+                {
+                    "x": 5.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "f8006378f8e31d50cd222df00a22020636c89521a1700e4de57e3d852d693cc8"
+        },
+        {
+            "habitatId": "L32_H_PINK_RELAY",
+            "press": {
+                "x": 5.5,
+                "y": 7.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 6.5
+                }
+            ],
+            "checkpoint": "4d833650af7420e7d86dd758a1080aa769e09ac8262f8bf9ebc7697ee1cfb4b5"
+        }
+    ]
+}

@@ -1,25 +1,94 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using System;
 using System.IO;
 using System.Text;
 using NUnit.Framework;
 using HabitatShift.Core;
+using HabitatShift.Runtime;
 using UnityEngine;
 
 namespace HabitatShift.Tests {
 public sealed class GameRulesTests {
   LevelDto Level(string constraint="FREE") { return new LevelDto { id=1, cols=6, rows=6, habitats=new[]{new HabitatDto{id="H",color="orange",anchor=new IntPair{x=0,y=0},shape=new[]{new IntPair{x=0,y=0}},need=2,movementConstraint=constraint}}, targets=new[]{new TargetDto{id="S1",color="orange",position=new FloatPair{x=2.5f,y=.5f}},new TargetDto{id="S2",color="orange",position=new FloatPair{x=3.5f,y=.5f}}}, elevators=new ElevatorDto[0], obstacles=new IntPair[0]}; }
   RulesetDto Rules()=>new RulesetDto{dragSweepStep=.08f,collectionTolerance=.12f,foreignSproutlingCollisionRadius=.18f,narrowCorridorDragCollisionInset=.1f,activeDragHabitatCollisionSkin=.04f,strictProjectionRadius=.12f,contactReleaseHysteresis=.20f,strictCorrectionPerSweep=.02f,contactSolverIterations=4};
-  static byte[] CatalogBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","approved_levels_v4.json"));
-  static byte[] RulesBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","ruleset_manifest_v1.json"));
+  [Test] public void LevelSelect_DebugBuildDoesNotMutateProgressionLock(){
+    Assert.True(HabitatBootstrap.IsLevelLocked(6,5,false));
+    Assert.False(HabitatBootstrap.IsLevelLocked(5,5,false));
+    Assert.False(HabitatBootstrap.IsLevelLocked(35,1,true));
+  }
+  [Test] public void BlockedContact_LShapeReportsForeignSproutInsteadOfAnchor(){
+    var level=new LevelDto{id=31,cols=8,rows=8,habitats=new[]{new HabitatDto{id="L31_H_CYAN_RING",color="cyan",anchor=new IntPair{x=5,y=5},shape=new[]{new IntPair{x=0,y=0},new IntPair{x=1,y=0},new IntPair{x=0,y=1}},need=2,movementConstraint="FREE"}},targets=new[]{new TargetDto{id="L31_S_ORANGE_07",color="orange",position=new FloatPair{x=6.5f,y=4.5f}},new TargetDto{id="L31_S_CYAN_02",color="cyan",position=new FloatPair{x=7.5f,y=6.5f}}},elevators=new ElevatorDto[0],obstacles=new IntPair[0]};
+    var session=new ContinuousSession(level,Rules());
+    Assert.IsTrue(session.BeginDrag("L31_H_CYAN_RING",new Vector2(5.5f,5.5f)));
+    session.MovePointer(new Vector2(5.5f,4.5f));
+    var contact=session.Events.Find(e=>e.kind==PresentationKind.BlockedContact);
+    Assert.NotNull(contact);Assert.AreEqual("L31_H_CYAN_RING",contact.subject);
+    Assert.Less(Vector2.Distance(new Vector2(6.5f,4.5f),contact.position),.001f);
+    Assert.Greater(session.ResolvedPose.y,4.5f);
+    session=new ContinuousSession(level,Rules());
+    Assert.IsTrue(session.BeginDrag("L31_H_CYAN_RING",new Vector2(5.5f,5.5f)));
+    session.MovePointer(new Vector2(6.5f,5.5f));
+    Assert.IsTrue(session.Preview.sprouts.Exists(s=>s.id=="L31_S_CYAN_02"),"The missing L corner must not collect cyan");
+  }
+  [Test] public void Presentation_LPreviewMarksOnlyOccupiedCellsAboveTray(){
+    var level=new LevelDto{id=31,cols=8,rows=8,habitats=new[]{new HabitatDto{id="L",color="cyan",anchor=new IntPair{x=3,y=3},shape=new[]{new IntPair{x=0,y=0},new IntPair{x=1,y=0},new IntPair{x=0,y=1}},need=1,movementConstraint="FREE"}},targets=new TargetDto[0],elevators=new ElevatorDto[0],obstacles=new IntPair[0]};
+    var go=new GameObject("L preview test");try{var view=go.AddComponent<HabitatPresentation>();view.SetSettlePreview("L",new Vector2(3,3),true);view.Render(ContinuousSession.Initial(level),level);var sprites=go.GetComponentsInChildren<SpriteRenderer>();var tray=Array.Find(sprites,r=>r.name=="habitat/L");Assert.NotNull(tray);foreach(var cell in new[]{"0/0","1/0","0/1"}){var preview=Array.Find(sprites,r=>r.name=="preview/L/"+cell);Assert.NotNull(preview,cell);Assert.Greater(preview.sortingOrder,tray.sortingOrder);}Assert.IsNull(Array.Find(sprites,r=>r.name=="preview/L/1/1"));}finally{UnityEngine.Object.DestroyImmediate(go);}
+  }
+  [Test] public void Presentation_MissingAuthoredTrayFallsBackToGeneratedFootprint(){
+    var level=new LevelDto{id=35,cols=4,rows=4,habitats=new[]{new HabitatDto{id="IVORY_L",color="white",anchor=new IntPair{x=0,y=0},shape=new[]{new IntPair{x=0,y=0},new IntPair{x=1,y=0},new IntPair{x=1,y=1}},need=1,movementConstraint="FREE"}},targets=new TargetDto[0],elevators=new ElevatorDto[0],obstacles=new IntPair[0]};
+    var go=new GameObject("Generated tray test");try{var view=go.AddComponent<HabitatPresentation>();Assert.DoesNotThrow(()=>view.Render(ContinuousSession.Initial(level),level));var tray=Array.Find(go.GetComponentsInChildren<SpriteRenderer>(),r=>r.name=="habitat/IVORY_L");Assert.NotNull(tray);StringAssert.StartsWith("GeneratedTray/ivory_0_0-1_0-1_1",tray.sprite.name);}finally{UnityEngine.Object.DestroyImmediate(go);}
+  }
+  [Test] public void BlockedContact_ObstacleAndHabitatUseBlockingCell(){
+    foreach(var habitatBlocker in new[]{false,true}){
+      var level=new LevelDto{id=1,cols=4,rows=3,habitats=habitatBlocker?new[]{new HabitatDto{id="H",color="orange",anchor=new IntPair{x=0,y=0},shape=new[]{new IntPair{x=0,y=0}},need=2,movementConstraint="FREE"},new HabitatDto{id="B",color="blue",anchor=new IntPair{x=1,y=0},shape=new[]{new IntPair{x=0,y=0}},need=2,movementConstraint="FREE"}}:new[]{new HabitatDto{id="H",color="orange",anchor=new IntPair{x=0,y=0},shape=new[]{new IntPair{x=0,y=0}},need=2,movementConstraint="FREE"}},targets=new TargetDto[0],elevators=new ElevatorDto[0],obstacles=habitatBlocker?new IntPair[0]:new[]{new IntPair{x=1,y=0}}};
+      var session=new ContinuousSession(level,Rules());Assert.IsTrue(session.BeginDrag("H",new Vector2(.5f,.5f)));session.MovePointer(new Vector2(1.5f,.5f));
+      var contact=session.Events.Find(e=>e.kind==PresentationKind.BlockedContact);Assert.NotNull(contact);Assert.AreEqual("H",contact.subject);Assert.Less(Vector2.Distance(new Vector2(1.5f,.5f),contact.position),.001f);
+    }
+  }
+  static byte[] CatalogBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","approved_levels_v5.json"));
+  static byte[] RulesBytes()=>File.ReadAllBytes(Path.Combine(Application.streamingAssetsPath,"HabitatShift","ruleset_manifest_v3.json"));
+  static void FinishLevel8Purple(ContinuousSession session){
+    Assert.IsTrue(session.BeginDrag("L08_H_PURPLE",new Vector2(5,4)));session.MovePointer(new Vector2(4,4));session.MovePointer(new Vector2(3,4));Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.BeginDrag("L08_H_PURPLE_TALL",new Vector2(1,3)));session.MovePointer(new Vector2(1,4));session.MovePointer(new Vector2(0,4));Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.Committed.won,"L8 must finish without assist or restart");
+  }
 
-  [Test] public void CatalogPayload_ValidProductionBytes_DeserializeAndValidate(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.NotNull(catalog);Assert.NotNull(rules);Assert.AreEqual(30,catalog.levelCount);Assert.AreEqual("continuous-core-v2",rules.rulesetVersion);Assert.AreEqual("m8-20260929-levels-24-30",catalog.catalogRevision);Assert.AreEqual(64,catalog.canonicalLevelsFingerprint.Length);}
+  [Test] public void CatalogPayload_IrregularBoardsHaveLoadableSprites(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);foreach(var level in catalog.levels){if(level.playableMask==null||level.playableMask.Length==0||level.playableMask.Length==level.cols*level.rows)continue;foreach(var kind in new[]{"mask","frame"}){var path="HabitatShift/Board/board_"+kind+"_L"+level.id;Assert.NotNull(Resources.Load<Sprite>(path),path);}}}
+
+  [Test] public void Presentation_ElevatorDeckStaysBelowHabitatAndSprout(){var level=Level();level.elevators=new[]{new ElevatorDto{id="E",direction="RIGHT",entry=new FloatPair{x=.5f,y=.5f},queue=new QueueItemDto[0]}};var go=new GameObject("Elevator depth test");try{var view=go.AddComponent<HabitatPresentation>();view.Render(ContinuousSession.Initial(level),level);var renderers=go.GetComponentsInChildren<SpriteRenderer>();var elevator=Array.Find(renderers,r=>r.name=="elevator/E");var habitat=Array.Find(renderers,r=>r.name=="habitat/H");var sprout=Array.Find(renderers,r=>r.name=="sprout/body/S1");Assert.NotNull(elevator);Assert.NotNull(habitat);Assert.NotNull(sprout);Assert.Less(elevator.sortingOrder,habitat.sortingOrder);Assert.Less(habitat.sortingOrder,sprout.sortingOrder);}finally{UnityEngine.Object.DestroyImmediate(go);}}
+
+  [Test] public void Presentation_ElevatorDeckRotatesWithDirection(){var level=Level();level.elevators=new[]{new ElevatorDto{id="E",direction="UP",entry=new FloatPair{x=.5f,y=.5f},queue=new QueueItemDto[0]}};var go=new GameObject("Elevator direction test");try{var view=go.AddComponent<HabitatPresentation>();var state=ContinuousSession.Initial(level);var directions=new[]{"UP","RIGHT","DOWN","LEFT"};var angles=new[]{0f,-90f,180f,90f};for(var i=0;i<directions.Length;i++){state.elevators[0].direction=directions[i];view.Render(state,level);var elevator=Array.Find(go.GetComponentsInChildren<SpriteRenderer>(),r=>r.name=="elevator/E");Assert.NotNull(elevator);Assert.Less(Quaternion.Angle(elevator.transform.rotation,Quaternion.Euler(0f,0f,angles[i])),.001f,directions[i]);}}finally{UnityEngine.Object.DestroyImmediate(go);}}
+
+  [Test] public void Presentation_ConstraintBadgeShowsAxisAndFollowsHabitat(){foreach(var axis in new[]{"HORIZONTAL_ONLY","VERTICAL_ONLY"}){var level=Level(axis);var go=new GameObject("Constraint badge test");try{var view=go.AddComponent<HabitatPresentation>();var state=ContinuousSession.Initial(level);view.Render(state,level);var badge=Array.Find(go.GetComponentsInChildren<SpriteRenderer>(),r=>r.name=="habitat/H/constraint");Assert.NotNull(badge,axis);Assert.AreEqual(axis=="HORIZONTAL_ONLY"?"board_move_horizontal":"board_move_vertical",badge.sprite.texture.name,axis);Assert.Greater(badge.sortingOrder,3);Assert.Less(badge.sortingOrder,6);var before=badge.transform.position;state.habitats[0].anchor=axis=="HORIZONTAL_ONLY"?Vector2.right:Vector2.up;view.Render(state,level);var expected=axis=="HORIZONTAL_ONLY"?Vector3.right:Vector3.down;Assert.Less(Vector3.Distance(before+expected,badge.transform.position),.0001f,axis);}finally{UnityEngine.Object.DestroyImmediate(go);}}}
+
+  [Test] public void CatalogPayload_ValidProductionBytes_DeserializeAndValidate(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.NotNull(catalog);Assert.NotNull(rules);Assert.AreEqual(35,catalog.levelCount);Assert.AreEqual("continuous-core-v3",rules.rulesetVersion);Assert.AreEqual("m12-20261006-levels-01-35-v5",catalog.catalogRevision);Assert.AreEqual(64,catalog.canonicalLevelsFingerprint.Length);}
+  [Test] public void Level8_SmallYellowFirst_LargeYellowCanCollectRightElevator(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);var session=new ContinuousSession(catalog.levels[7],rules);
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW_SMALL",new Vector2(3,1)));session.MovePointer(new Vector2(4,1));Assert.IsTrue(session.EndDrag());
+    Assert.IsFalse(System.Array.Exists(session.Committed.habitats.ToArray(),h=>h.id=="L08_H_YELLOW_SMALL"));
+    Assert.IsTrue(System.Array.Exists(session.Committed.sprouts.ToArray(),s=>s.id=="L08_Q_YELLOW_01"));
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW",Vector2.zero));
+    foreach(var point in new[]{new Vector2(1,0),new Vector2(2,0),new Vector2(3,0),new Vector2(4,0),new Vector2(4,1)}){
+      session.MovePointer(point);Assert.Less(Vector2.Distance(point,session.ResolvedPose),.06f,"route to "+point);}
+    session.MovePointer(new Vector2(5,1));
+    Assert.IsFalse(System.Array.Exists(session.Preview.sprouts.ToArray(),s=>s.id=="L08_Q_YELLOW_01"));
+    Assert.IsTrue(session.EndDrag());Assert.IsFalse(System.Array.Exists(session.Committed.sprouts.ToArray(),s=>s.id=="L08_Q_YELLOW_01"));FinishLevel8Purple(session);
+  }
+  [Test] public void Level8_LargeYellowFirst_SmallYellowCanCollectRightElevator(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);var session=new ContinuousSession(catalog.levels[7],rules);
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW_SMALL",new Vector2(3,1)));session.MovePointer(new Vector2(3,0));Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW",Vector2.zero));session.MovePointer(new Vector2(1,0));session.MovePointer(new Vector2(1,1));Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW_SMALL",new Vector2(3,0)));session.MovePointer(Vector2.zero);Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW",new Vector2(1,1)));session.MovePointer(new Vector2(1,0));session.MovePointer(new Vector2(2,0));session.MovePointer(new Vector2(3,0));session.MovePointer(new Vector2(4,0));
+    Assert.IsFalse(System.Array.Exists(session.Preview.sprouts.ToArray(),s=>s.id=="L08_S_YELLOW_01"));Assert.IsTrue(session.EndDrag());
+    Assert.IsTrue(session.BeginDrag("L08_H_YELLOW_SMALL",Vector2.zero));
+    foreach(var point in new[]{new Vector2(1,0),new Vector2(2,0),new Vector2(3,0),new Vector2(4,0),new Vector2(4,1),new Vector2(5,1),new Vector2(5,2),new Vector2(6,2)})session.MovePointer(point);
+    Assert.IsFalse(System.Array.Exists(session.Preview.sprouts.ToArray(),s=>s.id=="L08_Q_YELLOW_01"));Assert.IsTrue(session.EndDrag());FinishLevel8Purple(session);
+  }
   [Test] public void CatalogPayload_ChangedCatalogByte_FailsSha(){var bytes=CatalogBytes();bytes[0]^=1;Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(bytes,RulesBytes(),out rules);});}
   [Test] public void CatalogPayload_ChangedRulesByte_FailsSha(){var bytes=RulesBytes();bytes[0]^=1;Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(CatalogBytes(),bytes,out rules);});}
   [Test] public void CatalogPayload_EmptyPayload_Fails(){Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.LoadFromBytes(Array.Empty<byte>(),RulesBytes(),out rules);});}
   [Test] public void CatalogPayload_InvalidJson_FailsWithoutFilesystem(){Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes("{broken"),RulesBytes(),out rules);});}
-  [Test] public void CatalogPayload_InvalidIdentity_FailsWithoutFilesystem(){var raw=Encoding.UTF8.GetString(CatalogBytes()).Replace("m8-20260929-levels-24-30","invalid-revision");Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes(raw),RulesBytes(),out rules);});}
-  [Test] public void CatalogPayload_ExpandedCatalog_HasLevels19To23(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.AreEqual(30,catalog.levelCount);Assert.AreEqual(30,catalog.levels.Length);for(var i=0;i<catalog.levels.Length;i++){var level=catalog.levels[i];Assert.AreEqual(i+1,level.id);Assert.IsNotNull(level.habitats);Assert.IsNotNull(level.targets);Assert.IsNotNull(level.elevators);}Assert.AreEqual(11,catalog.levels[18].habitats.Length);Assert.AreEqual(2,catalog.levels[18].elevators.Length);Assert.AreEqual(10,catalog.levels[19].habitats.Length);Assert.AreEqual(8,catalog.levels[20].habitats.Length);Assert.AreEqual(4,catalog.levels[20].elevators.Length);Assert.AreEqual(11,catalog.levels[21].habitats.Length);Assert.AreEqual(10,catalog.levels[22].habitats.Length);Assert.AreEqual(1,catalog.levels[22].elevators.Length);Assert.IsTrue(System.Array.Exists(catalog.levels[18].habitats,habitat=>habitat.color=="white"));}
+  [Test] public void CatalogPayload_InvalidIdentity_FailsWithoutFilesystem(){var raw=Encoding.UTF8.GetString(CatalogBytes()).Replace("habitat-shift-levels-v5","invalid-schema");Assert.Throws<InvalidOperationException>(()=>{RulesetDto rules;CatalogLoader.DeserializeValidatedPayloads(Encoding.UTF8.GetBytes(raw),RulesBytes(),out rules);});}
+  [Test] public void CatalogPayload_ExpandedCatalog_HasLevels19To23(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);Assert.AreEqual(35,catalog.levelCount);Assert.AreEqual(35,catalog.levels.Length);for(var i=0;i<catalog.levels.Length;i++){var level=catalog.levels[i];Assert.AreEqual(i+1,level.id);Assert.IsNotNull(level.habitats);Assert.IsNotNull(level.targets);Assert.IsNotNull(level.elevators);}Assert.AreEqual(11,catalog.levels[18].habitats.Length);Assert.AreEqual(2,catalog.levels[18].elevators.Length);Assert.AreEqual(10,catalog.levels[19].habitats.Length);Assert.AreEqual(8,catalog.levels[20].habitats.Length);Assert.AreEqual(4,catalog.levels[20].elevators.Length);Assert.AreEqual(11,catalog.levels[21].habitats.Length);Assert.AreEqual(10,catalog.levels[22].habitats.Length);Assert.AreEqual(1,catalog.levels[22].elevators.Length);Assert.IsTrue(System.Array.Exists(catalog.levels[18].habitats,habitat=>habitat.color=="white"));}
   [Test] public void CatalogPayload_Levels24To30_ProtectedBaselineAndImport(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
     // L1..L23 khong doi: id + so habitat/queue/elevator/target/mask nhu milestone truoc.
     Assert.AreEqual(23,catalog.levels[22].id);Assert.AreEqual(58,catalog.levels[22].playableMask.Length);
@@ -27,7 +96,7 @@ public sealed class GameRulesTests {
     var expected=new[]{new[]{9,22,1,0},new[]{11,24,0,0},new[]{9,18,2,0},new[]{12,18,2,0},new[]{11,19,3,0},new[]{9,16,2,3},new[]{8,20,0,0}};
     for(var index=0;index<7;index++){var level=catalog.levels[23+index];Assert.AreEqual(24+index,level.id);Assert.AreEqual(expected[index][0],level.habitats.Length,"habitats L"+level.id);Assert.AreEqual(expected[index][1],level.targets.Length,"targets L"+level.id);Assert.AreEqual(expected[index][2],level.elevators.Length,"elevators L"+level.id);Assert.AreEqual(expected[index][3],(level.obstacles??new IntPair[0]).Length,"obstacles L"+level.id);Assert.IsTrue(level.cols<=10&&level.rows<=10);}}
   [Test] public void CatalogPayload_Levels24To30_NoEmptyQueueAndNoPlaceholder(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
-    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];foreach(var elevator in level.elevators){Assert.Greater(elevator.queue.Length,0,"queue L"+level.id+" "+elevator.id);Assert.AreNotEqual("E28_R8_20",elevator.id);Assert.AreEqual(0,elevator.nextIndex);Assert.IsTrue(elevator.mandatory);}}}
+    for(var index=23;index<30;index++){var level=catalog.levels[index];foreach(var elevator in level.elevators){Assert.Greater(elevator.queue.Length,0,"queue L"+level.id+" "+elevator.id);Assert.AreNotEqual("E28_R8_20",elevator.id);Assert.AreEqual(0,elevator.nextIndex);Assert.IsTrue(elevator.mandatory);}}}
   [Test] public void CatalogPayload_Level29_ObstaclesAndBrownFootprint(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);var level=catalog.levels[28];
     Assert.AreEqual(3,level.obstacles.Length);
     var blocked=new System.Collections.Generic.List<string>();foreach(var cell in level.obstacles)blocked.Add(cell.x+"_"+cell.y);blocked.Sort();
@@ -42,7 +111,7 @@ public sealed class GameRulesTests {
     CollectionAssert.AreEqual(new[]{"purple","orange","green","pink"},colors);
     Assert.AreEqual(7.5f,elevator.entry.y,.001f);}
   [Test] public void CatalogPayload_Levels24To30_SupplyBalanceExact(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
-    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];var colors=new System.Collections.Generic.HashSet<string>();foreach(var habitat in level.habitats)colors.Add(habitat.color);
+    for(var index=23;index<30;index++){var level=catalog.levels[index];var colors=new System.Collections.Generic.HashSet<string>();foreach(var habitat in level.habitats)colors.Add(habitat.color);
       foreach(var color in colors){var need=0;foreach(var habitat in level.habitats)if(habitat.color==color)need+=habitat.need;
         var supply=0;foreach(var target in level.targets)if(target.color==color)supply++;
         foreach(var elevator in level.elevators)foreach(var item in elevator.queue)if(item.color==color)supply++;
@@ -78,7 +147,7 @@ public sealed class GameRulesTests {
     for(var id=24;id<=26;id++){Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/board_mask_L"+id),"mask L"+id);Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/board_frame_L"+id),"frame L"+id);}
     for(var id=27;id<=30;id++){Assert.IsNull(Resources.Load<Sprite>("HabitatShift/Board/board_mask_L"+id),"full rect L"+id);Assert.IsNull(Resources.Load<Sprite>("HabitatShift/Board/board_frame_L"+id),"full rect L"+id);}}
   [Test] public void CatalogPayload_AllLevelHabitatTraysExist(){RulesetDto rules;var catalog=CatalogLoader.LoadFromBytes(CatalogBytes(),RulesBytes(),out rules);
-    for(var index=23;index<catalog.levels.Length;index++){var level=catalog.levels[index];foreach(var habitat in level.habitats){var family=(string)typeof(HabitatShift.Runtime.HabitatPresentation).GetMethod("Family",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{habitat.color});
+    for(var index=23;index<30;index++){var level=catalog.levels[index];foreach(var habitat in level.habitats){var family=(string)typeof(HabitatShift.Runtime.HabitatPresentation).GetMethod("Family",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{habitat.color});
       var x0=int.MaxValue;var y0=int.MaxValue;foreach(var cell in habitat.shape){x0=System.Math.Min(x0,cell.x);y0=System.Math.Min(y0,cell.y);}
       var parts=new System.Collections.Generic.List<string>();foreach(var cell in habitat.shape)parts.Add((cell.x-x0)+"_"+(cell.y-y0));parts.Sort();
       var name="tray_"+family+"_"+string.Join("-",parts);Assert.IsNotNull(Resources.Load<Sprite>("HabitatShift/Board/"+name),"L"+level.id+" "+name);}}}

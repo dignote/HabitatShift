@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using HabitatShift.Core;
 using System;
 using System.Linq;
@@ -10,6 +10,8 @@ namespace HabitatShift.Runtime
     public sealed class HabitatPresentation : MonoBehaviour
     {
         readonly Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+        readonly Dictionary<string, Sprite> dualRingSprites = new Dictionary<string, Sprite>();
+        readonly Dictionary<string, Sprite> generatedTraySprites = new Dictionary<string, Sprite>();
         readonly Dictionary<string, SpriteRenderer> boardParts = new Dictionary<string, SpriteRenderer>();
         readonly Dictionary<string, SpriteRenderer> movingParts = new Dictionary<string, SpriteRenderer>();
         readonly Dictionary<string, TextMesh> queueCounts = new Dictionary<string, TextMesh>();
@@ -67,6 +69,12 @@ namespace HabitatShift.Runtime
             boardLevel = -1;
         }
 
+        void OnDestroy()
+        {
+            DestroyGeneratedSprites(dualRingSprites);
+            DestroyGeneratedSprites(generatedTraySprites);
+        }
+
         public void SetPresentationMotion(bool enabled, string dragId, Vector2 direction)
         {
             motionEnabled = enabled;
@@ -94,9 +102,10 @@ namespace HabitatShift.Runtime
 
             foreach (var elevator in state.elevators)
             {
-                Place(movingParts, "elevator/" + elevator.id,
-                    LoadBoard("board_elevator_" + elevator.direction.ToLowerInvariant()), elevator.entry,
-                    Vector2.one, Color.white, 4);
+                var deck = Place(movingParts, "elevator/" + elevator.id,
+                    LoadBoard("board_elevator_deck_v2"), elevator.entry,
+                    Vector2.one * 1.52f, Color.white, 1);
+                deck.transform.rotation = Quaternion.Euler(0f, 0f, ElevatorAngle(elevator.direction));
                 var remaining = elevator.queue == null ? 0 : elevator.queue.Count - elevator.nextIndex;
                 for (var i = 0; i < Mathf.Min(3, Mathf.Max(0, remaining)); i++)
                 {
@@ -182,28 +191,31 @@ namespace HabitatShift.Runtime
             if (habitat == null) return;
             var sprite = LoadBoard(previewValid ? "board_preview_valid" : "board_preview_invalid");
             foreach (var cell in habitat.shape)
-                Place(movingParts, "preview/" + habitat.id + "/" + cell.x + "/" + cell.y, sprite, previewAnchor + cell + Vector2.one*.5f, Vector2.one, Color.white, 2);
+                Place(movingParts, "preview/" + habitat.id + "/" + cell.x + "/" + cell.y,
+                    sprite, previewAnchor + cell + Vector2.one * .5f, Vector2.one * .92f,
+                    new Color(1f, 1f, 1f, .52f), 4);
         }
 
         void DrawHabitat(HabitatRuntime habitat)
         {
             if (!habitatViews.TryGetValue(habitat.id, out var view) ||
-                view.color != habitat.color || view.shape.Count != habitat.shape.Count ||
+                view.color != habitat.ActiveColor + "/" + (habitat.HasNextStage ? habitat.stages[habitat.stageIndex + 1].color : "") || view.shape.Count != habitat.shape.Count ||
                 !view.shape.SequenceEqual(habitat.shape))
             {
                 var x0 = habitat.shape.Min(c => c.x);
                 var y0 = habitat.shape.Min(c => c.y);
                 var cols = habitat.shape.Max(c => c.x) - x0 + 1;
                 var rows = habitat.shape.Max(c => c.y) - y0 + 1;
-                var spriteName = "tray_" + Family(habitat.color) + "_" + ShapeKey(habitat.shape, x0, y0);
+                var dual = habitat.stages != null && habitat.stages.Count > 1;
+                var spriteName = "tray_" + Family(habitat.ActiveColor) + "_" + ShapeKey(habitat.shape, x0, y0);
                 view = new HabitatView
                 {
-                    color = habitat.color,
+                    color = habitat.ActiveColor + "/" + (habitat.HasNextStage ? habitat.stages[habitat.stageIndex + 1].color : ""),
                     shape = new List<Vector2Int>(habitat.shape),
                     key = "habitat/" + habitat.id,
-                    sprite = LoadBoard(spriteName),
+                    sprite = dual ? DualRingSprite(habitat, x0, y0, cols, rows) : TraySprite(habitat, x0, y0, cols, rows, spriteName),
                     offset = new Vector2(x0 + cols * .5f, y0 + rows * .5f),
-                    size = new Vector2(cols + 56f / 192f, rows + 56f / 192f)
+                    size = dual ? new Vector2(cols + .25f, rows + .25f) : new Vector2(cols + 56f / 192f, rows + 56f / 192f)
                 };
                 habitatViews[habitat.id] = view;
             }
@@ -219,6 +231,194 @@ namespace HabitatShift.Runtime
             }
             motion.SetPose(renderer, renderer.transform.position, renderer.transform.localScale,
                 motionEnabled && habitat.id == draggingHabitat, dragDirection, motionEnabled);
+            DrawConstraintBadge(habitat, view, motion);
+        }
+
+        static void DestroyGeneratedSprites(Dictionary<string, Sprite> cache)
+        {
+            foreach (var sprite in cache.Values)
+            {
+                if (sprite == null) continue;
+                var texture = sprite.texture;
+                Destroy(sprite);
+                if (texture != null) Destroy(texture);
+            }
+            cache.Clear();
+        }
+
+        Sprite TraySprite(HabitatRuntime habitat, int x0, int y0, int cols, int rows, string name)
+        {
+            var path = "HabitatShift/Board/" + name;
+            if (sprites.TryGetValue(path, out var sprite)) return sprite;
+            sprite = Resources.Load<Sprite>(path);
+            if (sprite != null)
+            {
+                sprites.Add(path, sprite);
+                return sprite;
+            }
+
+            // Authored v5 footprints are data-driven. A missing optional tray bitmap must not
+            // prevent a valid level from rendering; create the same ceramic tray from its shape.
+            var key = Family(habitat.ActiveColor) + "/" + ShapeKey(habitat.shape, x0, y0);
+            if (generatedTraySprites.TryGetValue(key, out var generated)) return generated;
+            Debug.LogWarning("Habitat Shift generated missing tray sprite: " + path);
+            generated = GenerateTraySprite(habitat, x0, y0, cols, rows, key);
+            generatedTraySprites.Add(key, generated);
+            return generated;
+        }
+
+        Sprite GenerateTraySprite(HabitatRuntime habitat, int x0, int y0, int cols, int rows, string key)
+        {
+            const int pixelsPerCell = 192, padding = 28;
+            var width = cols * pixelsPerCell + padding * 2;
+            var height = rows * pixelsPerCell + padding * 2;
+            var pixels = new Color32[width * height];
+            var cells = new HashSet<Vector2Int>(habitat.shape.Select(c =>
+                new Vector2Int(c.x - x0, rows - 1 - (c.y - y0))));
+            var edges = OutlineEdges(cells, pixelsPerCell, padding);
+            var rim = GameplayFxController.ColorFor(habitat.ActiveColor);
+            var clay = new Color(.89f, .83f, .70f);
+            for (var y = 0; y < height; y++) for (var x = 0; x < width; x++)
+            {
+                var cx = Mathf.FloorToInt((x - padding) / (float)pixelsPerCell);
+                var cy = Mathf.FloorToInt((y - padding) / (float)pixelsPerCell);
+                if (!cells.Contains(new Vector2Int(cx, cy))) continue;
+                var distance = DistanceToOutline(x, y, edges);
+                Color color;
+                if (distance < 5f) color = new Color(.31f, .25f, .20f);
+                else if (distance < 23f) color = Color.Lerp(rim * .58f, rim, Mathf.Clamp01((distance - 5f) / 18f));
+                else if (distance < 31f) color = new Color(.98f, .91f, .76f);
+                else color = clay;
+                var grain = ((x * 37 + y * 73) % 17 - 8) * .002f;
+                color *= .96f + .06f * y / height + grain;
+                color.a = 1f;
+                pixels[y * width + x] = color;
+            }
+            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false) { name = "GeneratedTray/" + key, filterMode = FilterMode.Bilinear };
+            texture.SetPixels32(pixels);
+            texture.Apply(false, false);
+            var sprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(.5f, .5f), pixelsPerCell);
+            sprite.name = texture.name;
+            return sprite;
+        }
+
+        static List<Vector4> OutlineEdges(HashSet<Vector2Int> cells, int pixelsPerCell, int padding)
+        {
+            var edges = new List<Vector4>();
+            foreach (var cell in cells)
+            {
+                var x = cell.x * pixelsPerCell + padding;
+                var y = cell.y * pixelsPerCell + padding;
+                if (!cells.Contains(cell + Vector2Int.left)) edges.Add(new Vector4(x, y, x, y + pixelsPerCell));
+                if (!cells.Contains(cell + Vector2Int.right)) edges.Add(new Vector4(x + pixelsPerCell, y, x + pixelsPerCell, y + pixelsPerCell));
+                if (!cells.Contains(cell + Vector2Int.down)) edges.Add(new Vector4(x, y, x + pixelsPerCell, y));
+                if (!cells.Contains(cell + Vector2Int.up)) edges.Add(new Vector4(x, y + pixelsPerCell, x + pixelsPerCell, y + pixelsPerCell));
+            }
+            return edges;
+        }
+
+        static float DistanceToOutline(int x, int y, List<Vector4> edges)
+        {
+            var distance = float.MaxValue;
+            foreach (var edge in edges)
+            {
+                var dx = edge.x == edge.z ? x - edge.x : x - Mathf.Clamp(x, edge.x, edge.z);
+                var dy = edge.y == edge.w ? y - edge.y : y - Mathf.Clamp(y, edge.y, edge.w);
+                distance = Mathf.Min(distance, Mathf.Sqrt(dx * dx + dy * dy));
+            }
+            return distance;
+        }
+
+        Sprite DualRingSprite(HabitatRuntime habitat, int x0, int y0, int cols, int rows)
+        {
+            var next = habitat.HasNextStage ? habitat.stages[habitat.stageIndex + 1].color : "ceramic";
+            var shapeKey = ShapeKey(habitat.shape, x0, y0);
+            var key = shapeKey + "/" + habitat.ActiveColor + "/" + next;
+            if (dualRingSprites.TryGetValue(key, out var cached)) return cached;
+            const int pixelsPerCell = 128, padding = 16;
+            var width = cols * pixelsPerCell + padding * 2;
+            var height = rows * pixelsPerCell + padding * 2;
+            var pixels = new Color32[width * height];
+            // Board Y increases down, while texture pixel Y increases up.
+            var cells = new HashSet<Vector2Int>(habitat.shape.Select(c =>
+                new Vector2Int(c.x - x0, rows - 1 - (c.y - y0))));
+            var edges = new List<Vector4>();
+            foreach (var cell in cells)
+            {
+                var x = cell.x * pixelsPerCell + padding;
+                var y = cell.y * pixelsPerCell + padding;
+                if (!cells.Contains(cell + Vector2Int.left)) edges.Add(new Vector4(x, y, x, y + pixelsPerCell));
+                if (!cells.Contains(cell + Vector2Int.right)) edges.Add(new Vector4(x + pixelsPerCell, y, x + pixelsPerCell, y + pixelsPerCell));
+                if (!cells.Contains(cell + Vector2Int.down)) edges.Add(new Vector4(x, y, x + pixelsPerCell, y));
+                if (!cells.Contains(cell + Vector2Int.up)) edges.Add(new Vector4(x, y + pixelsPerCell, x + pixelsPerCell, y + pixelsPerCell));
+            }
+            var outer = GameplayFxController.ColorFor(habitat.ActiveColor);
+            var inner = habitat.HasNextStage ? GameplayFxController.ColorFor(next) : new Color(.85f, .77f, .61f);
+            var clay = new Color(.84f, .76f, .62f);
+            for (var y = 0; y < height; y++) for (var x = 0; x < width; x++)
+            {
+                var cx = Mathf.FloorToInt((x - padding) / (float)pixelsPerCell);
+                var cy = Mathf.FloorToInt((y - padding) / (float)pixelsPerCell);
+                if (!cells.Contains(new Vector2Int(cx, cy))) continue;
+                var distance = DistanceToOutline(x, y, edges);
+                Color color;
+                if (distance < 4f) color = new Color(.34f, .27f, .22f);
+                else if (distance < 15f) color = Color.Lerp(outer * .64f, outer, Mathf.Clamp01((distance - 4f) / 9f));
+                else if (distance < 21f) color = new Color(.96f, .87f, .69f);
+                else if (distance < 32f) color = Color.Lerp(inner * .68f, inner, Mathf.Clamp01((distance - 21f) / 10f));
+                else color = clay;
+                var grain = ((x * 37 + y * 73) % 17 - 8) * .002f;
+                color *= .96f + .06f * y / height + grain;
+                color.a = 1f;
+                pixels[y * width + x] = color;
+            }
+            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            texture.name = "DualRing/" + key;
+            texture.SetPixels32(pixels);
+            texture.Apply(false, false);
+            texture.filterMode = FilterMode.Bilinear;
+            var sprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(.5f, .5f), pixelsPerCell);
+            sprite.name = texture.name;
+            dualRingSprites.Add(key, sprite);
+            return sprite;
+        }
+
+        static float ElevatorAngle(string direction)
+        {
+            switch (direction)
+            {
+                case "UP": return 0f;
+                case "RIGHT": return -90f;
+                case "DOWN": return 180f;
+                case "LEFT": return 90f;
+                default: throw new InvalidOperationException("Unknown Habitat Shift elevator direction: " + direction);
+            }
+        }
+
+        void DrawConstraintBadge(HabitatRuntime habitat, HabitatView view, HabitatMotion motion)
+        {
+            var horizontal = habitat.constraint == "HORIZONTAL_ONLY";
+            var vertical = habitat.constraint == "VERTICAL_ONLY";
+            if (!horizontal && !vertical) return;
+
+            var centerX = (habitat.shape.Min(c => c.x) + habitat.shape.Max(c => c.x)) * .5f;
+            var centerY = (habitat.shape.Min(c => c.y) + habitat.shape.Max(c => c.y)) * .5f;
+            var edgeCell = horizontal
+                ? habitat.shape.Where(c => !habitat.shape.Contains(c + Vector2Int.up))
+                    .OrderBy(c => Mathf.Abs(c.x - centerX)).ThenByDescending(c => c.y).First()
+                : habitat.shape.Where(c => !habitat.shape.Contains(c + Vector2Int.right))
+                    .OrderBy(c => Mathf.Abs(c.y - centerY)).ThenByDescending(c => c.x).First();
+            var size = horizontal ? new Vector2(.48f, .21f) : new Vector2(.21f, .48f);
+            var position = habitat.anchor + edgeCell +
+                (horizontal ? new Vector2(.5f, 1.035f) : new Vector2(1.035f, .5f));
+            var sprite = LoadBoard(horizontal ? "board_move_horizontal" : "board_move_vertical");
+            var badge = Place(movingParts, view.key + "/constraint", sprite, position, size, Color.white, 4);
+            var visual = motion.VisualTransform;
+            badge.transform.SetParent(visual, true);
+            var parentScale = visual.lossyScale;
+            badge.transform.localScale = new Vector3(
+                size.x / sprite.bounds.size.x / parentScale.x,
+                size.y / sprite.bounds.size.y / parentScale.y, 1f);
         }
 
         void DrawSprout(SproutRuntime sprout, RuntimeState state)
@@ -239,7 +439,7 @@ namespace HabitatShift.Runtime
 
             var coverage = 0f;
             foreach (var habitat in state.habitats)
-                if (habitat.color == sprout.color)
+                if (habitat.ActiveColor == sprout.color)
                     coverage = Mathf.Max(coverage, ContinuousSession.CaptureCoverage(habitat, sprout.position));
             if (coverage > .001f && coverage <= ContinuousSession.CaptureThreshold)
             {

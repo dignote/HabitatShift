@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "levelId": 34,
+  "catalogFingerprint": "18cd60498f16d831d384b2a2f46b0d49bdd84fe34e443539feed5c9b5300f0bb",
+  "gestures": [
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 4.5,
+        "y": 3.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 3.5
+        }
+      ],
+      "checkpoint": "189112ef058e048be592b34dbcb78b13f6760f4c0c23064e41bd76a438b762de"
+    },
+    {
+      "habitatId": "L34_H_YELLOW_KEY",
+      "press": {
+        "x": 4.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "6d2f635af5650e067fc2a54af397e2db4ce833136dbb31a8dfa36ebdc678db07"
+    },
+    {
+      "habitatId": "L34_H_BLUE_SQUARE",
+      "press": {
+        "x": 5.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 2.5
+        },
+        {
+          "x": 5.5,
+          "y": 3.5
+        },
+        {
+          "x": 6.5,
+          "y": 3.5
+        }
+      ],
+      "checkpoint": "c26834a9d26c6bc6019bb720e1f6cab30c14fe1ce6f8cc818b8d7f63585a9b6e"
+    },
+    {
+      "habitatId": "L34_H_PURPLE_SQUARE",
+      "press": {
+        "x": 2.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 1.5,
+          "y": 0.5
+        },
+        {
+          "x": 3.5,
+          "y": 0.5
+        },
+        {
+          "x": 4.5,
+          "y": 0.5
+        },
+        {
+          "x": 5.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "1cd6e02b970c79ef92da7a74fab7bee72233af76c2d086472d83d32e5e4669f3"
+    },
+    {
+      "habitatId": "L34_H_PINK_RING",
+      "press": {
+        "x": 2.5,
+        "y": 2.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 3.5
+        },
+        {
+          "x": 2.5,
+          "y": 2.5
+        },
+        {
+          "x": 2.5,
+          "y": 1.5
+        }
+      ],
+      "checkpoint": "b7819161c98b33938dc5f763221727a0afabbd86485c9f26e2a98f423b40dafe"
+    },
+    {
+      "habitatId": "L34_H_PINK_RING",
+      "press": {
+        "x": 2.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "a9df0956922118e126d70ba871edc6c68c10b47f767c81476ea8d4d2aff139a7"
+    },
+    {
+      "habitatId": "L34_H_PINK_RING",
+      "press": {
+        "x": 2.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 1.5
+        }
+      ],
+      "checkpoint": "1e3d35f9b5af5eb87a523da4831de4172190e53cbdf755cc33a30392a8ff72f2"
+    },
+    {
+      "habitatId": "L34_H_PINK_RING",
+      "press": {
+        "x": 2.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "70be87a236d7294cefcd7ef2eb4968a3f06dc4f97d302e36ae60edf38e7e6762"
+    },
+    {
+      "habitatId": "L34_H_ORANGE_TRIO",
+      "press": {
+        "x": 7.5,
+        "y": 2.5
+      },
+      "boardPath": [
+        {
+          "x": 7.5,
+          "y": 0.5
+        },
+        {
+          "x": 7.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "b8903722f52d713d4690073c14476f88c6bfb9551b6774682e9554250d95c169"
+    },
+    {
+      "habitatId": "L34_H_YELLOW_KEY",
+      "press": {
+        "x": 3.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "094cc2fafb3f797bcd59a284a53a826125a66268d016d81238865d98d64db737"
+    },
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 3.5,
+        "y": 3.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 2.5
+        },
+        {
+          "x": 4.5,
+          "y": 2.5
+        },
+        {
+          "x": 5.5,
+          "y": 2.5
+        },
+        {
+          "x": 6.5,
+          "y": 2.5
+        },
+        {
+          "x": 6.5,
+          "y": 1.5
+        },
+        {
+          "x": 6.5,
+          "y": 2.5
+        },
+        {
+          "x": 6.5,
+          "y": 3.5
+        },
+        {
+          "x": 5.5,
+          "y": 3.5
+        },
+        {
+          "x": 4.5,
+          "y": 3.5
+        },
+        {
+          "x": 3.5,
+          "y": 3.5
+        },
+        {
+          "x": 3.5,
+          "y": 4.5
+        },
+        {
+          "x": 3.5,
+          "y": 5.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "9d7e92f67e55a092d404b618beff2434ae59c93aaf530229f1e7c23d67a36125"
+    },
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 3.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "6e91fa5577147ca2895803b506d376c05aaf5f5cb50d6ec96c5ad7c3ceed54c1"
+    },
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 2.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "b318850363592e44f027bcf97a28f2017dc7490648a4b6463cc6ddd7a14683b0"
+    },
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 3.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "3b504e8068fe787c347f7382526ac4e6f45b37374dbc8546d5b47725c8b9362b"
+    },
+    {
+      "habitatId": "L34_H_GATE",
+      "press": {
+        "x": 2.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "244a240a9e5eaf75895cd7b65c50cd121b0b598f7ba311b328ad2fb1b994bcc8"
+    },
+    {
+      "habitatId": "L34_H_CYAN_RING",
+      "press": {
+        "x": 2.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "f0ebb742fb930292dd686fbc16dbcf71813627adf08efd8fc6eada0198bc9d13"
+    },
+    {
+      "habitatId": "L34_H_YELLOW_KEY",
+      "press": {
+        "x": 2.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 1.5,
+          "y": 4.5
+        },
+        {
+          "x": 1.5,
+          "y": 5.5
+        },
+        {
+          "x": 1.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "cd6353fc715b914aa6681f27542772c0fa18fe4ae9e0e8cf0ac0b1251663118a"
+    },
+    {
+      "habitatId": "L34_H_CYAN_RING",
+      "press": {
+        "x": 3.5,
+        "y": 6.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 1.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "1e10c3b8baab27ef386e0d7de04a87b3dac866e2adbbe1a3bf8485ad59dfae34"
+    },
+    {
+      "habitatId": "L34_H_GREEN_L",
+      "press": {
+        "x": 5.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 5.5
+        },
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 4.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "a8edc61068a01d94e1203de5c15bef827239de01ecb53ac70d79501b5ddf8501"
+    },
+    {
+      "habitatId": "L34_H_PURPLE_SQUARE",
+      "press": {
+        "x": 5.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 4.5,
+          "y": 0.5
+        },
+        {
+          "x": 3.5,
+          "y": 0.5
+        },
+        {
+          "x": 3.5,
+          "y": 1.5
+        },
+        {
+          "x": 3.5,
+          "y": 2.5
+        },
+        {
+          "x": 3.5,
+          "y": 3.5
+        },
+        {
+          "x": 3.5,
+          "y": 4.5
+        },
+        {
+          "x": 3.5,
+          "y": 5.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 4.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 4.5,
+          "y": 6.5
+        },
+        {
+          "x": 4.5,
+          "y": 5.5
+        },
+        {
+          "x": 4.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "dfbb3a6251a7e0c13f23751bb5983eaeb25eb5885c67857ee238d61264a69913"
+    },
+    {
+      "habitatId": "L34_H_CYAN_RING",
+      "press": {
+        "x": 1.5,
+        "y": 6.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 4.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 7.5,
+          "y": 6.5
+        },
+        {
+          "x": 7.5,
+          "y": 5.5
+        }
+      ],
+      "checkpoint": "ff54a444014dfd78731d4d789c64c02d01b4ccdfd15fc2b539c858c454756fef"
+    },
+    {
+      "habitatId": "L34_H_CYAN_RING",
+      "press": {
+        "x": 7.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 7.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "d06400b58b0ed6fef84009e58625ace6ee8c225f7a5d3f0bc6554b2ac63641f3"
+    },
+    {
+      "habitatId": "L34_H_PURPLE_SQUARE",
+      "press": {
+        "x": 4.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 4.5
+        },
+        {
+          "x": 2.5,
+          "y": 4.5
+        },
+        {
+          "x": 1.5,
+          "y": 4.5
+        },
+        {
+          "x": 0.5,
+          "y": 4.5
+        },
+        {
+          "x": 0.5,
+          "y": 5.5
+        },
+        {
+          "x": 0.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "c4785109b4878859584043b877f36fbf5d4d21c95e45b56460e5fc82f92f05d0"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "contractVersion": "m12-l31-l50-authoring-v1",
+  "sourceChapter": "L19-L30",
+  "compositionDnaWeight": 0.50,
+  "newSystemEvolutionWeight": 0.50,
+  "usualPhysicalHabitatRange": [8, 12],
+  "requirements": [
+    "high occupancy",
+    "many colors",
+    "duplicate habitat colors",
+    "meaningful elevator queues",
+    "compact maneuvering",
+    "low or moderate blocker count",
+    "footprint competition",
+    "purposeful interleaving",
+    "spatial lock and key relationships",
+    "central interlock clusters",
+    "topology gates and pockets",
+    "stage and queue dependencies"
+  ],
+  "densityRanges": [
+    {"first": 31, "last": 35, "minimum": 0.76, "maximum": 0.85},
+    {"first": 36, "last": 40, "minimum": 0.80, "maximum": 0.88},
+    {"first": 41, "last": 45, "minimum": 0.82, "maximum": 0.90},
+    {"first": 46, "last": 50, "minimum": 0.84, "maximum": 0.91}
+  ],
+  "densityFormula": "(habitat footprint cells + initial sproutlings + blockers) / playable cells",
+  "dualRingDoesNotJustifySparseBoards": true,
+  "solvabilityOverridesDensity": true,
+  "productionCutoverInM11": false
+}

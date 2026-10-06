@@ -1,9 +1,9 @@
 {
   "schema": "habitat-shift-levels-v4",
-  "catalogRevision": "m8-20260929-levels-24-30",
+  "catalogRevision": "m8-20261001-levels-01-18-progression-v2",
   "rulesetVersion": "continuous-core-v2",
   "rulesetFingerprint": "e7d1faa0472a140f3204d479d8f95d4c8ddaeea769eef8329622032a503d8904",
-  "approvalMode": "editor-candidate-import-2026-09-29-r9-2-4-levels-24-30-manual-playtest-not-claimed",
+  "approvalMode": "candidate-2026-10-01-levels-01-18-progression-v2-manual-playtest-required",
   "certificationTraceRequired": false,
   "levelCount": 30,
   "levels": [
@@ -11,44 +11,32 @@
       "id": 1,
       "title": "First Sweep",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Basic direct drag and same-colour collection.",
-      "cols": 6,
-      "rows": 6,
+      "challenge": "First drag: collect two orange Sproutlings, then move the green tray up.",
+      "cols": 4,
+      "rows": 4,
       "habitats": [
         {
           "id": "A",
           "color": "orange",
           "anchor": [
             0,
-            0
+            1
           ],
           "shape": [
             [
               0,
               0
-            ],
-            [
-              1,
-              0
-            ],
-            [
-              0,
-              1
-            ],
-            [
-              1,
-              1
             ]
           ],
-          "need": 4,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "B",
           "color": "green",
           "anchor": [
-            4,
-            4
+            3,
+            1
           ],
           "shape": [
             [
@@ -56,11 +44,11 @@
               0
             ],
             [
-              1,
-              0
+              0,
+              1
             ]
           ],
-          "need": 2,
+          "need": 1,
           "movementConstraint": "FREE"
         }
       ],
@@ -69,48 +57,24 @@
           "id": "L01_S01",
           "color": "orange",
           "position": [
-            3.5,
-            0.5
+            1.5,
+            1.5
           ]
         },
         {
           "id": "L01_S02",
           "color": "orange",
           "position": [
-            5.5,
+            2.5,
             1.5
           ]
         },
         {
           "id": "L01_S03",
-          "color": "orange",
+          "color": "green",
           "position": [
-            2.5,
+            3.5,
             3.5
-          ]
-        },
-        {
-          "id": "L01_S04",
-          "color": "orange",
-          "position": [
-            4.5,
-            5.5
-          ]
-        },
-        {
-          "id": "L01_S05",
-          "color": "green",
-          "position": [
-            0.5,
-            4.5
-          ]
-        },
-        {
-          "id": "L01_S06",
-          "color": "green",
-          "position": [
-            2.5,
-            5.5
           ]
         }
       ],
@@ -125,9 +89,9 @@
       "id": 2,
       "title": "Bent Paths",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Learn bent polyomino footprint clearance.",
-      "cols": 6,
-      "rows": 6,
+      "challenge": "Bent footprints need clearance; two short routes share the middle.",
+      "cols": 5,
+      "rows": 5,
       "habitats": [
         {
           "id": "A",
@@ -150,7 +114,7 @@
               1
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
@@ -158,7 +122,7 @@
           "color": "blue",
           "anchor": [
             4,
-            3
+            2
           ],
           "shape": [
             [
@@ -166,15 +130,11 @@
               0
             ],
             [
-              1,
-              0
-            ],
-            [
-              1,
+              0,
               1
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "FREE"
         }
       ],
@@ -184,47 +144,31 @@
           "color": "yellow",
           "position": [
             2.5,
-            2.5
+            1.5
           ]
         },
         {
           "id": "L02_S02",
           "color": "yellow",
           "position": [
-            5.5,
+            3.5,
             2.5
           ]
         },
         {
           "id": "L02_S03",
-          "color": "yellow",
+          "color": "blue",
           "position": [
-            1.5,
-            4.5
+            2.5,
+            3.5
           ]
         },
         {
           "id": "L02_S04",
           "color": "blue",
           "position": [
-            0.5,
-            2.5
-          ]
-        },
-        {
-          "id": "L02_S05",
-          "color": "blue",
-          "position": [
-            3.5,
-            3.5
-          ]
-        },
-        {
-          "id": "L02_S06",
-          "color": "blue",
-          "position": [
-            5.5,
-            5.5
+            4.5,
+            4.5
           ]
         }
       ],
@@ -239,8 +183,8 @@
       "id": 3,
       "title": "Three at Once",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Collect multiple Sproutlings during free 2D dragging.",
-      "cols": 7,
+      "challenge": "Three color clusters must be collected together on a larger board.",
+      "cols": 6,
       "rows": 6,
       "habitats": [
         {
@@ -268,7 +212,7 @@
               1
             ]
           ],
-          "need": 4,
+          "need": 3,
           "movementConstraint": "FREE"
         },
         {
@@ -295,7 +239,7 @@
           "id": "C",
           "color": "yellow",
           "anchor": [
-            5,
+            4,
             3
           ],
           "shape": [
@@ -312,7 +256,7 @@
               1
             ]
           ],
-          "need": 5,
+          "need": 3,
           "movementConstraint": "FREE"
         }
       ],
@@ -321,7 +265,7 @@
           "id": "L03_S01",
           "color": "pink",
           "position": [
-            4.5,
+            2.5,
             0.5
           ]
         },
@@ -329,36 +273,28 @@
           "id": "L03_S02",
           "color": "pink",
           "position": [
-            6.5,
-            1.5
+            2.5,
+            2.5
           ]
         },
         {
           "id": "L03_S03",
           "color": "pink",
           "position": [
-            2.5,
-            3.5
+            1.5,
+            4.5
           ]
         },
         {
           "id": "L03_S04",
-          "color": "pink",
+          "color": "blue",
           "position": [
-            0.5,
-            5.5
+            3.5,
+            3.5
           ]
         },
         {
           "id": "L03_S05",
-          "color": "blue",
-          "position": [
-            6.5,
-            2.5
-          ]
-        },
-        {
-          "id": "L03_S06",
           "color": "blue",
           "position": [
             3.5,
@@ -366,15 +302,7 @@
           ]
         },
         {
-          "id": "L03_S07",
-          "color": "yellow",
-          "position": [
-            1.5,
-            2.5
-          ]
-        },
-        {
-          "id": "L03_S08",
+          "id": "L03_S06",
           "color": "yellow",
           "position": [
             4.5,
@@ -382,27 +310,19 @@
           ]
         },
         {
-          "id": "L03_S09",
+          "id": "L03_S07",
           "color": "yellow",
           "position": [
-            6.5,
+            4.5,
+            5.5
+          ]
+        },
+        {
+          "id": "L03_S08",
+          "color": "yellow",
+          "position": [
+            3.5,
             4.5
-          ]
-        },
-        {
-          "id": "L03_S10",
-          "color": "yellow",
-          "position": [
-            2.5,
-            5.5
-          ]
-        },
-        {
-          "id": "L03_S11",
-          "color": "yellow",
-          "position": [
-            5.5,
-            5.5
           ]
         }
       ],
@@ -417,15 +337,15 @@
       "id": 4,
       "title": "Busy Middle",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Simple ordering across multiple colours.",
-      "cols": 7,
-      "rows": 7,
+      "challenge": "Four different trays meet around a busy central crossing.",
+      "cols": 6,
+      "rows": 6,
       "habitats": [
         {
           "id": "A",
           "color": "orange",
           "anchor": [
-            1,
+            0,
             2
           ],
           "shape": [
@@ -445,7 +365,7 @@
           "id": "B",
           "color": "green",
           "anchor": [
-            3,
+            2,
             1
           ],
           "shape": [
@@ -466,7 +386,7 @@
               1
             ]
           ],
-          "need": 4,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
@@ -474,7 +394,7 @@
           "color": "blue",
           "anchor": [
             4,
-            4
+            3
           ],
           "shape": [
             [
@@ -488,29 +408,21 @@
             [
               0,
               1
-            ],
-            [
-              1,
-              1
             ]
           ],
-          "need": 4,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "D",
           "color": "pink",
           "anchor": [
-            2,
-            5
+            1,
+            4
           ],
           "shape": [
             [
               0,
-              0
-            ],
-            [
-              1,
               0
             ]
           ],
@@ -531,16 +443,16 @@
           "id": "L04_S02",
           "color": "orange",
           "position": [
-            6.5,
-            0.5
+            3.5,
+            3.5
           ]
         },
         {
           "id": "L04_S03",
           "color": "green",
           "position": [
-            0.5,
-            3.5
+            4.5,
+            1.5
           ]
         },
         {
@@ -548,71 +460,39 @@
           "color": "green",
           "position": [
             1.5,
-            6.5
+            3.5
           ]
         },
         {
           "id": "L04_S05",
-          "color": "green",
+          "color": "blue",
           "position": [
             5.5,
-            0.5
+            4.5
           ]
         },
         {
           "id": "L04_S06",
-          "color": "green",
+          "color": "blue",
           "position": [
-            6.5,
+            4.5,
             5.5
           ]
         },
         {
           "id": "L04_S07",
-          "color": "blue",
+          "color": "pink",
           "position": [
-            2.5,
-            0.5
-          ]
-        },
-        {
-          "id": "L04_S08",
-          "color": "blue",
-          "position": [
-            6.5,
-            2.5
-          ]
-        },
-        {
-          "id": "L04_S09",
-          "color": "blue",
-          "position": [
-            0.5,
+            1.5,
             5.5
           ]
         },
         {
-          "id": "L04_S10",
-          "color": "blue",
-          "position": [
-            4.5,
-            6.5
-          ]
-        },
-        {
-          "id": "L04_S11",
+          "id": "L04_S08",
           "color": "pink",
           "position": [
-            3.5,
-            0.5
-          ]
-        },
-        {
-          "id": "L04_S12",
-          "color": "pink",
-          "position": [
-            6.5,
-            6.5
+            2.5,
+            4.5
           ]
         }
       ],
@@ -627,15 +507,15 @@
       "id": 5,
       "title": "Outside Loop",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Read wider spatial routes and outside loops.",
-      "cols": 8,
-      "rows": 7,
+      "challenge": "Two purple trays with different footprints divide the outside loop.",
+      "cols": 7,
+      "rows": 6,
       "habitats": [
         {
           "id": "A",
           "color": "purple",
           "anchor": [
-            2,
+            1,
             2
           ],
           "shape": [
@@ -652,15 +532,15 @@
               0
             ]
           ],
-          "need": 4,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "B",
-          "color": "green",
+          "color": "purple",
           "anchor": [
             5,
-            2
+            3
           ],
           "shape": [
             [
@@ -670,20 +550,16 @@
             [
               0,
               1
-            ],
-            [
-              1,
-              1
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "C",
           "color": "orange",
           "anchor": [
-            1,
+            0,
             4
           ],
           "shape": [
@@ -704,15 +580,39 @@
               1
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "D",
+          "color": "green",
+          "anchor": [
+            3,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "E",
           "color": "blue",
           "anchor": [
             5,
-            4
+            1
           ],
           "shape": [
             [
@@ -724,7 +624,7 @@
               0
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "FREE"
         }
       ],
@@ -741,7 +641,7 @@
           "id": "L05_S02",
           "color": "purple",
           "position": [
-            7.5,
+            6.5,
             0.5
           ]
         },
@@ -749,52 +649,28 @@
           "id": "L05_S03",
           "color": "purple",
           "position": [
-            7.5,
-            6.5
+            6.5,
+            5.5
           ]
         },
         {
           "id": "L05_S04",
           "color": "purple",
           "position": [
-            0.5,
-            6.5
+            2.5,
+            5.5
           ]
         },
         {
           "id": "L05_S05",
-          "color": "green",
+          "color": "orange",
           "position": [
-            3.5,
-            3.5
-          ]
-        },
-        {
-          "id": "L05_S06",
-          "color": "green",
-          "position": [
-            4.5,
-            3.5
-          ]
-        },
-        {
-          "id": "L05_S07",
-          "color": "green",
-          "position": [
-            3.5,
+            2.5,
             4.5
           ]
         },
         {
-          "id": "L05_S08",
-          "color": "orange",
-          "position": [
-            6.5,
-            2.5
-          ]
-        },
-        {
-          "id": "L05_S09",
+          "id": "L05_S06",
           "color": "orange",
           "position": [
             3.5,
@@ -802,35 +678,35 @@
           ]
         },
         {
-          "id": "L05_S10",
-          "color": "orange",
-          "position": [
-            0.5,
-            4.5
-          ]
-        },
-        {
-          "id": "L05_S11",
-          "color": "blue",
+          "id": "L05_S07",
+          "color": "green",
           "position": [
             4.5,
-            0.5
+            2.5
           ]
         },
         {
-          "id": "L05_S12",
+          "id": "L05_S08",
+          "color": "green",
+          "position": [
+            4.5,
+            3.5
+          ]
+        },
+        {
+          "id": "L05_S09",
           "color": "blue",
           "position": [
-            7.5,
-            4.5
+            6.5,
+            3.5
           ]
         },
         {
-          "id": "L05_S13",
+          "id": "L05_S10",
           "color": "blue",
           "position": [
             5.5,
-            6.5
+            5.5
           ]
         }
       ],
@@ -845,7 +721,7 @@
       "id": 6,
       "title": "Cross Traffic",
       "profile": "CONTINUOUS_CORE",
-      "challenge": "Core dependency / corridor preparation.",
+      "challenge": "Two differently shaped red trays choose crossing routes through traffic.",
       "cols": 8,
       "rows": 7,
       "habitats": [
@@ -870,11 +746,27 @@
               0
             ]
           ],
-          "need": 4,
+          "need": 2,
           "movementConstraint": "FREE"
         },
         {
           "id": "B",
+          "color": "red",
+          "anchor": [
+            7,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "C",
           "color": "cyan",
           "anchor": [
             5,
@@ -898,7 +790,7 @@
           "movementConstraint": "FREE"
         },
         {
-          "id": "C",
+          "id": "D",
           "color": "yellow",
           "anchor": [
             2,
@@ -922,7 +814,7 @@
           "movementConstraint": "FREE"
         },
         {
-          "id": "D",
+          "id": "E",
           "color": "green",
           "anchor": [
             3,
@@ -1072,7 +964,7 @@
       "title": "First Lift",
       "profile": "ELEVATOR_INTRO",
       "difficulty": "TUTORIAL",
-      "challenge": "First Elevator: collect/release to reveal the queued Sproutling; queue state is visible and deterministic.",
+      "challenge": "Four trays share a broad funnel; the single lift remains the first arrival lesson.",
       "cols": 7,
       "rows": 6,
       "habitats": [
@@ -1093,7 +985,23 @@
               0
             ]
           ],
-          "need": 2,
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L07_H_ORANGE_SMALL",
+          "color": "orange",
+          "anchor": [
+            4,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         },
         {
@@ -1111,6 +1019,26 @@
           ],
           "need": 1,
           "movementConstraint": "FREE"
+        },
+        {
+          "id": "L07_H_GREEN",
+          "color": "green",
+          "anchor": [
+            2,
+            4
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
         }
       ],
       "targets": [
@@ -1118,7 +1046,7 @@
           "id": "L07_S_ORANGE_01",
           "color": "orange",
           "position": [
-            4.5,
+            3.5,
             1.5
           ]
         },
@@ -1126,8 +1054,16 @@
           "id": "L07_S_BLUE_01",
           "color": "blue",
           "position": [
-            2.5,
+            4.5,
             4.5
+          ]
+        },
+        {
+          "id": "L07_S_GREEN_01",
+          "color": "green",
+          "position": [
+            3.5,
+            5.5
           ]
         }
       ],
@@ -1149,8 +1085,126 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          2,
+          3
+        ]
+      ],
+      "playableMask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -1158,7 +1212,7 @@
       "title": "Open Practice",
       "profile": "ASSIST_1_UNLOCK",
       "difficulty": "EASY",
-      "challenge": "First optional assistance unlock metadata only. Level remains fully solvable without assistance.",
+      "challenge": "Two regions hold paired yellow and purple trays; assists stay optional.",
       "cols": 7,
       "rows": 6,
       "habitats": [
@@ -1175,15 +1229,31 @@
               0
             ],
             [
-              1,
-              0
+              0,
+              1
             ],
             [
-              0,
+              1,
               1
             ]
           ],
-          "need": 2,
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L08_H_YELLOW_SMALL",
+          "color": "yellow",
+          "anchor": [
+            3,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         },
         {
@@ -1203,7 +1273,27 @@
               0
             ]
           ],
-          "need": 2,
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L08_H_PURPLE_TALL",
+          "color": "purple",
+          "anchor": [
+            1,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         }
       ],
@@ -1212,7 +1302,7 @@
           "id": "L08_S_YELLOW_01",
           "color": "yellow",
           "position": [
-            3.5,
+            4.5,
             1.5
           ]
         },
@@ -1259,8 +1349,138 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          3,
+          3
+        ]
+      ],
+      "playableMask": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -1268,7 +1488,7 @@
       "title": "Two Arrivals",
       "profile": "QUEUE_COMBINATION",
       "difficulty": "NORMAL",
-      "challenge": "Plan releases around two independent Elevator queues.",
+      "challenge": "Five trays choose how to use two arrivals and the shared middle.",
       "cols": 8,
       "rows": 7,
       "habitats": [
@@ -1289,7 +1509,47 @@
               0
             ]
           ],
-          "need": 3,
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L09_H_BLUE_SMALL",
+          "color": "blue",
+          "anchor": [
+            4,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L09_H_BLUE_LONG",
+          "color": "blue",
+          "anchor": [
+            2,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         },
         {
@@ -1309,7 +1569,23 @@
               1
             ]
           ],
-          "need": 3,
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L09_H_GREEN_SMALL",
+          "color": "green",
+          "anchor": [
+            6,
+            2
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         }
       ],
@@ -1318,7 +1594,7 @@
           "id": "L09_S_BLUE_01",
           "color": "blue",
           "position": [
-            4.5,
+            3.5,
             1.5
           ]
         },
@@ -1373,8 +1649,146 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "playableMask": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -1382,7 +1796,7 @@
       "title": "Cross Queue",
       "profile": "QUEUE_COMBINATION",
       "difficulty": "NORMAL",
-      "challenge": "Two queues with authored mixed-colour order; keep entries usable.",
+      "challenge": "Paired red and cyan trays negotiate crossed arrival queues.",
       "cols": 8,
       "rows": 7,
       "habitats": [
@@ -1403,7 +1817,23 @@
               0
             ]
           ],
-          "need": 2,
+          "need": 1,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L10_H_RED_SMALL",
+          "color": "red",
+          "anchor": [
+            3,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         },
         {
@@ -1427,7 +1857,27 @@
               1
             ]
           ],
-          "need": 3,
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L10_H_CYAN_TALL",
+          "color": "cyan",
+          "anchor": [
+            6,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "need": 1,
           "movementConstraint": "FREE"
         },
         {
@@ -1452,7 +1902,7 @@
           "id": "L10_S_RED_01",
           "color": "red",
           "position": [
-            3.5,
+            2.5,
             1.5
           ]
         },
@@ -1515,8 +1965,166 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          2,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "playableMask": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -1701,8 +2309,210 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "playableMask": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -1919,8 +2729,242 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          6,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          3
+        ]
+      ],
+      "playableMask": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2085,8 +3129,198 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "playableMask": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          7
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2247,8 +3481,206 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "playableMask": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2256,16 +3688,16 @@
       "title": "Guide Grooves",
       "profile": "MOVEMENT_CONSTRAINT_INTRO",
       "difficulty": "TUTORIAL",
-      "challenge": "Tiny movement-constraint tutorial: horizontal and vertical collectors only; no Elevator complexity.",
-      "cols": 8,
+      "challenge": "Two horizontal and two vertical trays cross around a forgiving central pocket.",
+      "cols": 7,
       "rows": 7,
       "habitats": [
         {
-          "id": "L15_H_CYAN",
+          "id": "L15_H_CYAN_WIDE",
           "color": "cyan",
           "anchor": [
             0,
-            1
+            2
           ],
           "shape": [
             [
@@ -2281,11 +3713,27 @@
           "movementConstraint": "HORIZONTAL_ONLY"
         },
         {
-          "id": "L15_H_PINK",
+          "id": "L15_H_CYAN_SMALL",
+          "color": "cyan",
+          "anchor": [
+            4,
+            5
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "HORIZONTAL_ONLY"
+        },
+        {
+          "id": "L15_H_PINK_TALL",
           "color": "pink",
           "anchor": [
-            5,
-            3
+            6,
+            2
           ],
           "shape": [
             [
@@ -2299,6 +3747,30 @@
           ],
           "need": 2,
           "movementConstraint": "VERTICAL_ONLY"
+        },
+        {
+          "id": "L15_H_PINK_BENT",
+          "color": "pink",
+          "anchor": [
+            2,
+            0
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "VERTICAL_ONLY"
         }
       ],
       "targets": [
@@ -2306,38 +3778,248 @@
           "id": "L15_S_CYAN_01",
           "color": "cyan",
           "position": [
-            3.5,
-            1.5
+            4.5,
+            2.5
           ]
         },
         {
           "id": "L15_S_CYAN_02",
           "color": "cyan",
           "position": [
-            6.5,
-            1.5
+            1.5,
+            5.5
+          ]
+        },
+        {
+          "id": "L15_S_CYAN_03",
+          "color": "cyan",
+          "position": [
+            5.5,
+            2.5
           ]
         },
         {
           "id": "L15_S_PINK_01",
           "color": "pink",
           "position": [
-            5.5,
-            0.5
+            2.5,
+            4.5
           ]
         },
         {
           "id": "L15_S_PINK_02",
           "color": "pink",
           "position": [
-            5.5,
-            6.5
+            6.5,
+            5.5
+          ]
+        },
+        {
+          "id": "L15_S_PINK_03",
+          "color": "pink",
+          "position": [
+            6.5,
+            1.5
           ]
         }
       ],
       "elevators": [],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "playableMask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2345,16 +4027,16 @@
       "title": "Guided Arrival",
       "profile": "ASSIST_3_UNLOCK",
       "difficulty": "NORMAL",
-      "challenge": "Third optional assistance unlock metadata only; combines known queue and movement-constraint rules.",
-      "cols": 9,
+      "challenge": "Four guided lanes and one free yellow tray coordinate two arrival queues.",
+      "cols": 8,
       "rows": 7,
       "habitats": [
         {
-          "id": "L16_H_YELLOW",
+          "id": "L16_H_YELLOW_WIDE",
           "color": "yellow",
           "anchor": [
             0,
-            1
+            5
           ],
           "shape": [
             [
@@ -2366,11 +4048,51 @@
               0
             ]
           ],
-          "need": 3,
+          "need": 1,
           "movementConstraint": "HORIZONTAL_ONLY"
         },
         {
-          "id": "L16_H_BLUE",
+          "id": "L16_H_YELLOW_FREE",
+          "color": "yellow",
+          "anchor": [
+            2,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "FREE"
+        },
+        {
+          "id": "L16_H_CYAN_LONG",
+          "color": "cyan",
+          "anchor": [
+            1,
+            1
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "need": 2,
+          "movementConstraint": "HORIZONTAL_ONLY"
+        },
+        {
+          "id": "L16_H_BLUE_TALL",
           "color": "blue",
           "anchor": [
             6,
@@ -2390,20 +4112,24 @@
           "movementConstraint": "VERTICAL_ONLY"
         },
         {
-          "id": "L16_H_ORANGE",
-          "color": "orange",
+          "id": "L16_H_PINK_TALL",
+          "color": "pink",
           "anchor": [
-            3,
-            5
+            4,
+            3
           ],
           "shape": [
             [
               0,
               0
+            ],
+            [
+              0,
+              1
             ]
           ],
           "need": 2,
-          "movementConstraint": "FREE"
+          "movementConstraint": "VERTICAL_ONLY"
         }
       ],
       "targets": [
@@ -2412,14 +4138,14 @@
           "color": "yellow",
           "position": [
             3.5,
-            1.5
+            5.5
           ]
         },
         {
-          "id": "L16_S_YELLOW_02",
-          "color": "yellow",
+          "id": "L16_S_CYAN_01",
+          "color": "cyan",
           "position": [
-            6.5,
+            4.5,
             1.5
           ]
         },
@@ -2432,11 +4158,19 @@
           ]
         },
         {
-          "id": "L16_S_ORANGE_01",
-          "color": "orange",
+          "id": "L16_S_PINK_01",
+          "color": "pink",
           "position": [
             4.5,
-            4.5
+            0.5
+          ]
+        },
+        {
+          "id": "L16_S_PINK_02",
+          "color": "pink",
+          "position": [
+            4.5,
+            5.5
           ]
         }
       ],
@@ -2452,6 +4186,10 @@
             {
               "id": "L16_Q_BLUE_01",
               "color": "blue"
+            },
+            {
+              "id": "L16_Q_YELLOW_01",
+              "color": "yellow"
             }
           ],
           "nextIndex": 0,
@@ -2460,26 +4198,252 @@
         {
           "id": "L16_E_RIGHT",
           "entry": [
-            8.5,
+            7.5,
             1.5
           ],
           "direction": "LEFT",
           "queue": [
             {
-              "id": "L16_Q_YELLOW_01",
-              "color": "yellow"
+              "id": "L16_Q_CYAN_01",
+              "color": "cyan"
             },
             {
-              "id": "L16_Q_ORANGE_01",
-              "color": "orange"
+              "id": "L16_Q_YELLOW_02",
+              "color": "yellow"
             }
           ],
           "nextIndex": 0,
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "playableMask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2652,8 +4616,226 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          7,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "playableMask": [
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ],
       "bonusPickups": []
     },
 {
@@ -2661,7 +4843,7 @@
       "title": "Mastery Exchange",
       "profile": "CHAPTER_MASTERY",
       "difficulty": "MASTERY",
-      "challenge": "Chapter mastery: no new rule, combines free movement, constrained collectors and two queues.",
+      "challenge": "Green has a dedicated vertical lift lane; five trays time four deliveries through shared pockets.",
       "cols": 10,
       "rows": 8,
       "habitats": [
@@ -2682,14 +4864,30 @@
               0
             ]
           ],
-          "need": 3,
+          "need": 2,
           "movementConstraint": "HORIZONTAL_ONLY"
+        },
+        {
+          "id": "L18_H_RED_FREE",
+          "color": "red",
+          "anchor": [
+            4,
+            3
+          ],
+          "shape": [
+            [
+              0,
+              0
+            ]
+          ],
+          "need": 1,
+          "movementConstraint": "FREE"
         },
         {
           "id": "L18_H_GREEN",
           "color": "green",
           "anchor": [
-            7,
+            8,
             2
           ],
           "shape": [
@@ -2733,7 +4931,7 @@
           "id": "L18_H_YELLOW",
           "color": "yellow",
           "anchor": [
-            6,
+            4,
             5
           ],
           "shape": [
@@ -2742,8 +4940,12 @@
               0
             ],
             [
+              0,
+              1
+            ],
+            [
               1,
-              0
+              1
             ]
           ],
           "need": 3,
@@ -2755,7 +4957,7 @@
           "id": "L18_S_RED_01",
           "color": "red",
           "position": [
-            4.5,
+            3.5,
             1.5
           ]
         },
@@ -2763,15 +4965,15 @@
           "id": "L18_S_RED_02",
           "color": "red",
           "position": [
-            8.5,
-            1.5
+            5.5,
+            3.5
           ]
         },
         {
           "id": "L18_S_GREEN_01",
           "color": "green",
           "position": [
-            7.5,
+            8.5,
             1.5
           ]
         },
@@ -2779,7 +4981,7 @@
           "id": "L18_S_GREEN_02",
           "color": "green",
           "position": [
-            7.5,
+            8.5,
             6.5
           ]
         },
@@ -2787,31 +4989,31 @@
           "id": "L18_S_PURPLE_01",
           "color": "purple",
           "position": [
-            4.5,
-            5.5
+            1.5,
+            7.5
           ]
         },
         {
           "id": "L18_S_PURPLE_02",
           "color": "purple",
           "position": [
-            1.5,
-            7.5
+            3.5,
+            4.5
           ]
         },
         {
           "id": "L18_S_YELLOW_01",
           "color": "yellow",
           "position": [
-            8.5,
-            5.5
+            5.5,
+            2.5
           ]
         },
         {
           "id": "L18_S_YELLOW_02",
           "color": "yellow",
           "position": [
-            5.5,
+            4.5,
             7.5
           ]
         }
@@ -2836,7 +5038,7 @@
         {
           "id": "L18_E_TOP_GREEN",
           "entry": [
-            7.5,
+            8.5,
             0.5
           ],
           "direction": "DOWN",
@@ -2852,7 +5054,7 @@
         {
           "id": "L18_E_BOTTOM_YELLOW",
           "entry": [
-            9.5,
+            5.5,
             7.5
           ],
           "direction": "UP",
@@ -2868,7 +5070,7 @@
         {
           "id": "L18_E_RIGHT_RED",
           "entry": [
-            9.5,
+            6.5,
             1.5
           ],
           "direction": "LEFT",
@@ -2882,8 +5084,318 @@
           "mandatory": true
         }
       ],
-      "obstacles": [],
-      "playableMask": null,
+      "obstacles": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "playableMask": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          7
+        ]
+      ],
       "bonusPickups": []
     },
     {
@@ -9545,5 +12057,5 @@
       "bonusPickups": []
     }
   ],
-  "canonicalLevelsFingerprint": "537278ad55d69dc6f24887c19a7fc7d0bd986cc4e1823bf705011cd21a756765"
+  "canonicalLevelsFingerprint": "2109bff07a949cf53a7e2e9afdbb2ba7c9926e1c230f5a1d7cd67ff618c3ea3f"
 }

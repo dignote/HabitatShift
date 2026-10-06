@@ -8,10 +8,51 @@ public class SproutlingMotion:MonoBehaviour
     void Awake(){phase=UnityEngine.Random.value*6f;}
     public void SetPose(Vector3 position,Vector3 scale){basePosition=position;baseScale=scale;}
     void Update(){if(!MotionEnabled){transform.localPosition=basePosition;transform.localScale=baseScale;return;}var t=Time.time+phase;transform.localPosition=basePosition+Vector3.up*Mathf.Sin(t*1.4f)*.025f;transform.localScale=baseScale*(1f+Mathf.Sin(t*2f)*.02f);}
-}public sealed class HabitatBootstrap:MonoBehaviour{
-static HabitatBootstrap instance;CatalogDto catalog;RulesetDto rules;ContinuousSession session;SaveV2 save;Camera cam;Canvas canvas;Sprite white;AudioSource audio;HabitatPresentation presentation;GameplayFxController fx;int current;bool active;string assistHabitat,assistSprout;AssistKind? assist;readonly Dictionary<string,GameObject> world=new Dictionary<string,GameObject>();readonly List<GameObject> ui=new List<GameObject>();readonly Dictionary<int,AudioClip> tones=new Dictionary<int,AudioClip>();Text hud;float winAt=-1,blockedToneAt=-1;int fittedWidth,fittedHeight;Rect fittedSafe;int dragPointerId=int.MinValue;bool HasTouchPointer=>dragPointerId!=int.MinValue&&dragPointerId!=-1;bool enhancedTouchOwned;GameObject assistCancelButton;
+}
+// Home-only decoration. The parent card owns this object, so leaving Home removes every sparkle.
+public sealed class HomeHeroAccent:MonoBehaviour
+{
+    static readonly Vector2[] SparklePositions={new Vector2(-.83f,.48f),new Vector2(.78f,.60f),new Vector2(-.95f,-.30f),new Vector2(.92f,-.22f),new Vector2(.42f,-.83f)};
+    readonly Image[] sparkles=new Image[SparklePositions.Length];
+    RectTransform portrait;
+    bool reducedMotion;
+
+    public void Configure(RectTransform moss,Sprite sparkleSprite,bool vfx,bool reduced)
+    {
+        portrait=moss;reducedMotion=reduced;
+        if(!vfx)return;
+        for(var i=0;i<sparkles.Length;i++)
+        {
+            var go=new GameObject("Moss Sparkle",typeof(Image));go.transform.SetParent(transform,false);
+            var image=go.GetComponent<Image>();image.sprite=sparkleSprite;image.raycastTarget=false;
+            var rect=(RectTransform)go.transform;rect.anchorMin=rect.anchorMax=new Vector2(.5f,.5f);
+            rect.sizeDelta=Vector2.one*HudTheme.Scaled(i%2==0?13f:9f);rect.localRotation=Quaternion.Euler(0,0,45);
+            sparkles[i]=image;
+        }
+    }
+
+    void LateUpdate()
+    {
+        if(portrait==null)return;
+        var time=Time.unscaledTime;
+        portrait.anchoredPosition=reducedMotion?Vector2.zero:new Vector2(0,Mathf.Sin(time*1.8f)*HudTheme.Scaled(5f));
+        portrait.localScale=Vector3.one*(reducedMotion?1f:1f+Mathf.Sin(time*2.3f)*.018f);
+        var bounds=(RectTransform)transform;
+        var radius=Mathf.Min(bounds.rect.width,bounds.rect.height)*.5f;
+        for(var i=0;i<sparkles.Length;i++)
+        {
+            var sparkle=sparkles[i];if(sparkle==null)continue;
+            var rect=sparkle.rectTransform;rect.anchoredPosition=SparklePositions[i]*radius;
+            var wave=reducedMotion?0f:Mathf.Sin(time*2.1f+i*1.35f);
+            rect.localScale=Vector3.one*(1f+wave*.17f);
+            sparkle.color=new Color(1f,.82f,.32f,reducedMotion?.55f:.48f+wave*.20f);
+        }
+    }
+}
+public sealed class HabitatBootstrap:MonoBehaviour{
+static HabitatBootstrap instance;CatalogDto catalog;RulesetDto rules;ContinuousSession session;SaveV3 save;Camera cam;Canvas canvas;Sprite white;AudioSource audio;HabitatPresentation presentation;GameplayFxController fx;int current;bool active;string assistHabitat,assistSprout;AssistKind? assist;readonly Dictionary<string,GameObject> world=new Dictionary<string,GameObject>();readonly List<GameObject> ui=new List<GameObject>();readonly Dictionary<int,AudioClip> tones=new Dictionary<int,AudioClip>();Text hud;float winAt=-1,blockedToneAt=-1;int fittedWidth,fittedHeight;Rect fittedSafe;int dragPointerId=int.MinValue;bool HasTouchPointer=>dragPointerId!=int.MinValue&&dragPointerId!=-1;bool enhancedTouchOwned;GameObject assistCancelButton;
 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Create(){if(instance==null)new GameObject("Habitat Shift").AddComponent<HabitatBootstrap>();}
-void Awake(){if(instance!=null&&instance!=this){Destroy(gameObject);return;}instance=this;DontDestroyOnLoad(gameObject);Application.targetFrameRate=60;Screen.orientation=ScreenOrientation.Portrait;StartCoroutine(InitializeCatalogThenHome());}void OnEnable(){if(instance!=this||enhancedTouchOwned)return;EnhancedTouchSupport.Enable();enhancedTouchOwned=true;}void OnDisable(){if(instance==this)CancelDrag();if(enhancedTouchOwned){EnhancedTouchSupport.Disable();enhancedTouchOwned=false;}}void OnDestroy(){if(instance==this)instance=null;}IEnumerator InitializeCatalogThenHome(){CatalogLoadResult loaded=null;yield return CatalogLoader.LoadRoutine(x=>loaded=x);if(loaded==null||!loaded.Success){Debug.LogError("Habitat Shift startup failed closed: "+(loaded==null?"catalog loader returned no result.":loaded.error));yield break;}catalog=loaded.catalog;rules=loaded.rules;save=Load();ApplyUiScale();MakeInfra();ShowHome();}
+void Awake(){if(instance!=null&&instance!=this){Destroy(gameObject);return;}instance=this;DontDestroyOnLoad(gameObject);Application.targetFrameRate=60;Screen.orientation=ScreenOrientation.Portrait;StartCoroutine(InitializeCatalogThenHome());}void OnEnable(){if(instance!=this||enhancedTouchOwned)return;EnhancedTouchSupport.Enable();enhancedTouchOwned=true;}void OnDisable(){if(instance==this)CancelDrag();if(enhancedTouchOwned){EnhancedTouchSupport.Disable();enhancedTouchOwned=false;}}void OnDestroy(){if(instance==this)instance=null;}IEnumerator InitializeCatalogThenHome(){CatalogLoadResult loaded=null;yield return CatalogLoader.LoadRoutine(x=>loaded=x);if(loaded==null||!loaded.Success){Debug.LogError("Habitat Shift startup failed closed: "+(loaded==null?"catalog loader returned no result.":loaded.error));yield break;}catalog=loaded.catalog;rules=loaded.rules;save=Load();Store();ApplyUiScale();MakeInfra();ShowHome();}
 void MakeInfra(){cam=Camera.main;if(cam==null){cam=new GameObject("Habitat Camera").AddComponent<Camera>();cam.tag="MainCamera";}cam.orthographic=true;cam.backgroundColor=new Color(.16f,.25f,.20f);cam.transform.position=new Vector3(4,-3.5f,-10);audio=gameObject.AddComponent<AudioSource>();PrewarmTones();var t=new Texture2D(2,2);t.SetPixels(new[]{Color.white,Color.white,Color.white,Color.white});t.Apply();white=UnityEngine.Sprite.Create(t,new Rect(0,0,2,2),new Vector2(.5f,.5f),2);presentation=gameObject.AddComponent<HabitatPresentation>();presentation.Initialize(cam);fx=gameObject.AddComponent<GameplayFxController>();fx.Initialize(cam);fx.SetSettings(save.vfx,save.reducedMotion);EnsureInputSystemEventSystem();var c=new GameObject("UI",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));canvas=c.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=20;c.AddComponent<UiLayoutAudit>();var sc=c.GetComponent<CanvasScaler>();sc.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;sc.referenceResolution=new Vector2(1080,1920);}
 void Update(){
     if(active && (fittedWidth!=Screen.width || fittedHeight!=Screen.height || fittedSafe!=Screen.safeArea)) Fit(catalog.levels[current-1]);
@@ -63,13 +104,13 @@ void ApplyUiScale(){HudTheme.UiScale=save!=null&&save.uiSize==0?.85f:save!=null&
 void OnGUI(){if(!Debug.isDebugBuild||!active||session==null||!session.IsDragging)return;DebugMarker(session.ResolvedPose,Color.green,"resolved");DebugMarker(session.DesiredPointerPose,Color.yellow,"desired");DebugMarker(session.LastSafePose,Color.cyan,"safe");DebugMarker(session.ResolvedPose+session.GrabOffset,Color.magenta,"grab");if(session.ContactNormal.sqrMagnitude>.001f)DebugMarker(session.ResolvedPose+session.ContactNormal*.35f,Color.red,"contact");}
 void DebugMarker(Vector2 board,Color color,string label){var screen=cam.WorldToScreenPoint(BoardViewport.ToWorld(board));var x=screen.x-4;var y=Screen.height-screen.y-4;var old=GUI.color;GUI.color=color;GUI.Box(new Rect(x,y,8,8),GUIContent.none);GUI.Label(new Rect(x+9,y-7,90,20),label);GUI.color=old;}
 void StartDrag(Vector2 screen){if(assist.HasValue){AssistTap(ToBoard(screen));return;}var p=ToBoard(screen);var h=session.Committed.habitats.FirstOrDefault(x=>x.shape.Any(c=>p.x>=x.anchor.x+c.x&&p.x<=x.anchor.x+c.x+1&&p.y>=x.anchor.y+c.y&&p.y<=x.anchor.y+c.y+1));if(h!=null&&session.BeginDrag(h.id,p)){Buzz();}}
-void Drag(Vector2 s){if(!session.IsDragging)return;session.MovePointer(ToBoard(s));Vector2 settle;presentation.SetSettlePreview(session.DragId,session.TryGetSettlePreview(out settle)?settle:session.ResolvedPose,session.TryGetSettlePreview(out settle));Render(session.Preview);Present();var h=session.Preview.habitats.FirstOrDefault(x=>x.id==session.DragId);if(h!=null)fx.TickDrag(true,h.color,session.ResolvedPose);}void EndDrag(bool cancel=false){if(!session.IsDragging)return;presentation.ClearSettlePreview();session.EndDrag(cancel);Render(session.Committed);Present();SaveSnapshot();UpdateHud();if(session.Committed.won)Victory();}
+void Drag(Vector2 s){if(!session.IsDragging)return;session.MovePointer(ToBoard(s));Vector2 settle;presentation.SetSettlePreview(session.DragId,session.TryGetSettlePreview(out settle)?settle:session.ResolvedPose,session.TryGetSettlePreview(out settle));Render(session.Preview);Present();var h=session.Preview.habitats.FirstOrDefault(x=>x.id==session.DragId);if(h!=null)fx.TickDrag(true,h.ActiveColor,session.ResolvedPose);}void EndDrag(bool cancel=false){if(!session.IsDragging)return;presentation.ClearSettlePreview();session.EndDrag(cancel);Render(session.Committed);Present();SaveSnapshot();UpdateHud();if(session.Committed.won)Victory();}
 Vector2 ToBoard(Vector2 s){return BoardViewport.FromScreen(cam,s);}
-void StartLevel(int id){current=id;assist=null;assistHabitat=assistSprout=null;dragPointerId=int.MinValue;fx.ClearLevel();fx.SetSettings(save.vfx,save.reducedMotion);var restore=save.snapshotLevel==id?save.snapshot:null;session=new ContinuousSession(catalog.levels[id-1],rules,restore);active=true;winAt=-1;ClearUi();Fit(catalog.levels[id-1]);GameplayUi();Render(session.Committed);if(id==8||id==12||id==16)Tutorial(id);}
+void StartLevel(int id){current=id;assist=null;assistHabitat=assistSprout=null;dragPointerId=int.MinValue;fx.ClearLevel();fx.SetSettings(save.vfx,save.reducedMotion);var restore=save.snapshotLevel==id?SaveV3Migration.Restore(save,catalog.schema,catalog.rulesetVersion):null;session=new ContinuousSession(catalog.levels[id-1],rules,restore);active=true;winAt=-1;ClearUi();Fit(catalog.levels[id-1]);GameplayUi();Render(session.Committed);if(id==8||id==12||id==16)Tutorial(id);}
 void Fit(LevelDto l){BoardViewport.Fit(cam,l);presentation.FitBackdrop(cam);fittedWidth=Screen.width;fittedHeight=Screen.height;fittedSafe=Screen.safeArea;}
 void Render(RuntimeState state){var dragging=session!=null&&session.IsDragging;var delta=dragging?session.DesiredPointerPose-session.ResolvedPose:Vector2.zero;presentation.SetPresentationMotion(!save.reducedMotion,dragging?session.DragId:null,delta);presentation.Render(state,catalog.levels[current-1]);}Color ColorFor(string c){switch(c){case "orange":return new Color(.92f,.42f,.31f);case "blue":return new Color(.25f,.48f,.86f);case "green":return new Color(.45f,.67f,.32f);case "yellow":return new Color(.96f,.70f,.18f);case "purple":return new Color(.55f,.39f,.72f);case "cyan":return new Color(.16f,.66f,.67f);case "red":return new Color(.88f,.25f,.38f);case "white":return new Color(.94f,.92f,.84f);case "brown":return new Color(.56f,.38f,.22f);default:return new Color(.95f,.44f,.62f);}}
 void Present(){fx.SetSettings(save.vfx,save.reducedMotion);UiButtonPulse.ReducedMotion=save.reducedMotion;var events=session.Events;fx.Play(events,catalog.levels[current-1]);foreach(var e in events){if(e.kind==PresentationKind.DragStart)Tone(390,.035f);if(e.kind==PresentationKind.BlockedContact&&Time.unscaledTime-blockedToneAt>.14f){blockedToneAt=Time.unscaledTime;Tone(180,.025f);}if(e.kind==PresentationKind.Collection){Tone(620,.07f);Buzz();}if(e.kind==PresentationKind.HabitatComplete){Tone(820,.12f);Buzz();}if(e.kind==PresentationKind.ElevatorRelease){Tone(740,.08f);Buzz();}if(e.kind==PresentationKind.AssistSuccess){Tone(880,.10f);Buzz();}if(e.kind==PresentationKind.Undo)Tone(330,.045f);}session.Events.Clear();}
-void Victory(){active=false;Tone(960,.2f);Buzz();winAt=save.reducedMotion?Time.unscaledTime+.15f:Time.unscaledTime+3.6f;save.completed=save.completed.Union(new[]{current}).ToList();save.highest=Mathf.Max(save.highest,Mathf.Min(CatalogLoader.ExpectedLevelCount,current+1));var b=save.best.FirstOrDefault(x=>x.level==current);if(b==null)save.best.Add(new Best{level=current,moves=session.Committed.moves});else b.moves=Mathf.Min(b.moves,session.Committed.moves);save.snapshot=null;save.snapshotLevel=0;Store();}
+void Victory(){active=false;Tone(960,.2f);Buzz();winAt=save.reducedMotion?Time.unscaledTime+.15f:Time.unscaledTime+1.35f;save.completed=save.completed.Union(new[]{current}).ToList();save.highest=Mathf.Max(save.highest,Mathf.Min(CatalogLoader.ExpectedLevelCount,current+1));var b=save.best.FirstOrDefault(x=>x.level==current);if(b==null)save.best.Add(new Best{level=current,moves=session.Committed.moves});else b.moves=Mathf.Min(b.moves,session.Committed.moves);save.snapshot=null;save.snapshotLevel=0;save.snapshotSchema=null;save.snapshotRuleset=null;save.snapshotCatalogFingerprint=null;Store();}
 void GameplayUi(){
     var root=HudRoot();
     Button(root.transform,"BACK",new Vector2(.08f,.95f),new Vector2(HudTheme.Scaled(128),HudTheme.Scaled(128)),ShowLevels,HudControlStyle.Circle);
@@ -122,15 +163,15 @@ void ChooseAssist(AssistKind k){
     assist=k;assistHabitat=assistSprout=null;
     presentation.SetAssistCandidates(null);presentation.SetAssistSproutCandidates(null);
     if(k==AssistKind.GardenShift){
-        var sprouts=session.Committed.sprouts.Where(x=>session.Committed.habitats.Any(h=>h.color==x.color&&h.remaining>0)).Select(x=>x.id).ToArray();
+        var sprouts=session.Committed.sprouts.Where(x=>session.Committed.habitats.Any(h=>h.ActiveColor==x.color&&h.ActiveRemaining>0)).Select(x=>x.id).ToArray();
         if(sprouts.Length==0){CancelAssist();hud.text="NO MATCHING SPROUTLING";return;}
         presentation.SetAssistSproutCandidates(sprouts);hud.text="SHIFT: SELECT SPROUTLING";
     }else{
         var candidates=session.Committed.habitats.Where(h=>{string reason;return session.CanUseAssist(k,h.id,"",out reason);}).Select(h=>h.id).ToArray();
         if(candidates.Length==0){
             var reason=k==AssistKind.RootTrim?"NO TRIMMABLE HABITAT":"NEED MORE SPROUTLINGS";
-            if(k==AssistKind.NestBloom&&session.Committed.habitats.Any(h=>h.remaining>0&&
-                session.Committed.elevators.Any(e=>e.queue.Skip(e.nextIndex).Any(q=>q.color==h.color))))
+            if(k==AssistKind.NestBloom&&session.Committed.habitats.Any(h=>h.ActiveRemaining>0&&
+                session.Committed.elevators.Any(e=>e.queue.Skip(e.nextIndex).Any(q=>q.color==h.ActiveColor))))
                 reason="WAIT FOR ELEVATOR";
             CancelAssist();hud.text=reason;return;
         }
@@ -151,14 +192,14 @@ void AssistTap(Vector2 p){
     }
     if(assistSprout==null&&s!=null){
         assistSprout=s.id;
-        var habitats=session.Committed.habitats.Where(x=>x.color==s.color&&x.remaining>0).Select(x=>x.id).ToArray();
+        var habitats=session.Committed.habitats.Where(x=>x.ActiveColor==s.color&&x.ActiveRemaining>0).Select(x=>x.id).ToArray();
         presentation.SetAssistSproutCandidates(null);presentation.SetAssistCandidates(habitats);
         hud.text=habitats.Length==0?"NO HABITAT WITH SPACE":"SHIFT: SELECT HABITAT";
         Render(session.Committed);return;
     }
     if(assistSprout!=null&&h!=null){
         var chosen=session.Committed.sprouts.FirstOrDefault(x=>x.id==assistSprout);
-        if(chosen!=null&&h.color==chosen.color){Use(assist.Value,h.id,assistSprout,Vector2Int.zero);return;}
+        if(chosen!=null&&h.ActiveColor==chosen.color){Use(assist.Value,h.id,assistSprout,Vector2Int.zero);return;}
         hud.text="CHOOSE MATCHING HABITAT";
     }
     else if(assistSprout==null)hud.text="SELECT HIGHLIGHTED SPROUTLING";
@@ -177,17 +218,22 @@ void ShowHome(){
     CancelDrag();active=false;ClearWorld();ClearUi();
     var panel=ResponsivePanel("Habitat Shift");
     Label(panel.transform,"HABITAT SHIFT",100);
-    var hero=new GameObject("Moss Hero",typeof(Image),typeof(LayoutElement));
+    var hero=new GameObject("Moss Hero",typeof(RectTransform),typeof(LayoutElement));
     hero.transform.SetParent(panel.transform,false);
-    var image=hero.GetComponent<Image>();
+    var heroLayout=hero.GetComponent<LayoutElement>();heroLayout.minHeight=0;heroLayout.preferredHeight=HudTheme.Scaled(420f);heroLayout.preferredWidth=HudTheme.Scaled(420f);
+    var portrait=new GameObject("Moss Portrait",typeof(Image));
+    portrait.transform.SetParent(hero.transform,false);
+    var portraitRect=(RectTransform)portrait.transform;portraitRect.anchorMin=Vector2.zero;portraitRect.anchorMax=Vector2.one;portraitRect.offsetMin=portraitRect.offsetMax=Vector2.zero;
+    var image=portrait.GetComponent<Image>();
     image.sprite=Resources.Load<Sprite>("HabitatShift/sproutling_moss_v1");
     image.preserveAspect=true;image.raycastTarget=false;
-    var heroLayout=hero.GetComponent<LayoutElement>();heroLayout.preferredHeight=260;heroLayout.preferredWidth=260;
+    hero.AddComponent<HomeHeroAccent>().Configure(portraitRect,white,save.vfx,save.reducedMotion);
     Label(panel.transform,"Tiny Friends. Brighter Spaces.",42);
     Button(panel.transform,"CONTINUE",()=>StartLevel(Mathf.Clamp(save.last,1,save.highest)));
     Button(panel.transform,"LEVELS",ShowLevels);
     Button(panel.transform,"SETTINGS",()=>ShowSettings());
 }
+public static bool IsLevelLocked(int levelId,int highest,bool debugBuild){return !debugBuild&&levelId>highest;}
 void ShowLevels(){
     CancelDrag();active=false;ClearWorld();ClearUi();
     var panel=ResponsivePanel("Levels");Label(panel.transform,"SELECT LEVEL",72);
@@ -202,7 +248,7 @@ void ShowLevels(){
     var scroll=viewport.GetComponent<ScrollRect>();scroll.content=gridRect;scroll.viewport=viewport.GetComponent<RectTransform>();
     scroll.horizontal=false;scroll.vertical=true;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.scrollSensitivity=48;
     for(int i=1;i<=CatalogLoader.ExpectedLevelCount;i++){
-        var id=i;var locked=id>save.highest;
+        var id=i;var locked=IsLevelLocked(id,save.highest,Debug.isDebugBuild);
         var card=Button(grid.transform,locked?"LOCKED":"LEVEL "+id.ToString("00"),()=>{if(!locked)StartLevel(id);},locked);
         if(!locked&&save.completed.Contains(id))LevelMark(card,"icon_check");
         if(!locked&&id==save.last){card.GetComponent<Image>().color=new Color(.89f,1f,.86f);if(!save.completed.Contains(id))LevelMark(card,"icon_assist_bloom");}
@@ -251,7 +297,57 @@ GameObject ResponsivePanel(string name){
     return card;
 }
 GameObject Panel(string n){UiButtonPulse.ReducedMotion=save!=null&&save.reducedMotion;var root=new GameObject(n+" Backdrop",typeof(Image));root.transform.SetParent(canvas.transform,false);var background=root.GetComponent<Image>();background.color=new Color(.18f,.13f,.09f,.42f);var rr=root.GetComponent<RectTransform>();rr.anchorMin=Vector2.zero;rr.anchorMax=Vector2.one;rr.offsetMin=rr.offsetMax=Vector2.zero;var g=new GameObject(n,typeof(Image),typeof(VerticalLayoutGroup));g.transform.SetParent(root.transform,false);var im=g.GetComponent<Image>();HudTheme.StyleButton(g,HudControlStyle.Secondary,true);im.raycastTarget=true;g.AddComponent<UiModalPop>().Configure(save!=null&&save.reducedMotion);var r=g.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.sizeDelta=new Vector2(820,Mathf.Min(1500,Screen.height*.78f));var v=g.GetComponent<VerticalLayoutGroup>();v.padding=new RectOffset(50,50,70,70);v.spacing=26;v.childAlignment=TextAnchor.MiddleCenter;v.childControlWidth=true;v.childForceExpandWidth=false;v.childControlHeight=true;v.childForceExpandHeight=false;ui.Add(root);return g;}void ClosePanel(GameObject card){if(card==null)return;var root=card.transform.parent!=null?card.transform.parent.gameObject:card;ui.Remove(root);Destroy(root);}GameObject HudRoot(){var g=new GameObject("HUD",typeof(Image),typeof(SafeAreaFitter));g.transform.SetParent(canvas.transform,false);g.GetComponent<Image>().color=Color.clear;g.GetComponent<Image>().raycastTarget=false;var r=g.GetComponent<RectTransform>();r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;g.GetComponent<SafeAreaFitter>().Refresh();ui.Add(g);return g;}void Label(Transform p,string t,int size){var g=new GameObject("Label",typeof(Text),typeof(LayoutElement));g.transform.SetParent(p,false);var x=g.GetComponent<Text>();x.text=t;HudTheme.ApplyTypography(x,size>=60?UiTextStyle.Display:size>=48?UiTextStyle.Title:size>=32?UiTextStyle.Heading:UiTextStyle.Body,new Color(.23f,.18f,.14f),TextAnchor.MiddleCenter);x.fontSize=HudTheme.Scaled(size);var e=g.GetComponent<LayoutElement>();e.minHeight=HudTheme.Scaled(size+40);e.preferredHeight=HudTheme.Scaled(size+40);}Text HudLabel(Transform p,string t,Vector2 a,Vector2 sz){var g=new GameObject("Hud",typeof(Image));g.transform.SetParent(p,false);var r=g.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=a;r.anchoredPosition=Vector2.zero;r.sizeDelta=sz;HudTheme.StylePill(g.GetComponent<Image>());var label=new GameObject("Text",typeof(Text));label.transform.SetParent(g.transform,false);var x=label.GetComponent<Text>();x.text=t;HudTheme.ApplyTypography(x,UiTextStyle.Hud,new Color(.25f,.18f,.14f),TextAnchor.MiddleCenter);x.fontSize=HudTheme.Scaled(50);var labelRect=x.GetComponent<RectTransform>();labelRect.anchorMin=Vector2.zero;labelRect.anchorMax=Vector2.one;labelRect.offsetMin=labelRect.offsetMax=Vector2.zero;return x;}GameObject Button(Transform p,string t,Action a,bool off=false){var spec=HudTheme.Resolve(t,off);if(t=="RESTART"||t=="REPLAY")spec=new UiControlSpec(HudControlStyle.Secondary,HudTheme.IconFor(t),UiContentLayout.Modal);var g=new GameObject(t+" Button",typeof(Image),typeof(Button),typeof(LayoutElement));g.transform.SetParent(p,false);HudTheme.StyleButton(g,spec.Style,!off);g.GetComponent<Button>().interactable=!off;g.AddComponent<UiButtonPulse>();g.GetComponent<Button>().onClick.AddListener(()=>{if(!off){Buzz();a();}});var element=g.GetComponent<LayoutElement>();element.minWidth=HudTheme.Scaled(940);element.preferredWidth=HudTheme.Scaled(940);element.preferredHeight=HudTheme.Scaled(spec.Style==HudControlStyle.Level?260:(spec.IsSetting?174:168));element.minHeight=HudTheme.Scaled(spec.Style==HudControlStyle.Level?260:(spec.IsSetting?174:168));HudTheme.AddContent(g,t,spec,!off,spec.IsSetting?33:(spec.Style==HudControlStyle.Level?60:42));return g;}
-GameObject Button(Transform p,string t,Vector2 a,Vector2 sz,Action f,HudControlStyle style=HudControlStyle.Action,bool enabled=true){var spec=HudTheme.Resolve(t,!enabled);if(style!=HudControlStyle.Action||t=="BACK"||t=="PAUSE")spec=new UiControlSpec(style,HudTheme.IconFor(t),style==HudControlStyle.Circle?UiContentLayout.Circle:UiContentLayout.GameplayAction);var g=new GameObject(t+" HudButton",typeof(Image),typeof(Button));g.transform.SetParent(p,false);var r=g.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=a;r.sizeDelta=sz;HudTheme.StyleButton(g,spec.Style,enabled);var button=g.GetComponent<Button>();button.interactable=enabled;g.AddComponent<UiButtonPulse>();button.onClick.AddListener(()=>{if(enabled){Buzz();f();}});HudTheme.AddContent(g,style==HudControlStyle.Circle?"":t,spec,enabled,17);return g;}void ClearUi(){foreach(var x in ui)if(x!=null)Destroy(x);ui.Clear();hud=null;}void ClearWorld(){if(fx!=null)fx.ClearLevel();if(presentation!=null)presentation.Clear();}void SaveSnapshot(){save.last=current;save.snapshotLevel=current;save.snapshot=session.Committed.Clone();Store();}SaveV2 Load(){var p=Path.Combine(Application.persistentDataPath,"habitat_shift_save_v2.json");try{if(File.Exists(p))return JsonUtility.FromJson<SaveV2>(File.ReadAllText(p))??new SaveV2();var old=Path.Combine(Application.persistentDataPath,"habitat_shift_save.json");if(File.Exists(old)){var legacy=JsonUtility.FromJson<LegacyPrefs>(File.ReadAllText(old))??new LegacyPrefs();return new SaveV2{music=legacy.Sound,sfx=legacy.Sound,haptics=legacy.Haptics,reducedMotion=legacy.ReducedMotion};}return new SaveV2();}catch{return new SaveV2();}}void Store(){File.WriteAllText(Path.Combine(Application.persistentDataPath,"habitat_shift_save_v2.json"),JsonUtility.ToJson(save));}void Buzz(){if(save.haptics&&Application.isMobilePlatform)Handheld.Vibrate();}void PrewarmTones(){CacheTone(180,.025f);CacheTone(330,.045f);CacheTone(390,.035f);CacheTone(620,.07f);CacheTone(740,.08f);CacheTone(820,.12f);CacheTone(880,.10f);CacheTone(960,.2f);}
+GameObject Button(Transform p,string t,Vector2 a,Vector2 sz,Action f,HudControlStyle style=HudControlStyle.Action,bool enabled=true){var spec=HudTheme.Resolve(t,!enabled);if(style!=HudControlStyle.Action||t=="BACK"||t=="PAUSE")spec=new UiControlSpec(style,HudTheme.IconFor(t),style==HudControlStyle.Circle?UiContentLayout.Circle:UiContentLayout.GameplayAction);var g=new GameObject(t+" HudButton",typeof(Image),typeof(Button));g.transform.SetParent(p,false);var r=g.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=a;r.sizeDelta=sz;HudTheme.StyleButton(g,spec.Style,enabled);var button=g.GetComponent<Button>();button.interactable=enabled;g.AddComponent<UiButtonPulse>();button.onClick.AddListener(()=>{if(enabled){Buzz();f();}});HudTheme.AddContent(g,style==HudControlStyle.Circle?"":t,spec,enabled,17);return g;}void ClearUi(){foreach(var x in ui)if(x!=null)Destroy(x);ui.Clear();hud=null;}void ClearWorld(){if(fx!=null)fx.ClearLevel();if(presentation!=null)presentation.Clear();}void SaveSnapshot(){
+    save=SaveV3Migration.WithSnapshot(save,session.Committed,current,catalog.schema,catalog.rulesetVersion,catalog.canonicalLevelsFingerprint);
+    save.last=current;
+    Store();
+}
+SaveV3 Load(){
+    var root=Application.persistentDataPath;
+    var v3=Path.Combine(root,"habitat_shift_save_v3.json");
+    if(File.Exists(v3)){
+        SaveV3 loaded=null;
+        try{
+            loaded=JsonUtility.FromJson<SaveV3>(File.ReadAllText(v3));
+            SaveV3Migration.Validate(loaded);
+            return SaveV3Migration.ForCatalogChangedLevels(loaded,catalog.schema,catalog.rulesetVersion,
+                catalog.canonicalLevelsFingerprint,catalog.levelCount,new[]{32,33},
+                "b8aaf86c2e2f538d0a337a0a2a3ce55a306e959014d70a1fc51151bee59b6525",
+                "b342b1df75ccf759188dc939131bce83655a2f9b434a8e6275076cdde36b42d7",
+                "45ecef03837600fb05088f81f0f4ae8be3da482cbf2ef058d053994d755a6605");
+        }catch(Exception e){
+            // A stale snapshot must never prevent the player's settings or progress from loading.
+            if(loaded!=null&&loaded.version==3){
+                loaded.snapshot=null;loaded.snapshotLevel=0;loaded.snapshotSchema=null;loaded.snapshotRuleset=null;loaded.snapshotCatalogFingerprint=null;
+                Debug.LogWarning("Habitat Shift discarded an invalid SaveV3 snapshot: "+e.Message);
+                return loaded;
+            }
+            Debug.LogError("Habitat Shift SaveV3 load failed: "+e.Message);
+        }
+    }
+    var v2=Path.Combine(root,"habitat_shift_save_v2.json");
+    try{
+        SaveV2 prior;
+        if(File.Exists(v2))prior=JsonUtility.FromJson<SaveV2>(File.ReadAllText(v2))??new SaveV2();
+        else{
+            var old=Path.Combine(root,"habitat_shift_save.json");
+            var prefs=File.Exists(old)?JsonUtility.FromJson<LegacyPrefs>(File.ReadAllText(old))??new LegacyPrefs():new LegacyPrefs();
+            prior=new SaveV2{music=prefs.Sound,sfx=prefs.Sound,haptics=prefs.Haptics,reducedMotion=prefs.ReducedMotion};
+        }
+        var migrated=SaveV3Migration.FromV2(prior);
+        if(migrated.snapshot!=null){
+            if(migrated.snapshotLevel>=1&&migrated.snapshotLevel<=30)
+                migrated=SaveV3Migration.WithSnapshot(migrated,migrated.snapshot,migrated.snapshotLevel,catalog.schema,catalog.rulesetVersion,catalog.canonicalLevelsFingerprint);
+            else{migrated.snapshot=null;migrated.snapshotLevel=0;migrated.snapshotSchema=null;migrated.snapshotRuleset=null;migrated.snapshotCatalogFingerprint=null;}
+        }
+        return migrated;
+    }catch(Exception e){Debug.LogError("Habitat Shift SaveV2 migration failed: "+e.Message);return new SaveV3();}
+}
+void Store(){
+    SaveV3Migration.Validate(save);
+    File.WriteAllText(Path.Combine(Application.persistentDataPath,"habitat_shift_save_v3.json"),JsonUtility.ToJson(save));
+}
+void Buzz(){if(save.haptics&&Application.isMobilePlatform)Handheld.Vibrate();}void PrewarmTones(){CacheTone(180,.025f);CacheTone(330,.045f);CacheTone(390,.035f);CacheTone(620,.07f);CacheTone(740,.08f);CacheTone(820,.12f);CacheTone(880,.10f);CacheTone(960,.2f);}
 void CacheTone(int hz,float len){var count=Mathf.CeilToInt(22050*len);var clip=AudioClip.Create("Habitat "+hz,count,1,22050,false);var samples=new float[count];for(var i=0;i<count;i++)samples[i]=Mathf.Sin(i*hz*2*Mathf.PI/22050f)*.1f*(1-i/(float)count);clip.SetData(samples,0);tones[hz]=clip;}
 void Tone(float hz,float len){if(!save.sfx)return;if(tones.TryGetValue(Mathf.RoundToInt(hz),out var clip))audio.PlayOneShot(clip);}
 }}

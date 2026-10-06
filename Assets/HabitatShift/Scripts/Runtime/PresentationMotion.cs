@@ -9,6 +9,7 @@ namespace HabitatShift.Runtime
         Vector3 basePosition, baseScale;
         bool dragging, enabledMotion = true;
         Vector2 direction;
+        public Transform VisualTransform => visual == null ? transform : visual.transform;
         public void SetPose(SpriteRenderer renderer, Vector3 position, Vector3 scale, bool isDragging, Vector2 dragDirection, bool motionEnabled)
         {
             EnsureVisual(renderer);

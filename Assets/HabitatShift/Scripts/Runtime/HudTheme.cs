@@ -169,7 +169,7 @@ namespace HabitatShift.Runtime
 
         static void AddCircleContent(Transform parent, UiControlSpec spec)
         {
-            AddImage(parent, "Icon", spec.Icon, new Vector2(.5f,.5f), new Vector2(.5f,.5f), Vector2.zero, new Vector2(Scaled(96f),Scaled(96f)));
+            AddImage(parent, "Icon", spec.Icon, new Vector2(.5f,.5f), new Vector2(.5f,.5f), Vector2.zero, new Vector2(Scaled(56f),Scaled(56f)));
         }
 
         static void AddImage(Transform parent, string name, string key, Vector2 anchorMin, Vector2 anchorMax, Vector2 anchoredPosition, Vector2 size)

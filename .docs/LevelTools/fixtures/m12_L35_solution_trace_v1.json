@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "levelId": 35,
+  "catalogFingerprint": "18cd60498f16d831d384b2a2f46b0d49bdd84fe34e443539feed5c9b5300f0bb",
+  "gestures": [
+    {
+      "habitatId": "L35_H_RELAY_BROWN",
+      "press": {
+        "x": 4.5,
+        "y": 2.5
+      },
+      "boardPath": [
+        {
+          "x": 4.5,
+          "y": 3.5
+        }
+      ],
+      "checkpoint": "173529d3f4bbb69b445004434000ff4147eb8f3de8610939dfaff0e8c1b461af"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 3.5,
+        "y": 3.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 3.5
+        }
+      ],
+      "checkpoint": "edce2fdf294f15ed343a6f95e1e902d9289713bca64b91120b2417dc85d2f2e0"
+    },
+    {
+      "habitatId": "L35_H_YELLOW_KEY",
+      "press": {
+        "x": 3.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "4f9fa9303fd1e490fa6a1b10ff39c0067b5aa278467082342944b87f4c19fbea"
+    },
+    {
+      "habitatId": "L35_H_BLUE_SQUARE",
+      "press": {
+        "x": 2.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 2.5,
+          "y": 2.5
+        },
+        {
+          "x": 2.5,
+          "y": 3.5
+        },
+        {
+          "x": 1.5,
+          "y": 3.5
+        }
+      ],
+      "checkpoint": "558f47f0f22a29039e51229236087178ed6e226ea16862961757c3e795b60f5a"
+    },
+    {
+      "habitatId": "L35_H_PURPLE_SQUARE",
+      "press": {
+        "x": 6.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 7.5,
+          "y": 0.5
+        },
+        {
+          "x": 5.5,
+          "y": 0.5
+        },
+        {
+          "x": 3.5,
+          "y": 0.5
+        },
+        {
+          "x": 2.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "bc7236bbb988d3a43c40a61dca785d2cebdbf323755d67f5b9f60379f7edfb94"
+    },
+    {
+      "habitatId": "L35_H_PINK_RING",
+      "press": {
+        "x": 6.5,
+        "y": 2.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 3.5
+        },
+        {
+          "x": 6.5,
+          "y": 2.5
+        },
+        {
+          "x": 6.5,
+          "y": 1.5
+        }
+      ],
+      "checkpoint": "7cb8f86be59e13ec2246d1095439a1b8087f8c99fcece0c67ace84d62a25ceba"
+    },
+    {
+      "habitatId": "L35_H_PINK_RING",
+      "press": {
+        "x": 6.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "9d0d450697ce6f035c088d3ddfce72657381ad05372602bb8b44f8cfb14064f4"
+    },
+    {
+      "habitatId": "L35_H_PINK_RING",
+      "press": {
+        "x": 6.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 1.5
+        }
+      ],
+      "checkpoint": "2684005ddfa8e9f2ce48f11d1f37bcb9174a2d5d332b8edb3494447606f882f0"
+    },
+    {
+      "habitatId": "L35_H_PINK_RING",
+      "press": {
+        "x": 6.5,
+        "y": 1.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 0.5
+        }
+      ],
+      "checkpoint": "ce96b1c9e28c771f4175ea58081b5905fe540d250ffb10230cb9f379783880f1"
+    },
+    {
+      "habitatId": "L35_H_ORANGE_TRIO",
+      "press": {
+        "x": 0.5,
+        "y": 2.5
+      },
+      "boardPath": [
+        {
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "x": 0.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "86a1fa9a7fe53edd30ce37206684d65b1e862d89d058f696a06dda93dcf19812"
+    },
+    {
+      "habitatId": "L35_H_YELLOW_KEY",
+      "press": {
+        "x": 5.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "5209887a3b3ebb8135be694e64fa661cf71cece5e299bfebe021b8651027c440"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 5.5,
+        "y": 3.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 2.5
+        },
+        {
+          "x": 3.5,
+          "y": 2.5
+        },
+        {
+          "x": 2.5,
+          "y": 2.5
+        },
+        {
+          "x": 1.5,
+          "y": 2.5
+        },
+        {
+          "x": 1.5,
+          "y": 1.5
+        },
+        {
+          "x": 1.5,
+          "y": 2.5
+        },
+        {
+          "x": 1.5,
+          "y": 3.5
+        },
+        {
+          "x": 2.5,
+          "y": 3.5
+        },
+        {
+          "x": 3.5,
+          "y": 3.5
+        },
+        {
+          "x": 5.5,
+          "y": 3.5
+        },
+        {
+          "x": 5.5,
+          "y": 4.5
+        },
+        {
+          "x": 5.5,
+          "y": 5.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "e42be37e14914694b5dddbddad58869f219f52648e9a8a13754ba5b6afb0a248"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 5.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "d01a15400972b384b9fe4c1f93d40b22eac9d1bcf57f1f5378c70fa88501a4d0"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 6.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "e8ff0c4b5e970d4e8383dd966fae6221cb5da58c94ceb2c8316a27d827f331eb"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 5.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "eabbfab5d2391307364e7fb82b505ea0cdf7fc05d31df9b2586f79a58af5ca72"
+    },
+    {
+      "habitatId": "L35_H_GATE",
+      "press": {
+        "x": 6.5,
+        "y": 7.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 7.5
+        }
+      ],
+      "checkpoint": "95dfa0b26d35a9c30a92e2e5b2c0a56116a714bbe889f07581a29f44a7535cd7"
+    },
+    {
+      "habitatId": "L35_H_CYAN_RING",
+      "press": {
+        "x": 6.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "f48f6fbbc2ef8aeca56be635b8b02ecf7b50c9a5b4252dd8f02e9bb20aa71627"
+    },
+    {
+      "habitatId": "L35_H_YELLOW_KEY",
+      "press": {
+        "x": 6.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 7.5,
+          "y": 4.5
+        },
+        {
+          "x": 7.5,
+          "y": 5.5
+        },
+        {
+          "x": 7.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "00164c04d197c5102c2320622dced148c6fe22ac1a2aa58b9426d4de20fe94a3"
+    },
+    {
+      "habitatId": "L35_H_CYAN_RING",
+      "press": {
+        "x": 5.5,
+        "y": 6.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 7.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "94355a6f76da96e8011676273447f53f7b26a3ec636fc422dc4ae6ef093048a4"
+    },
+    {
+      "habitatId": "L35_H_GREEN_L",
+      "press": {
+        "x": 2.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 1.5,
+          "y": 5.5
+        },
+        {
+          "x": 1.5,
+          "y": 6.5
+        },
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "f51e424719c21c53de8ee2bc8fa84a58113cdcc3bbc94ff66034216abc93ec1d"
+    },
+    {
+      "habitatId": "L35_H_PURPLE_SQUARE",
+      "press": {
+        "x": 2.5,
+        "y": 0.5
+      },
+      "boardPath": [
+        {
+          "x": 3.5,
+          "y": 0.5
+        },
+        {
+          "x": 5.5,
+          "y": 0.5
+        },
+        {
+          "x": 5.5,
+          "y": 1.5
+        },
+        {
+          "x": 5.5,
+          "y": 2.5
+        },
+        {
+          "x": 5.5,
+          "y": 3.5
+        },
+        {
+          "x": 5.5,
+          "y": 4.5
+        },
+        {
+          "x": 5.5,
+          "y": 5.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 1.5,
+          "y": 6.5
+        },
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 5.5
+        },
+        {
+          "x": 3.5,
+          "y": 4.5
+        }
+      ],
+      "checkpoint": "2a0ea231172b2c1fe252c9fad8f03b032cbd4445da8a8c97ef7300f5aa5ad705"
+    },
+    {
+      "habitatId": "L35_H_CYAN_RING",
+      "press": {
+        "x": 7.5,
+        "y": 6.5
+      },
+      "boardPath": [
+        {
+          "x": 6.5,
+          "y": 6.5
+        },
+        {
+          "x": 5.5,
+          "y": 6.5
+        },
+        {
+          "x": 3.5,
+          "y": 6.5
+        },
+        {
+          "x": 2.5,
+          "y": 6.5
+        },
+        {
+          "x": 1.5,
+          "y": 6.5
+        },
+        {
+          "x": 0.5,
+          "y": 6.5
+        },
+        {
+          "x": 0.5,
+          "y": 5.5
+        }
+      ],
+      "checkpoint": "e9fd12a3a95d32ae1d988fe039d966958b6b4585f51bdbb32365d4d455746849"
+    },
+    {
+      "habitatId": "L35_H_CYAN_RING",
+      "press": {
+        "x": 0.5,
+        "y": 5.5
+      },
+      "boardPath": [
+        {
+          "x": 0.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "51cc3fdec5599f173cba982df367b4225907f8063dca57ae102f56e10b64d795"
+    },
+    {
+      "habitatId": "L35_H_PURPLE_SQUARE",
+      "press": {
+        "x": 3.5,
+        "y": 4.5
+      },
+      "boardPath": [
+        {
+          "x": 5.5,
+          "y": 4.5
+        },
+        {
+          "x": 6.5,
+          "y": 4.5
+        },
+        {
+          "x": 7.5,
+          "y": 4.5
+        },
+        {
+          "x": 8.5,
+          "y": 4.5
+        },
+        {
+          "x": 8.5,
+          "y": 5.5
+        },
+        {
+          "x": 8.5,
+          "y": 6.5
+        }
+      ],
+      "checkpoint": "32244139900573d2c02e2fe4b67336fe7cc8dff2575bd4663181416d6cdd31da"
+    }
+  ]
+}

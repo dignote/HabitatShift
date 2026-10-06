@@ -64,7 +64,7 @@ namespace HabitatShift.Runtime
                 if (reducedMotion)
                 {
                     if (e.kind == PresentationKind.Collection || e.kind == PresentationKind.ElevatorRelease ||
-                        e.kind == PresentationKind.HabitatComplete || e.kind == PresentationKind.AssistSuccess ||
+                        e.kind == PresentationKind.HabitatLayerBreak || e.kind == PresentationKind.HabitatComplete || e.kind == PresentationKind.AssistSuccess ||
                         e.kind == PresentationKind.Win)
                     {
                         var position = e.kind == PresentationKind.Win
@@ -87,6 +87,12 @@ namespace HabitatShift.Runtime
                     case PresentationKind.HabitatComplete:
                         Spawn("shine", e.targetPosition, color, .76f, .72f, 9);
                         Spawn("sparkle", e.targetPosition, color, .40f, .46f, 10);
+                        break;
+                    case PresentationKind.HabitatLayerBreak:
+                        Spawn("flash", e.targetPosition, color, .66f, .28f, 9);
+                        Spawn("sparkle", e.targetPosition, ColorFor(e.nextColor), .38f, .42f, 10);
+                        Spawn("dust", e.targetPosition + new Vector2(-.28f, .18f), color, .18f, .30f, 10);
+                        Spawn("dust", e.targetPosition + new Vector2(.28f, .18f), color, .18f, .30f, 10);
                         break;
                     case PresentationKind.AssistSuccess:
                         Spawn("star", e.position, color, .52f, .55f, 8);

@@ -1,0 +1,161 @@
+{
+    "version": 1,
+    "levelId": 33,
+    "catalogFingerprint": "1dea4feb222e8034560c2309f7ec8217ad06119727c87d7fd005f03df41d4208",
+    "gestures": [
+        {
+            "habitatId": "L33_H_OFFSET_PINK",
+            "press": {
+                "x": 0.5,
+                "y": 2.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 3.5
+                }
+            ],
+            "checkpoint": "eb0745faeb836689e3937719fac18f9d21919d6da5a39d79a0375f3cf987c56c"
+        },
+        {
+            "habitatId": "L33_H_STAIR_BLUE",
+            "press": {
+                "x": 4.5,
+                "y": 0.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 1.5
+                }
+            ],
+            "checkpoint": "015146b21d51daa8f7a2d3abf70b08645de598cb9cf42776b6aff3e7b7911359"
+        },
+        {
+            "habitatId": "L33_H_STAIR_YELLOW",
+            "press": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 1.5
+                }
+            ],
+            "checkpoint": "881b3a5e7f26f24a47dc135b56a2df6e4425c20feb3ed7c2e5725d5e3bf3730e"
+        },
+        {
+            "habitatId": "L33_H_OFFSET_WHITE",
+            "press": {
+                "x": 4.5,
+                "y": 2.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 3.5
+                }
+            ],
+            "checkpoint": "770699183613f51e71e938eb8638d5170bf7f544a7b7ade3daa52832d0ef4a63"
+        },
+        {
+            "habitatId": "L33_H_LOWER_BROWN",
+            "press": {
+                "x": 0.5,
+                "y": 4.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 5.5
+                }
+            ],
+            "checkpoint": "42cc8275ca6718f9e9e8079be3e43f51f918a012f4eaa6d28af0be93b2f4ffe7"
+        },
+        {
+            "habitatId": "L33_H_PURPLE_RELAY",
+            "press": {
+                "x": 4.5,
+                "y": 4.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 5.5
+                }
+            ],
+            "checkpoint": "d41c1818338f1f361e2269a932b86ea6b18d871d5fe02481276367c38a353bb0"
+        },
+        {
+            "habitatId": "L33_H_PURPLE_RELAY",
+            "press": {
+                "x": 4.5,
+                "y": 5.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 4.5
+                }
+            ],
+            "checkpoint": "6e7d76d72d904d063720321e933b76c7f947883b699b18ca4f1243941fc596fe"
+        },
+        {
+            "habitatId": "L33_H_GREEN_RELAY",
+            "press": {
+                "x": 4.5,
+                "y": 6.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "2024927dfdc783079a98f7c7fb9542b8e0b17642e35ab6b1c672a206674d7745"
+        },
+        {
+            "habitatId": "L33_H_GREEN_RELAY",
+            "press": {
+                "x": 4.5,
+                "y": 7.5
+            },
+            "boardPath": [
+                {
+                    "x": 4.5,
+                    "y": 6.5
+                }
+            ],
+            "checkpoint": "5bbce83a32d63c22b7588aab1ec1f39ad1f6db9886f70e80f64dc8e2162c2989"
+        },
+        {
+            "habitatId": "L33_H_ORANGE_RELAY",
+            "press": {
+                "x": 0.5,
+                "y": 6.5
+            },
+            "boardPath": [
+                {
+                    "x": 0.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "42b1a1112afcb3db07d078609fb2217fed542142b10b4ec168481515a868cd24"
+        },
+        {
+            "habitatId": "L33_H_ORANGE_RELAY",
+            "press": {
+                "x": 0.5,
+                "y": 7.5
+            },
+            "boardPath": [
+                {
+                    "x": 1.5,
+                    "y": 7.5
+                }
+            ],
+            "checkpoint": "20fda7c657e759e9fe429d00fdfc45392b96edc252aa1a43c042d66c21be1bd2"
+        }
+    ]
+}
