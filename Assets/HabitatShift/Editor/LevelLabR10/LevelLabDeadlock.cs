@@ -1,0 +1,3 @@
+#if UNITY_EDITOR
+using System.Linq;using HabitatShift.Core;namespace HabitatShift.LevelLabR10 { public static class R10Deadlock { public static R10Risk Analyze(R10Project p,RulesetDto rules){return R10Solver.Risk(p,rules);} public static R10Risk AnalyzeState(LevelDto level,RulesetDto rules,RuntimeState state){if(state.won)return R10Risk.SAFE_BY_TRACE;var actions=R10MacroMoves.Enumerate(level,rules,state).Take(1).ToArray();if(actions.Length==0)return R10Risk.HIGH_RISK;return R10Risk.UNKNOWN;} } }
+#endif

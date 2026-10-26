@@ -1,0 +1,4 @@
+#if UNITY_EDITOR
+using System.Collections.Generic;using HabitatShift.Core;
+namespace HabitatShift.LevelLabR10 { public static class R10Archetypes { public static IntPair[] Mask(R10GeneratorProfile p){var a=new List<IntPair>();for(var x=0;x<p.cols;x++)for(var y=0;y<p.rows;y++)if(Keep(p.archetype,x,y,p.cols,p.rows))a.Add(new IntPair{x=x,y=y});return a.ToArray();} static bool Keep(R10Archetype k,int x,int y,int w,int h){int mx=w/2, my=h/2;switch(k){case R10Archetype.POCKET_EXCHANGE:return x<2||x>w-3||y==my||x==mx;case R10Archetype.FORK:return y<2||x==mx||y==h-2;case R10Archetype.HUB_LOOP:return x==1||x==w-2||y==1||y==h-2||x==mx||y==my;case R10Archetype.OFFSET_RELAY:return x==0||x==w-1||y==my||((x+y)%3!=0&&x>1&&x<w-2);case R10Archetype.CROSS:return x==mx||y==my||x==1||y==1;case R10Archetype.CHAMBERS:return (x< w/2-1)||(x>w/2)||(y==my);default:return true;}} public static string Description(R10Archetype a){return a.ToString().Replace('_',' ');} } }
+#endif

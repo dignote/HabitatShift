@@ -1,0 +1,4 @@
+#if UNITY_EDITOR
+using System;using System.IO;using HabitatShift.Core;using UnityEngine;
+namespace HabitatShift.LevelLabR10 { public static class R10Trace { public static string SaveAndReplay(R10Project p,SolutionTraceV1 trace,RulesetDto rules,out string error){var root=Path.Combine(R10Storage.DefaultRoot,p.id,"traces");Directory.CreateDirectory(root);var file=Path.Combine(root,"manual_trace_"+DateTime.UtcNow.ToString("yyyyMMddHHmmss")+".json");File.WriteAllText(file,JsonUtility.ToJson(trace,true));if(!R10Solver.Replay(trace,p.level,rules,p.sourceCatalogFingerprint,out error))return null;p.certification.trace=trace;p.certification.traceStale=false;p.certification.status="SOLVED";p.certification.manualTest="PASSED";return file;} } }
+#endif

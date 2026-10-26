@@ -1,0 +1,3 @@
+#if UNITY_EDITOR
+using System.Linq;using HabitatShift.Core;namespace HabitatShift.LevelLabR10 { public static class R10Diversity { public static string Signature(LevelDto l){return l.cols+"x"+l.rows+"|"+string.Join(";",l.habitats.OrderBy(h=>h.id).Select(h=>h.id+":"+h.anchor.x+","+h.anchor.y+":"+string.Join(",",h.shape.Select(q=>q.x+":"+q.y))));} public static float Similarity(LevelDto a,LevelDto b){return Signature(a)==Signature(b)?1f:0f;} } }
+#endif

@@ -1,0 +1,3 @@
+#if UNITY_EDITOR
+using System;using HabitatShift.Core;namespace HabitatShift.LevelLabR10 { [Serializable] public class R10Candidate { public string id;public int seed;public R10Archetype archetype;public R10Project project;public string status="DRAFT",solverStatus="UNSOLVED";public int score,solutionLength,uniqueFirstMoves;public float density,similarity;public R10Risk risk;public SolutionTraceV1 trace; } }
+#endif

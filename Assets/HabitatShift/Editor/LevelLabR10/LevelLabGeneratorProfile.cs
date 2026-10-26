@@ -1,0 +1,3 @@
+#if UNITY_EDITOR
+using System;namespace HabitatShift.LevelLabR10 { public enum R10Archetype { POCKET_EXCHANGE,FORK,HUB_LOOP,OFFSET_RELAY,CROSS,CHAMBERS } [Serializable] public class R10GeneratorProfile { public int levelId=100,cols=7,rows=7,habitatCount=3,dualRingCount=0,elevatorCount=0,obstacleCount=0,dependencyDepth=2,difficulty=1,seed=1,candidateCount=12,beamWidth=64,nodeLimit=100000,scrambleDepth=2; public float densityMin=.35f,densityMax=.75f,diversityThreshold=.7f;public R10Archetype archetype=R10Archetype.POCKET_EXCHANGE;} }
+#endif

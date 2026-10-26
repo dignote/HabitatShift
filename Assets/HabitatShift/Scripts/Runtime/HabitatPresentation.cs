@@ -12,6 +12,8 @@ namespace HabitatShift.Runtime
         readonly Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
         readonly Dictionary<string, Sprite> dualRingSprites = new Dictionary<string, Sprite>();
         readonly Dictionary<string, Sprite> generatedTraySprites = new Dictionary<string, Sprite>();
+        // Transient presentation fallback for authored/generated irregular levels without baked mask/frame resources.
+        readonly Dictionary<string, Sprite> generatedBoardSprites = new Dictionary<string, Sprite>();
         readonly Dictionary<string, SpriteRenderer> boardParts = new Dictionary<string, SpriteRenderer>();
         readonly Dictionary<string, SpriteRenderer> movingParts = new Dictionary<string, SpriteRenderer>();
         readonly Dictionary<string, TextMesh> queueCounts = new Dictionary<string, TextMesh>();
@@ -25,7 +27,9 @@ namespace HabitatShift.Runtime
         string previewHabitat; Vector2 previewAnchor; bool previewValid;
         Sprite background;
         SpriteRenderer backdrop;
-        int boardLevel = -1;
+        string boardSignature;
+        // Strict by default for production. Editor preview explicitly opts in for generated candidates.
+        public bool AllowTransientBoardSkin { get; set; }
         string draggingHabitat;
         Vector2 dragDirection;
         bool motionEnabled = true;
@@ -51,7 +55,7 @@ namespace HabitatShift.Runtime
         {
             if (backdrop == null) return;
             var height = camera.orthographicSize * 2f;
-            var width = height * Mathf.Max(1, Screen.width) / Mathf.Max(1, Screen.height);
+            var width = height * Mathf.Max(1f, camera.aspect);
             var native = backdrop.sprite.bounds.size;
             var cover = Mathf.Max(width / native.x, height / native.y);
             backdrop.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, 5f);
@@ -66,13 +70,14 @@ namespace HabitatShift.Runtime
             habitatViews.Clear();
             assistCandidates.Clear();
             assistSproutCandidates.Clear(); previewHabitat = null;
-            boardLevel = -1;
+            boardSignature = null;
         }
 
         void OnDestroy()
         {
             DestroyGeneratedSprites(dualRingSprites);
             DestroyGeneratedSprites(generatedTraySprites);
+            DestroyGeneratedSprites(generatedBoardSprites);
         }
 
         public void SetPresentationMotion(bool enabled, string dragId, Vector2 direction)
@@ -96,7 +101,7 @@ namespace HabitatShift.Runtime
         public void Render(RuntimeState state, LevelDto level)
         {
             if (state == null) return;
-            if (boardLevel != level.id) BuildBoard(level);
+            if (boardSignature != BoardPresentationSignature(level)) BuildBoard(level);
             usedMovingParts.Clear();
             usedQueueCounts.Clear();
 
@@ -155,7 +160,7 @@ namespace HabitatShift.Runtime
         {
             foreach (var part in boardParts.Values) part.gameObject.SetActive(false);
             habitatViews.Clear();
-            boardLevel = level.id;
+            boardSignature = BoardPresentationSignature(level);
             var center = new Vector2(level.cols * .5f, level.rows * .5f);
             if (IsFullRect(level)) PlaceSliced(boardParts, "card", LoadBoard("board_card"), center,
                 new Vector2(level.cols + .34f, level.rows + .34f), -10);
@@ -164,8 +169,8 @@ namespace HabitatShift.Runtime
                 // mask -10 (base) -> tile -1 -> frame 0 (vien ceramic lien tuc, nam TREN tile
                 // nhung duoi obstacle 1 / habitat 3 / elevator 4 / sproutling 6).
                 var size = new Vector2(level.cols + 56f / 192f, level.rows + 56f / 192f);
-                Place(boardParts, "mask", LoadBoard(BoardMaskName(level)), center, size, Color.white, -10);
-                Place(boardParts, "frame", LoadBoard(BoardFrameName(level)), center, size, Color.white, 0);
+                Place(boardParts, "mask", LoadBoardOrGenerated(level, false), center, size, Color.white, -10);
+                Place(boardParts, "frame", LoadBoardOrGenerated(level, true), center, size, Color.white, 0);
             }
 
             for (var y = 0; y < level.rows; y++)
@@ -515,6 +520,15 @@ namespace HabitatShift.Runtime
 
         static string BoardMaskName(LevelDto level) { return "board_mask_L" + level.id; }
 
+        static string BoardPresentationSignature(LevelDto level)
+        {
+            var mask = level.playableMask == null || level.playableMask.Length == 0 ? "full" :
+                string.Join(";", level.playableMask.OrderBy(c => c.x).ThenBy(c => c.y).Select(c => c.x + "," + c.y));
+            var obstacles = level.obstacles == null || level.obstacles.Length == 0 ? "none" :
+                string.Join(";", level.obstacles.OrderBy(c => c.x).ThenBy(c => c.y).Select(c => c.x + "," + c.y));
+            return level.id + "|" + level.cols + "x" + level.rows + "|" + mask + "|" + obstacles;
+        }
+
         // Vien sinh tu cung playableMask; thieu asset thi LoadBoard nem loi ro rang, khong fallback hinh chu nhat.
         static string BoardFrameName(LevelDto level) { return "board_frame_L" + level.id; }
 
@@ -563,6 +577,16 @@ namespace HabitatShift.Runtime
             return sprite;
         }
 
+        public static bool IsSupportedColor(string color)
+        {
+            switch (color)
+            {
+                case "orange": case "blue": case "green": case "yellow": case "purple":
+                case "cyan": case "pink": case "red": case "white": case "brown": return true;
+                default: return false;
+            }
+        }
+
         static string Family(string color)
         {
             switch (color)
@@ -584,6 +608,70 @@ namespace HabitatShift.Runtime
         {
             return string.Join("-", shape.OrderBy(c => c.x).ThenBy(c => c.y)
                 .Select(c => (c.x - x0) + "_" + (c.y - y0)));
+        }
+
+        Sprite LoadBoardOrGenerated(LevelDto level, bool frame)
+        {
+            var name = frame ? BoardFrameName(level) : BoardMaskName(level);
+            var path = "HabitatShift/Board/" + name;
+            var baked = Resources.Load<Sprite>(path);
+            if (baked != null) return baked;
+            if (!AllowTransientBoardSkin) return LoadBoard(name);
+
+            // Generated candidates are never admitted to Resources. Build a transient board skin from
+            // the same playable mask only after the Editor preview explicitly opts in.
+            var key = name + "/" + level.cols + "x" + level.rows + "/" + MaskKey(level);
+            if (generatedBoardSprites.TryGetValue(key, out var cached)) return cached;
+            var texture = BuildGeneratedBoardTexture(level, frame);
+            cached = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                new Vector2(.5f, .5f), 32f);
+            cached.name = "Transient " + name;
+            generatedBoardSprites.Add(key, cached);
+            return cached;
+        }
+
+        static string MaskKey(LevelDto level)
+        {
+            if (level.playableMask == null || level.playableMask.Length == 0) return "full";
+            return string.Join(";", level.playableMask.OrderBy(c => c.x).ThenBy(c => c.y)
+                .Select(c => c.x + "," + c.y));
+        }
+
+        static Texture2D BuildGeneratedBoardTexture(LevelDto level, bool frame)
+        {
+            const int pixelsPerCell = 32;
+            var width = Mathf.Max(1, level.cols * pixelsPerCell);
+            var height = Mathf.Max(1, level.rows * pixelsPerCell);
+            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false)
+            {
+                name = frame ? "Generated Board Frame" : "Generated Board Mask",
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp,
+                hideFlags = HideFlags.DontSave
+            };
+            var transparent = new Color(0f, 0f, 0f, 0f);
+            var ceramic = new Color(.35f, .23f, .13f, .92f);
+            var shade = new Color(.16f, .11f, .07f, .20f);
+            var pixels = Enumerable.Repeat(transparent, width * height).ToArray();
+            for (var boardY = 0; boardY < level.rows; boardY++)
+            for (var x = 0; x < level.cols; x++)
+            {
+                if (!Playable(level, x, boardY)) continue;
+                var outline = !Playable(level, x - 1, boardY) || !Playable(level, x + 1, boardY) ||
+                    !Playable(level, x, boardY - 1) || !Playable(level, x, boardY + 1);
+                for (var py = 0; py < pixelsPerCell; py++)
+                for (var px = 0; px < pixelsPerCell; px++)
+                {
+                    var edge = px < 3 || px >= pixelsPerCell - 3 || py < 3 || py >= pixelsPerCell - 3;
+                    var y = (level.rows - boardY - 1) * pixelsPerCell + py;
+                    var index = y * width + x * pixelsPerCell + px;
+                    if (frame) pixels[index] = outline && edge ? ceramic : transparent;
+                    else pixels[index] = shade;
+                }
+            }
+            texture.SetPixels(pixels);
+            texture.Apply(false, true);
+            return texture;
         }
 
         Sprite LoadBoard(string name)

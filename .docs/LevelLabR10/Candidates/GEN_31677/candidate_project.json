@@ -1,0 +1,319 @@
+{
+    "schema": "r10.0-editor-1.0",
+    "id": "GEN_31677",
+    "archetype": "POCKET_EXCHANGE",
+    "authoringNotes": "",
+    "sourceCatalogFingerprint": "",
+    "level": {
+        "id": 100,
+        "cols": 7,
+        "rows": 7,
+        "title": "",
+        "profile": "",
+        "challenge": "",
+        "difficulty": "",
+        "habitats": [
+            {
+                "id": "H1",
+                "color": "blue",
+                "movementConstraint": "HORIZONTAL_ONLY",
+                "anchor": {
+                    "x": 5,
+                    "y": 4
+                },
+                "shape": [
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 0,
+                        "y": 1
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "need": 1,
+                "stages": []
+            },
+            {
+                "id": "H2",
+                "color": "yellow",
+                "movementConstraint": "FREE",
+                "anchor": {
+                    "x": 0,
+                    "y": 3
+                },
+                "shape": [
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 0,
+                        "y": 1
+                    }
+                ],
+                "need": 1,
+                "stages": []
+            },
+            {
+                "id": "H3",
+                "color": "purple",
+                "movementConstraint": "FREE",
+                "anchor": {
+                    "x": 0,
+                    "y": 1
+                },
+                "shape": [
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "need": 1,
+                "stages": []
+            }
+        ],
+        "targets": [
+            {
+                "id": "S1",
+                "color": "blue",
+                "position": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            {
+                "id": "S2",
+                "color": "yellow",
+                "position": {
+                    "x": 6.5,
+                    "y": 0.5
+                }
+            },
+            {
+                "id": "S3",
+                "color": "purple",
+                "position": {
+                    "x": 6.5,
+                    "y": 6.5
+                }
+            }
+        ],
+        "elevators": [],
+        "obstacles": [
+            {
+                "x": 6,
+                "y": 6
+            },
+            {
+                "x": 5,
+                "y": 3
+            },
+            {
+                "x": 4,
+                "y": 3
+            },
+            {
+                "x": 6,
+                "y": 4
+            },
+            {
+                "x": 3,
+                "y": 2
+            },
+            {
+                "x": 3,
+                "y": 1
+            }
+        ],
+        "playableMask": [
+            {
+                "x": 0,
+                "y": 0
+            },
+            {
+                "x": 0,
+                "y": 1
+            },
+            {
+                "x": 0,
+                "y": 2
+            },
+            {
+                "x": 0,
+                "y": 3
+            },
+            {
+                "x": 0,
+                "y": 4
+            },
+            {
+                "x": 0,
+                "y": 5
+            },
+            {
+                "x": 0,
+                "y": 6
+            },
+            {
+                "x": 1,
+                "y": 0
+            },
+            {
+                "x": 1,
+                "y": 1
+            },
+            {
+                "x": 1,
+                "y": 2
+            },
+            {
+                "x": 1,
+                "y": 3
+            },
+            {
+                "x": 1,
+                "y": 4
+            },
+            {
+                "x": 1,
+                "y": 5
+            },
+            {
+                "x": 1,
+                "y": 6
+            },
+            {
+                "x": 2,
+                "y": 3
+            },
+            {
+                "x": 3,
+                "y": 0
+            },
+            {
+                "x": 3,
+                "y": 1
+            },
+            {
+                "x": 3,
+                "y": 2
+            },
+            {
+                "x": 3,
+                "y": 3
+            },
+            {
+                "x": 3,
+                "y": 4
+            },
+            {
+                "x": 3,
+                "y": 5
+            },
+            {
+                "x": 3,
+                "y": 6
+            },
+            {
+                "x": 4,
+                "y": 3
+            },
+            {
+                "x": 5,
+                "y": 0
+            },
+            {
+                "x": 5,
+                "y": 1
+            },
+            {
+                "x": 5,
+                "y": 2
+            },
+            {
+                "x": 5,
+                "y": 3
+            },
+            {
+                "x": 5,
+                "y": 4
+            },
+            {
+                "x": 5,
+                "y": 5
+            },
+            {
+                "x": 5,
+                "y": 6
+            },
+            {
+                "x": 6,
+                "y": 0
+            },
+            {
+                "x": 6,
+                "y": 1
+            },
+            {
+                "x": 6,
+                "y": 2
+            },
+            {
+                "x": 6,
+                "y": 3
+            },
+            {
+                "x": 6,
+                "y": 4
+            },
+            {
+                "x": 6,
+                "y": 5
+            },
+            {
+                "x": 6,
+                "y": 6
+            }
+        ]
+    },
+    "dependencyGraph": [
+        {
+            "from": "H1",
+            "to": "H2",
+            "kind": "MOVE_OPENS"
+        },
+        {
+            "from": "H2",
+            "to": "H3",
+            "kind": "POCKET_OPENS"
+        }
+    ],
+    "certification": {
+        "status": "DRAFT",
+        "manualTest": "NOT_TESTED",
+        "trace": {
+            "version": 1,
+            "levelId": 0,
+            "catalogFingerprint": "",
+            "gestures": []
+        },
+        "traceStale": false
+    }
+}
